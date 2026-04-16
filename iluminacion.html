@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iluminación | Grupo B's</title>
+
+    <!--
+        Script inline — corre ANTES de que el browser procese el hash de la URL.
+        Captura el destino y lo elimina de la URL para que el browser NO haga su
+        propio scroll automático. El JS del DOMContentLoaded lo recupera y hace
+        el deslizamiento suave.
+        ⚠️ No mover de aquí.
+    -->
+    <script>
+        window.__hashDestino = window.location.hash.replace('#', '');
+        if (window.__hashDestino) {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+    </script>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome (íconos franja, footer, whatsapp, FAQ) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+           VARIABLES Y RESET — Idénticas a index.html / diseno-y-proyecto.html
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --secondary: #2C5F8A;
+            --accent: #C9A96E;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --bg-dark: #111111;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+
+        /* ================================================================
+           BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO  (de index.html)
+        ================================================================ */
+
+
+        /* ================================================================
+           BLOQUE 2 — NAVBAR  (de index.html)
+        ================================================================ */
+
+
+        /* ================================================================
+           BLOQUE 3 — HERO SECTION  (Versión Stitch, anchos corregidos)
+        ================================================================ */
+        #hero-iluminacion {
+            padding: 32px 32px;
+            background: var(--bg-warm);
+        }
+
+        .hero-iluminacion-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .hero-iluminacion-card {
+            background-image:
+                linear-gradient(0deg, rgba(27, 42, 74, .78) 0%, rgba(27, 42, 74, .4) 50%, transparent 100%),
+                url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6OW-y26nqAjAJdkC6sg1cosBRlDdNpuxHOSzRvlKjfvXhRAasZzT7GeRssuXWFHTxPxtQfrne1sEzsLRPsTRImH3MFZtjHwnwRiNO39u99r4d5tS9d-Rt95PGh2vThoLF-sf5XgyiCShz2IkvfXrHMvGmuil3rAPw6ITMnYgJmTRq7a5nG16MvoQOThYteATqO8-yiRm9yigSKbOeFJRXOdWtHM5wH5g95PYd5R-MDHfTr-QFliKFZKMldWB38yDvRHMvAokvCwI");
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+        }
+
+        .hero-iluminacion-content {
+            padding: 56px 64px;
+        }
+
+        .hero-badge-pill {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: .65rem;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            background: rgba(201, 169, 110, .07);
+        }
+
+        .hero-iluminacion-title {
+            color: var(--white);
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            max-width: 700px;
+            margin-bottom: 20px;
+            letter-spacing: -.01em;
+        }
+
+        .hero-iluminacion-subtitle {
+            color: rgba(237, 234, 228, .85);
+            font-size: clamp(.95rem, 1.5vw, 1.2rem);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 580px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+
+        /* ================================================================
+           BLOQUE 4 — EXPERTOS EN ILUMINACIÓN  (Versión Stitch)
+        ================================================================ */
+        #expertos {
+            padding: 100px 32px;
+            background: var(--white);
+        }
+
+        .expertos-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .expertos-texto {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .expertos-label {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .expertos-titulo {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.15;
+            letter-spacing: -.01em;
+        }
+
+        .expertos-divisor {
+            width: 64px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .expertos-cuerpo {
+            font-size: 1.05rem;
+            color: rgba(45, 45, 45, .8);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .expertos-sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 8px;
+        }
+
+        .expertos-sub-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .expertos-sub-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .expertos-sub-item p {
+            font-size: .85rem;
+            color: rgba(45, 45, 45, .65);
+            line-height: 1.65;
+        }
+
+        .expertos-imagen-wrap {
+            position: relative;
+        }
+
+        .expertos-imagen-box {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
+            border: 1px solid var(--pearl);
+        }
+
+        .expertos-imagen-box img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .expertos-anos-badge {
+            position: absolute;
+            bottom: -24px;
+            right: -24px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 28px 32px;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .2);
+            text-align: center;
+        }
+
+        .expertos-anos-badge .num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+        }
+
+        .expertos-anos-badge .lbl {
+            font-size: .6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            line-height: 1.4;
+            margin-top: 4px;
+            display: block;
+        }
+
+
+        /* ================================================================
+           BLOQUE 5 — ILUMINACIÓN ARTIFICIAL DE VANGUARDIA  (Versión Stitch)
+        ================================================================ */
+        #artificial {
+            padding: 100px 32px;
+            background: var(--primary);
+        }
+
+        .artificial-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .section-label--light {
+            color: var(--accent);
+        }
+
+        .section-titulo-white {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.15;
+        }
+
+        .section-divisor-gold {
+            width: 80px;
+            height: 2px;
+            background: rgba(201, 169, 110, .5);
+            border-radius: 2px;
+        }
+
+        .artificial-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .artificial-card {
+            background: rgba(255, 255, 255, .05);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: background .3s;
+        }
+
+        .artificial-card:hover {
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .artificial-card .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 2.5rem;
+        }
+
+        .artificial-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .artificial-card p {
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+
+
+        /* ================================================================
+           BLOQUE 6 — GALERÍA DE PROYECTOS  (Versión Stitch)
+        ================================================================ */
+        #galeria {
+            padding: 100px 32px;
+            background: var(--bg-warm);
+        }
+
+        .galeria-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .galeria-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .galeria-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .galeria-header-left .section-label {
+            color: var(--secondary);
+        }
+
+        .galeria-header-left h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .galeria-ver-todos {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: .85rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 4px;
+            transition: color .2s, border-color .2s;
+            white-space: nowrap;
+        }
+
+        .galeria-ver-todos:hover {
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .galeria-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(27, 42, 74, .9) 0%, rgba(27, 42, 74, .2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            opacity: 1;
+        }
+
+        .galeria-overlay h5 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .galeria-overlay span {
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+        }
+
+
+        /* ================================================================
+           BLOQUE 7 — CALL TO ACTION  (Versión Stitch)
+        ================================================================ */
+        #cta-iluminacion {
+            padding: 80px 32px;
+            background: var(--bg-warm);
+        }
+
+        .cta-iluminacion-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            background: var(--primary);
+            border-radius: 24px;
+            padding: 80px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cta-deco-tr {
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 260px;
+            height: 260px;
+            background: rgba(201, 169, 110, .1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-deco-bl {
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 260px;
+            height: 260px;
+            background: rgba(44, 95, 138, .1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-card h2 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--white);
+            max-width: 860px;
+            line-height: 1.15;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card p {
+            color: rgba(255, 255, 255, .8);
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 560px;
+            line-height: 1.7;
+            font-family: 'Cormorant Garamond', serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-cta-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 16px 44px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: filter .2s, transform .15s;
+            box-shadow: 0 8px 24px rgba(201, 169, 110, .25);
+        }
+
+        .btn-cta-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-secondary {
+            border: 2px solid rgba(255, 255, 255, .2);
+            color: var(--white);
+            padding: 16px 44px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: background .2s;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255, 255, 255, .08);
+        }
+
+
+        /* ================================================================
+           BLOQUE 8 — FAQ  (contenido de iluminacion.html, estilo definitivo)
+        ================================================================ */
+        #faq {
+            padding: 100px 32px;
+            background: var(--bg-warm);
+        }
+
+        .faq-section-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            margin-bottom: 56px;
+        }
+
+        .faq-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -.01em;
+        }
+
+        .faq-header p {
+            color: rgba(44, 95, 138, .8);
+            max-width: 580px;
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.75;
+        }
+
+        .faq-divisor {
+            width: 96px;
+            height: 2px;
+            background: rgba(201, 169, 110, .4);
+            border-radius: 2px;
+        }
+
+        .faq-lista-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .faq-lista {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--pearl);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 4px 32px rgba(27, 42, 74, .06);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--pearl);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-pregunta {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: color .2s;
+            line-height: 1.35;
+        }
+
+        .faq-pregunta:hover {
+            color: var(--accent);
+        }
+
+        .faq-item.abierto .faq-pregunta {
+            color: var(--accent);
+        }
+
+        .faq-icono {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: .85rem;
+            transition: transform .3s, background .2s, color .2s;
+        }
+
+        .faq-item.abierto .faq-icono {
+            transform: rotate(45deg);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .faq-item.abierto .faq-respuesta {
+            max-height: 700px;
+        }
+
+        .faq-respuesta-inner {
+            padding: 20px 28px 28px;
+            border-top: 1px solid var(--pearl);
+        }
+
+        .faq-respuesta-inner p {
+            font-size: .96rem;
+            line-height: 1.85;
+            color: rgba(45, 45, 45, .75);
+            font-weight: 300;
+        }
+
+        .faq-respuesta-inner em {
+            font-style: italic;
+        }
+
+
+        /* ================================================================
+           BLOQUE 9 — FOOTER  (de index.html)
+        ================================================================ */
+
+
+
+        /* ================================================================
+           BLOQUE 10 — BOTÓN WHATSAPP FLOTANTE  (de index.html)
+        ================================================================ */
+
+
+        /* ================================================================
+           RESPONSIVE
+        ================================================================ */
+        @media (max-width: 1024px) {
+            .artificial-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .expertos-inner {
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .expertos-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .expertos-imagen-wrap {
+                max-width: 480px;
+                margin: 0 auto;
+                padding-bottom: 40px;
+            }
+
+            .expertos-anos-badge {
+                bottom: -8px;
+                right: 0;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            /* Franja */
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            /* Hero */
+            #hero-iluminacion {
+                padding: 20px 20px;
+            }
+
+            .hero-iluminacion-content {
+                padding: 32px 24px;
+            }
+
+            .hero-iluminacion-card {
+                min-height: 420px;
+            }
+
+            /* Secciones */
+            #expertos {
+                padding: 64px 20px;
+            }
+
+            #artificial {
+                padding: 64px 20px;
+            }
+
+            #galeria {
+                padding: 64px 20px;
+            }
+
+            #cta-iluminacion {
+                padding: 48px 20px;
+            }
+
+            #faq {
+                padding: 64px 20px;
+            }
+
+            .artificial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .expertos-sub-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-card {
+                padding: 48px 28px;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 28px;
+            }
+
+            /* Footer */
+            #footer {
+                padding: 52px 20px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-iluminacion-title {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ================================================================
+         BLOQUE 3 | HERO SECTION  (Versión Stitch — anchos unificados)
+    ================================================================ -->
+        <section id="hero-iluminacion">
+            <div class="hero-iluminacion-inner">
+                <div class="hero-iluminacion-card">
+                    <div class="hero-iluminacion-content">
+                        <span class="hero-badge-pill"> Iluminación</span>
+                        <h1 class="hero-iluminacion-title">Especialistas en Iluminación</h1>
+                        <p class="hero-iluminacion-subtitle">Transformamos espacios a través de la luz, fusionando
+                            tecnología de vanguardia con diseño arquitectónico sostenible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ================================================================
+         BLOQUE 4 | EXPERTOS EN ILUMINACIÓN  (Versión Stitch)
+    ================================================================ -->
+        <section id="expertos">
+            <div class="expertos-inner">
+
+                <!-- Texto -->
+                <div class="expertos-texto">
+                    <span class="expertos-label">Experiencia en Diseño</span>
+                    <h2 class="expertos-titulo">Iluminación de Interiores y Exteriores</h2>
+                    <div class="expertos-divisor"></div>
+                    <p class="expertos-cuerpo">Nuestro enfoque integra la arquitectura con el entorno para capturar cada
+                        rayo de sol de manera inteligente y complementar la noche con sistemas artificiales de alta
+                        gama.</p>
+                    <div class="expertos-sub-grid">
+                        <div class="expertos-sub-item">
+                            <h4>Experiencia Interior</h4>
+                            <p>Creamos atmósferas que promueven el bienestar y la productividad mediante el equilibrio
+                                lumínico.</p>
+                        </div>
+                        <div class="expertos-sub-item">
+                            <h4>Dominio Exterior</h4>
+                            <p>Realzamos fachadas y jardines con técnicas de iluminación que garantizan seguridad y
+                                distinción.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagen -->
+                <div class="expertos-imagen-wrap">
+                    <div class="expertos-imagen-box">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW_0mN9yYZTjykEJ_q_xFw8JFER5jwdxYGOVvjqQ99LMI4NVhZiUZWZ-Q7DS6XcdKEGZGKd67M2lpVK6Y6gH4RhDU4-J8zgKrLy94UIzjIrSe2nYyZPBH7W7N1dkR318yudQKHfDhUAV64EMHWqCj5dH-qnyMYcugRO4IGg5qBXYHPuJjKInN64sMIzZaIZyA-h2D44opaz5irSwgLTY9UBr1qhpX_er3V61eWHEnZ7AvCA9ov_Yaaqd-uKFQsrZ7lWOm7mjTdMyg"
+                            alt="Luz natural en arquitectura">
+                    </div>
+                    <div class="expertos-anos-badge">
+                        <span class="num">25+</span>
+                        <span class="lbl">Años de<br>Obra Real</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ================================================================
+         BLOQUE 5 | ILUMINACIÓN ARTIFICIAL DE VANGUARDIA  (Versión Stitch)
+    ================================================================ -->
+        <section id="artificial">
+            <div class="artificial-inner">
+                <div class="section-header-centered">
+                    <span class="section-label section-label--light">Tecnología de Punta</span>
+                    <h2 class="section-titulo-white">Iluminación Artificial de Vanguardia</h2>
+                    <div class="section-divisor-gold"></div>
+                </div>
+
+                <div class="artificial-grid">
+                    <!-- Card 1 -->
+                    <div class="artificial-card">
+                        <span class="material-symbols-outlined">home</span>
+                        <div>
+                            <h4>Residencial</h4>
+                            <p>Ambientes cálidos y funcionales que definen el concepto de hogar definitivo.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="artificial-card">
+                        <span class="material-symbols-outlined">deck</span>
+                        <div>
+                            <h4>Exteriores</h4>
+                            <p>Seguridad y estética para zonas de paso, accesos y áreas recreativas.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="artificial-card">
+                        <span class="material-symbols-outlined">apartment</span>
+                        <div>
+                            <h4>Fachadas</h4>
+                            <p>Resaltamos el valor arquitectónico y la jerarquía de cada edificación.</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="artificial-card">
+                        <span class="material-symbols-outlined">park</span>
+                        <div>
+                            <h4>Jardines</h4>
+                            <p>Escenarios nocturnos mágicos que integran la naturaleza con la arquitectura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+        <!-- ================================================================
+         BLOQUE 6 | GALERÍA DE PROYECTOS  (Versión Stitch)
+    ================================================================ -->
+        <section id="galeria">
+            <div class="galeria-inner">
+                <div class="galeria-header">
+                    <div class="galeria-header-left">
+                        <span class="section-label" style="color:var(--secondary);">Portafolio Premium</span>
+                        <h2>Efectos Lumínicos en Proyectos</h2>
+                    </div>
+                    <a class="galeria-ver-todos" href="obras.html">Ver Portafolio Completo</a>
+                </div>
+
+                <div class="galeria-grid">
+                    <div class="galeria-item">
+                        <img src="Obras\todas-las-obras\Imagenes\Iluminacion-la-florida/Iluminacion-la-florida-v3.jpg"
+                            alt="Luz de acento">
+                        <div class="galeria-overlay">
+                            <h5>Luz de Acento</h5>
+                            <span>Texturas y materiales</span>
+                        </div>
+                    </div>
+                    <div class="galeria-item">
+                        <img src="Obras\todas-las-obras\Imagenes\iluminacion-comlpejo-familiar-tres-residencias/iluminacion-comlpejo-familiar-tres-residencias-v8.jpg"
+                            alt="Iluminación indirecta">
+                        <div class="galeria-overlay">
+                            <h5>Iluminación Indirecta</h5>
+                            <span>Atmósfera y profundidad</span>
+                        </div>
+                    </div>
+                    <div class="galeria-item">
+                        <img src="Obras\todas-las-obras\Imagenes\iluminacion-casona-country-golf/iluminacion-casona-country-golf-h4.jpg"
+                            alt="Iluminación de escaleras">
+                        <div class="galeria-overlay">
+                            <h5>Iluminación de escaleras</h5>
+                            <span>Diseño elegante y funcional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 -->
+
+
+        <!-- ================================================================
+         BLOQUE 7 | CALL TO ACTION  (Versión Stitch — hrefs corregidos)
+    ================================================================ -->
+        <section id="cta-iluminacion">
+            <div class="cta-iluminacion-inner">
+                <div class="cta-card">
+                    <div class="cta-deco-tr"></div>
+                    <div class="cta-deco-bl"></div>
+                    <h2>Ilumina tu próximo proyecto</h2>
+                    <p>¿Tenés una idea en mente? Nuestro equipo de ingenieros y diseñadores te ayudará a hacerla
+                        realidad con la mejor tecnología y criterio arquitectónico.</p>
+                    <div class="cta-btns">
+                        <!-- 📌 Reemplazá el número de WhatsApp -->
+                        <a class="btn-cta-primary"
+                            href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20iluminaci%C3%B3n.%20¿Podemos%20hablar%20de%20mi%20proyecto%3F"
+                            target="_blank" rel="noopener noreferrer">
+                            Hablemos de tu proyecto
+                        </a>
+                        <a class="btn-cta-secondary" href="contacto.html">
+                            Solicitar presupuesto
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+
+        <!-- ================================================================
+         BLOQUE 8 | PREGUNTAS FRECUENTES
+         Contenido de iluminacion.html (versión antigua) — estilo definitivo
+    ================================================================ -->
+        <section id="faq">
+            <div class="faq-section-inner">
+                <div class="faq-header">
+                    <span class="section-label">Lo que más nos preguntan</span>
+                    <h2>Preguntas Frecuentes</h2>
+                    <div class="faq-divisor"></div>
+                    <p>Iluminar bien un espacio genera muchas dudas antes de empezar. Acá respondemos las más
+                        habituales, con honestidad y sin rodeos.</p>
+                </div>
+
+                <div class="faq-lista-wrap">
+                    <div class="faq-lista">
+
+                        <!-- Pregunta 1 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Cuánto cuesta un diseño de iluminación? ¿Es accesible para un presupuesto familiar?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>Sí, y mucho más de lo que la mayoría cree. El costo del proyecto de iluminación
+                                        varía según la superficie, la complejidad del diseño y los artefactos
+                                        seleccionados, pero siempre trabajamos con las posibilidades reales del cliente.
+                                        Hay soluciones de altísima calidad visual con materiales accesibles: lo que
+                                        determina el resultado no es cuánto se gasta en cada lámpara, sino cómo se
+                                        planifica el conjunto. La primera consulta es gratuita, y en ella te damos una
+                                        estimación clara antes de cualquier compromiso.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 2 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Puedo contratar solo el diseño de iluminación o necesito contratar toda la obra?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>Podés contratar el diseño de iluminación de forma completamente independiente,
+                                        tanto si ya tenés una obra en marcha como si estás reformando un espacio
+                                        existente. También podés sumarlo a cualquiera de nuestros otros servicios, en
+                                        cuyo caso el descuento conjunto es muy considerable. Lo importante es que el
+                                        proyecto de iluminación se haga <em>antes</em> de que el electricista empiece a
+                                        cablear: cambiarlo después tiene un costo alto.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 3 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Qué incluye exactamente el servicio de iluminación?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>El servicio completo incluye: relevamiento del espacio, propuesta de diseño con
+                                        ubicación de cada punto de luz, especificación de artefactos (tipo, potencia,
+                                        temperatura de color y marca referencial), proyecto eléctrico con cálculo de
+                                        cargas y dimensionamiento del tablero, planos de instalación para el
+                                        electricista y supervisión técnica durante la instalación. En síntesis: del
+                                        diseño estético a la instalación terminada, todo documentado y coordinado por el
+                                        mismo equipo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 4 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Trabajan con domótica o sistemas de iluminación inteligente?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>Sí. Diseñamos sistemas de iluminación compatibles con automatización y control
+                                        inteligente: regulación de intensidad por ambiente (dimmer), programación de
+                                        escenas lumínicas, integración con asistentes de voz y control desde el celular.
+                                        Estas soluciones pueden incorporarse desde el inicio del proyecto o planificarse
+                                        para ser instaladas en el futuro sin necesidad de rehacer la instalación. La
+                                        infraestructura se prevé en el proyecto original — esa es la ventaja de
+                                        planificar con metodología BIM.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 5 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Por qué contratar un servicio profesional si puedo elegir las lámparas yo mismo?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>Elegir lámparas es la parte fácil. Lo difícil —y lo que determina el resultado
+                                        real— es dónde ubicarlas, a qué altura, con qué ángulo, qué circuito les
+                                        asignás, cómo equilibrás la iluminación general con la de acento, y cómo hacés
+                                        que todo eso quede coordinado con el color de las paredes, los muebles y la luz
+                                        natural que entra por las ventanas. Eso es diseño de iluminación. Y la
+                                        diferencia entre un espacio que "tiene luces" y uno que "está bien iluminado" es
+                                        exactamente eso. Nuestros 25 años de experiencia están al servicio de ese
+                                        resultado.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pregunta 6 -->
+                        <div class="faq-item">
+                            <button class="faq-pregunta" aria-expanded="false">
+                                ¿Pueden surgir problemas o imprevistos durante la instalación?
+                                <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                            </button>
+                            <div class="faq-respuesta" role="region">
+                                <div class="faq-respuesta-inner">
+                                    <p>Los imprevistos en instalaciones eléctricas casi siempre tienen una causa: falta
+                                        de planificación previa. Nuestra metodología BIM coordina el proyecto de
+                                        iluminación con el resto de las instalaciones y la estructura del edificio en un
+                                        modelo digital antes de que comience cualquier trabajo. Eso nos permite detectar
+                                        y resolver cualquier conflicto en el plano, no en la pared. Cuando el
+                                        electricista llega a obra, tiene un plano claro y completo sin ambigüedades. Esa
+                                        es nuestra garantía técnica: lo que proyectamos, se ejecuta. Sin sorpresas y sin
+                                        costos adicionales que no estaban pactados.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 8 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ================================================================
+     JAVASCRIPT
+     1. Menú hamburguesa
+     2. Acordeón Servicios en menú móvil
+     3. Acordeón FAQ
+     4. Scroll suave al hash de entrada
+================================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. Menú hamburguesa ────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. Acordeón Servicios (menú móvil) ────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            function actualizarChevronMovil() {
+                var chevron = toggleServ.querySelector('.chevron-movil');
+                if (submenuServ.classList.contains('visible')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                    toggleServ.classList.add('expandido');
+                } else {
+                    chevron.style.transform = '';
+                    toggleServ.classList.remove('expandido');
+                }
+            }
+
+            toggleServ.addEventListener('click', function () {
+                submenuServ.classList.toggle('visible');
+                actualizarChevronMovil();
+            });
+
+
+            /* ── 4. SCROLL SUAVE AL HASH DE ENTRADA ─────────────────────
+               Igual que en diseno-y-proyecto.html y ejecucion-del-proyecto.html
+            ────────────────────────────────────────────────────────────── */
+            var hashDestino = window.__hashDestino || '';
+
+            if (hashDestino) {
+
+                function easeInOutCubic(t) {
+                    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                }
+
+                function smoothScrollTo(targetY, duration) {
+                    var startY = window.scrollY;
+                    var distance = targetY - startY;
+                    var startTime = performance.now();
+
+                    function step(now) {
+                        var elapsed = now - startTime;
+                        var progress = Math.min(elapsed / duration, 1);
+                        window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                        if (progress < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                }
+
+                window.addEventListener('load', function () {
+                    var destino = document.getElementById(hashDestino);
+                    if (!destino) return;
+
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+
+                    setTimeout(function () {
+                        var navbarEl = document.getElementById('navbar');
+                        var franjaEl = document.getElementById('franja-contacto');
+                        var navH = navbarEl ? navbarEl.offsetHeight : 78;
+                        var franH = franjaEl ? franjaEl.offsetHeight : 32;
+                        var offsetExtra = 24;
+                        var targetY = destino.getBoundingClientRect().top
+                            + window.scrollY
+                            - navH
+                            - franH
+                            - offsetExtra;
+                        smoothScrollTo(Math.max(0, targetY), 680);
+                    }, 400);
+                });
+            }
+
+        });
+
+
+
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';
+        var FOOTER_TEMA = 'dark';
+        var NAV_ACTIVO = 'servicios';
+    </script>
+    <script src="./componentes.js"></script>
+
+    <!-- ── 3. ACORDEÓN FAQ — corre después de componentes.js ── -->
+    <script>
+        (function () {
+            var faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function (item) {
+                var pregunta = item.querySelector('.faq-pregunta');
+                var respuesta = item.querySelector('.faq-respuesta');
+                var respInner = item.querySelector('.faq-respuesta-inner');
+
+                pregunta.addEventListener('click', function () {
+                    var isOpen = item.classList.contains('open');
+
+                    /* Cerrar todos */
+                    faqItems.forEach(function (other) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-respuesta').style.maxHeight = '0';
+                    });
+
+                    /* Si no estaba abierto, abrir éste */
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        respuesta.style.maxHeight = (respInner.scrollHeight + 40) + 'px';
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

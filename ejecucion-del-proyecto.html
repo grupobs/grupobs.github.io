@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejecución del Proyecto | Grupo B's</title>
+
+    <!--
+        Script inline — corre ANTES de que el browser procese el hash de la URL.
+        Captura el destino (ej: #gestion-y-direccion) y lo elimina de la URL para que
+        el browser NO haga su propio scroll automático. El JS del DOMContentLoaded
+        lo recupera con window.__hashDestino y hace el deslizamiento suave.
+        ⚠️ No mover de aquí — debe ejecutarse en el <head> para funcionar.
+    -->
+    <script>
+        window.__hashDestino = window.location.hash.replace('#', '');
+        if (window.__hashDestino) {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+    </script>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome (íconos franja, footer, whatsapp) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+           VARIABLES Y RESET
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --secondary: #2C5F8A;
+            --accent: #C9A96E;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+            --bg-dark: #111111;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+
+        /* ================================================================
+           BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO  (de index.html)
+        ================================================================ */
+
+
+        /* ================================================================
+           BLOQUE 2 — NAVBAR  (de index.html)
+        ================================================================ */
+
+
+
+        /* ================================================================
+           BLOQUE 3 — HERO SECTION  (Stitch)
+        ================================================================ */
+        #hero-ejecucion {
+            padding: 32px 32px;
+            background: var(--bg-warm);
+        }
+
+        .hero-ejecucion-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .hero-card {
+            background-image:
+                linear-gradient(to top, rgba(27, 42, 74, .9) 0%, rgba(27, 42, 74, .3) 60%),
+                url("https://lh3.googleusercontent.com/aida-public/AB6AXuC_yGdnGMnx7Pf79tCwdZQKRoD3LQTbBIYQHo13fyEdaBf4YjQbrGbMdKPzvYB2_mx7IpCPnQlnKSyGM5jtO-epB2gbtx5VBdY5r_xIiIVLwkMIbywcp_-BlVkN-c8dHwU-9lVAGuFJZL7ionQR9Qkdw19R3QE04YZtjxS7KcFsAGcuFSTb9WPh8BT_kw-wLP1btpNlzNTttoMdN4yjDbbnFqIOT7-5NPjYktcpS1NHWj09fP2tHZdZrktEN_Tbodv1YiMRnIIUUww");
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .25);
+        }
+
+        .hero-card-inner {
+            padding: 64px;
+        }
+
+        .hero-modulo-badge {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: .68rem;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            background: rgba(201, 169, 110, .05);
+        }
+
+        .hero-card h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+            max-width: 700px;
+            margin-bottom: 24px;
+        }
+
+        .hero-card p {
+            color: rgba(237, 234, 228, .8);
+            font-size: 1.15rem;
+            max-width: 580px;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+
+        /* ================================================================
+           BLOQUE 4 — PILARES DE SERVICIO  (Stitch)
+        ================================================================ */
+        #pilares {
+            padding: 100px 32px;
+            background: var(--white);
+        }
+
+        .pilares-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -.01em;
+            color: var(--primary);
+            line-height: 1.15;
+        }
+
+        .section-divider {
+            width: 96px;
+            height: 2px;
+            background: rgba(201, 169, 110, .4);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: rgba(44, 95, 138, .8);
+            max-width: 600px;
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.75;
+        }
+
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .pilar-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-warm);
+            border-radius: 16px;
+            border: 1px solid var(--pearl);
+            overflow: hidden;
+            transition: box-shadow .5s, transform .4s;
+        }
+
+        .pilar-card:hover {
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .12);
+            transform: translateY(-4px);
+        }
+
+        .pilar-img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            display: block;
+        }
+
+        .pilar-body {
+            padding: 40px;
+        }
+
+        .pilar-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .pilar-icon-box {
+            background: rgba(27, 42, 74, .05);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pilar-icon-box .material-symbols-outlined {
+            font-size: 2rem;
+        }
+
+        .pilar-body h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .pilar-body p {
+            color: rgba(45, 45, 45, .8);
+            line-height: 1.8;
+            font-size: 1.02rem;
+            font-weight: 300;
+        }
+
+
+        /* ================================================================
+           BLOQUE 5 — COMPROMISO CON LA CALIDAD  (Stitch)
+        ================================================================ */
+        #compromiso {
+            padding: 80px 160px;
+            background: var(--primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .compromiso-deco {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33%;
+            height: 100%;
+            background: rgba(201, 169, 110, .05);
+            transform: skewX(-12deg) translateX(50%);
+            pointer-events: none;
+        }
+
+        .compromiso-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .compromiso-left {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .compromiso-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+        }
+
+        .compromiso-eyebrow .material-symbols-outlined {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .compromiso-eyebrow span {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+        }
+
+        .compromiso-left h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+        }
+
+        .compromiso-left>p {
+            color: rgba(237, 234, 228, .7);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .compromiso-left>p span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .compromiso-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .stat-item .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .stat-item span:last-child {
+            color: rgba(237, 234, 228, .8);
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .compromiso-right {
+            position: relative;
+        }
+
+        .compromiso-img-frame {
+            position: absolute;
+            inset: -16px;
+            border: 1px solid rgba(201, 169, 110, .2);
+            border-radius: 16px;
+            transition: inset .4s;
+            pointer-events: none;
+        }
+
+        .compromiso-right:hover .compromiso-img-frame {
+            inset: 0;
+        }
+
+        .compromiso-img {
+            position: relative;
+            border-radius: 16px;
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .3);
+            display: block;
+        }
+
+        .anos-badge {
+            position: absolute;
+            bottom: -32px;
+            right: -32px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .anos-badge .num {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .anos-badge .lbl {
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+
+
+        /* ================================================================
+           BLOQUE 6 — CALL TO ACTION  (Stitch)
+        ================================================================ */
+        #cta {
+            padding: 96px 160px;
+            background: var(--bg-dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .cta-dots {
+            position: absolute;
+            inset: 0;
+            opacity: .1;
+            background-image: radial-gradient(var(--accent) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .cta-inner h2 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 700;
+            max-width: 900px;
+            line-height: 1.15;
+        }
+
+        .cta-inner p {
+            color: rgba(237, 234, 228, .6);
+            font-size: 1.1rem;
+            max-width: 560px;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .btn-cta-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 18px 48px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: filter .2s, transform .15s;
+            box-shadow: 0 16px 40px rgba(201, 169, 110, .2);
+        }
+
+        .btn-cta-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-secondary {
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: var(--white);
+            padding: 18px 48px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: background .2s;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255, 255, 255, .06);
+        }
+
+
+        /* ================================================================
+           BLOQUE 7 — FAQ  (contenido antiguo, estética Stitch)
+        ================================================================ */
+        #faq {
+            padding: 80px 160px;
+            background: var(--bg-warm);
+        }
+
+        .faq-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .faq-lista {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--pearl);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 4px 32px rgba(27, 42, 74, .06);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--pearl);
+            transition: background .2s;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-pregunta {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 24px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: color .2s;
+            line-height: 1.35;
+        }
+
+        .faq-pregunta:hover {
+            color: var(--accent);
+        }
+
+        .faq-item.abierto .faq-pregunta {
+            color: var(--accent);
+        }
+
+        .faq-icono {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(201, 169, 110, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: .85rem;
+            transition: transform .3s, background .2s, color .2s;
+        }
+
+        .faq-item.abierto .faq-icono {
+            transform: rotate(45deg);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .faq-item.abierto .faq-respuesta {
+            max-height: 700px;
+        }
+
+        .faq-respuesta-inner {
+            padding: 20px 28px 28px;
+            border-top: 1px solid var(--pearl);
+        }
+
+        .faq-respuesta-inner p {
+            font-size: .96rem;
+            line-height: 1.85;
+            color: rgba(45, 45, 45, .75);
+            font-weight: 300;
+        }
+
+        .faq-respuesta-inner strong {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+
+        /* ================================================================
+           CARD-AVISO Y BTN-CARD-CTA  (igual a diseno-y-proyecto.html)
+        ================================================================ */
+        .card-aviso {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(201, 169, 110, .08);
+            border: 1px solid rgba(201, 169, 110, .25);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-top: 24px;
+        }
+
+        .card-aviso-icono {
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .card-aviso-texto {
+            font-size: .875rem;
+            line-height: 1.7;
+            color: rgba(45, 45, 45, .78);
+            font-weight: 400;
+        }
+
+        .card-aviso-texto strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .btn-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 24px;
+            padding: 13px 26px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .3s, transform .2s, box-shadow .3s;
+            box-shadow: 0 4px 16px rgba(27, 42, 74, .18);
+        }
+
+        .btn-card-cta:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, .3);
+        }
+
+        .btn-card-cta i {
+            font-size: .9rem;
+        }
+
+
+        /* ================================================================
+           BLOQUE 8 — FOOTER  (de index.html)
+        ================================================================ */
+
+
+        /* ================================================================
+           RESPONSIVE
+        ================================================================ */
+        @media (max-width: 1100px) {
+            .pilares-grid {
+                gap: 32px;
+            }
+
+            .compromiso-inner {
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            /* Pilares: una sola columna */
+            .pilares-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Compromiso: una sola columna */
+            .compromiso-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .compromiso-right {
+                max-width: 480px;
+                margin: 0 auto;
+                padding-bottom: 48px;
+                /* espacio para el badge 25+ */
+            }
+
+            .anos-badge {
+                bottom: -16px;
+                right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Ocultar menú desktop, mostrar hamburguesa */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            /* Franja */
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            /* Hero */
+            #hero-ejecucion {
+                padding: 20px 20px;
+            }
+
+            .hero-card-inner {
+                padding: 32px 24px;
+            }
+
+            .hero-card {
+                min-height: 420px;
+            }
+
+            /* Pilares */
+            #pilares {
+                padding: 56px 20px;
+            }
+
+            .pilar-body {
+                padding: 28px 24px;
+            }
+
+            /* Compromiso */
+            #compromiso {
+                padding: 56px 20px;
+            }
+
+            /* CTA */
+            #cta {
+                padding: 64px 20px;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 32px;
+            }
+
+            /* FAQ */
+            #faq {
+                padding: 56px 20px;
+            }
+
+            .faq-pregunta {
+                font-size: 1.05rem;
+                padding: 20px 20px;
+            }
+
+            .faq-respuesta-inner {
+                padding: 16px 20px 22px;
+            }
+
+            /* Footer */
+            #footer {
+                padding: 52px 20px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card h1 {
+                font-size: 2.4rem;
+            }
+
+            .compromiso-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ================================================================
+         BLOQUE 3 | HERO SECTION  (Versión Stitch)
+         "La constructora que piensa como arquitecto..."
+    ================================================================ -->
+        <section id="hero-ejecucion">
+            <div class="hero-ejecucion-inner">
+                <div class="hero-card">
+                    <div class="hero-card-inner">
+                        <span class="hero-modulo-badge">Ejecución de Obra</span>
+                        <h1>La constructora de la confianza.</h1>
+                        <p>25 años de experiencia real en obra fusionando rigor técnico con sensibilidad estética para
+                            resultados impecables.</p>
+                    </div>
+                </div><!-- /.hero-card -->
+            </div><!-- /.hero-ejecucion-inner -->
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ================================================================
+         BLOQUE 4 | NUESTROS PILARES DE SERVICIO  (Versión Stitch — íntegro)
+    ================================================================ -->
+        <section id="pilares">
+            <div class="pilares-inner">
+                <div class="section-header">
+                    <span class="section-label">Excelencia en Construcción</span>
+                    <h2>Nuestros Pilares de Servicio</h2>
+                    <div class="section-divider"></div>
+                    <p>Soluciones integrales diseñadas para brindar seguridad, transparencia y calidad técnica en cada
+                        etapa del proceso constructivo.</p>
+                </div>
+
+                <div class="pilares-grid">
+
+                    <!-- Pilar 1: Llave en mano -->
+                    <div class="pilar-card" id="construccion-integral">
+                        <img class="pilar-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAZc6Ig-QFBP6DVMBnpAeAciiF0XV6m8iiNqiuUzUEm2B1dvbr9bIHapdX6itOVbP8uzVpIvrofOEZZctNZi3WSX4GmrmJibwjKD0a5VoIMhHzlQ5tRp5IvB4izwYX9ycM7i19fxXIpIkcm4dzOqdFzh0K9b-w-pdCu3p4F9PqmW-Hf5sm1I05jiJUImBqYmkemVAMTDAvxCWIeNnnueETqm-gpQxDgNRkv1ZWL7XUEYFenRO_Mm6s4_lwJhBuKbJqOO-R62E0ADo"
+                            alt="Construcción llave en mano">
+                        <div class="pilar-body">
+                            <div class="pilar-icon-row">
+                                <div class="pilar-icon-box">
+                                    <span class="material-symbols-outlined">key</span>
+                                </div>
+                                <h3>Llave en mano</h3>
+                            </div>
+                            <p>Gestión integral absoluta: desde la nivelación del terreno hasta la entrega final de
+                                llaves. Eliminamos la incertidumbre coordinando proveedores, logística y mano de obra
+                                para que usted solo se ocupe de disfrutar el proceso.</p>
+                            <div class="card-aviso">
+                                <i class="fa-solid fa-circle-check card-aviso-icono"></i>
+                                <p class="card-aviso-texto"><strong>Incluye sin cargo adicional:</strong> todos los
+                                    servicios de Diseño y Proyecto + todos los de Gestión y Dirección. Al contratar el
+                                    servicio completo, el ahorro respecto de contratar cada módulo por separado es muy
+                                    considerable. La consulta inicial es siempre gratuita y sin ningún compromiso.</p>
+                            </div>
+                            <a class="btn-card-cta"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20la%20Construcción%20Llave%20en%20Mano.%20¿Pueden%20enviarme%20información%20y%20presupuesto%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                                Pedir presupuesto sin cargo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pilar 2: Gerenciamiento de obra -->
+                    <div class="pilar-card" id="gestion-y-direccion">
+                        <img class="pilar-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKcvc27__2pfCL1sYbBnqFl5we3kNcsOw_gZd4NlQt_bVQJNa_6L0__BDJTuiH_OITcE4NjDuPT9jIW8II8QWEl0_7B6PGz1Eaun9YfPsJ03Wqo_z-F4xdcEs76YAIWk8qTw2InF-vEWSYHJeq-7pgVzc81hX89OXFAgAHy5XJSIlafEuNuA0MoqRfibJeajZ4iKdnK3kL8SX7hCVbR0kLXR3tQCo5HMm6_tn7GFG5zsqUNG7-LE4Y6NlRGcfahmbnkKdWt2aFBAw"
+                            alt="Gerenciamiento de obra">
+                        <div class="pilar-body">
+                            <div class="pilar-icon-row">
+                                <div class="pilar-icon-box">
+                                    <span class="material-symbols-outlined">engineering</span>
+                                </div>
+                                <h3>Gerenciamiento de obra</h3>
+                            </div>
+                            <p>Supervisión técnica de alto nivel para inversores que ya cuentan con un proyecto.
+                                Garantizamos el cumplimiento de plazos, control estricto de costos y auditoría de
+                                calidad constante para proteger su inversión de desvíos técnicos.</p>
+                            <div class="card-aviso">
+                                <i class="fa-solid fa-tags card-aviso-icono"></i>
+                                <p class="card-aviso-texto">El gerenciamiento está incluido sin cargo adicional dentro
+                                    de los servicios de Construcción Llave en Mano y Construcción por Etapas. También lo
+                                    ofrecemos en forma independiente para obras con proyecto y dirección propia.
+                                    <strong>Consultanos sin compromiso.</strong>
+                                </p>
+                            </div>
+                            <a class="btn-card-cta"
+                                href="https://wa.me/549351XXXXXXXX?text=Hola%2C%20me%20interesa%20el%20Gerenciamiento%20de%20Obra.%20¿Pueden%20enviarme%20información%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                                Pedir información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pilar 3: Construcción por etapas -->
+                    <div class="pilar-card">
+                        <img class="pilar-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2zeDQH85pQZbMyK3XPYNqcZqSrSuEYClEj7c4VuS-0vFhwcrJHXcg1EuQ8zG2JU5jQKPTARdcxPMGnA1Rrm4K24_CeQcVc0OuG3yQYy43_P4Xw1nFyXWsH_7j26nwhVExgMaqOhPhH8bjPFrjPNoaGjbLhCwi8DjxmiOU4y-oeRzldP11dxphKNrPV66BsPsm0Y_Poz7X6qfEvaLd_41RQZ0e_lCkBAitiWT-ZzO4jbwutEJO3ODNTj42djPV3JWjwolZlPU8nrY"
+                            alt="Construcción por etapas">
+                        <div class="pilar-body">
+                            <div class="pilar-icon-row">
+                                <div class="pilar-icon-box">
+                                    <span class="material-symbols-outlined">layers</span>
+                                </div>
+                                <h3>Construcción por etapas</h3>
+                            </div>
+                            <p>Planificamos el crecimiento de su hogar o negocio de forma modular. Esta metodología
+                                permite avanzar financieramente según su disponibilidad, asegurando que cada etapa
+                                concluida sea funcional y estructuralmente coherente.</p>
+                            <div class="card-aviso">
+                                <i class="fa-solid fa-circle-check card-aviso-icono"></i>
+                                <p class="card-aviso-texto"><strong>Incluye sin cargo adicional:</strong> todos los
+                                    servicios de Diseño y Proyecto + todos los de Gestión y Dirección. La primera
+                                    reunión
+                                    de planificación es gratuita: definimos juntos cuántas etapas son razonables según
+                                    tu
+                                    presupuesto y cronograma deseado.</p>
+                            </div>
+                            <a class="btn-card-cta"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20la%20Construcción%20por%20Etapas.%20¿Podemos%20reunirnos%20para%20planificar%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                Programar reunión sin costo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pilar 4: Remodelaciones -->
+                    <div class="pilar-card">
+                        <img class="pilar-img"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpy93W3LM-0aMyqhKSzviFyMUFMPLFcV_oRB4Ae8BcIEXlpTJ4NdVhxsuXeWZSDnd1wfIu-I0rYSKrhFutb8CEVRsQnX4HT2_lQGkra5rgxi8G6rV7EKDdcZtEaHpb-MJ4Lrqq0dPwWo55rCwXCtATIWAA7W3I5TFztncTMT9RbBiTyYPNp7_57pJ9_bEAxYB71wi7O4kR_Rw3g088CbbttbGIQSxoJx_b45NicFDwZC4YK925HuuqLj0D4Ku0kO2UWIaQx5oFSzw"
+                            alt="Remodelaciones premium">
+                        <div class="pilar-body">
+                            <div class="pilar-icon-row">
+                                <div class="pilar-icon-box">
+                                    <span class="material-symbols-outlined">architecture</span>
+                                </div>
+                                <h3>Remodelaciones</h3>
+                            </div>
+                            <p>Transformación integral de espacios existentes. Aplicamos criterio arquitectónico para
+                                modernizar estética y funcionalidad, revalorizando su propiedad mediante ejecuciones
+                                limpias, eficientes y terminaciones premium.</p>
+                            <div class="card-aviso">
+                                <i class="fa-solid fa-tags card-aviso-icono"></i>
+                                <p class="card-aviso-texto">Al combinar la remodelación con servicios de diseño
+                                    interior, iluminación o paisajismo, el descuento entre módulos es considerablemente
+                                    mayor. <strong>Consultanos por tu proyecto específico — la visita inicial es sin
+                                        costo.</strong></p>
+                            </div>
+                            <a class="btn-card-cta"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20una%20remodelación.%20¿Podemos%20agendar%20una%20visita%20sin%20costo%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                Agendar visita sin costo
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /.pilares-grid -->
+            </div><!-- /.pilares-inner -->
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ================================================================
+         BLOQUE 5 | COMPROMISO CON LA CALIDAD REAL  (Versión Stitch — íntegro)
+    ================================================================ -->
+        <section id="compromiso">
+            <div class="compromiso-deco"></div>
+            <div class="compromiso-inner">
+
+                <div class="compromiso-left">
+                    <div class="compromiso-eyebrow">
+                        <span class="material-symbols-outlined">verified</span>
+                        <span>Excelencia Garantizada</span>
+                    </div>
+                    <h2>Compromiso con la Calidad Real</h2>
+                    <p>En <span>Grupo B's</span> fusionamos el diseño de precisión con la ejecución de alto nivel.
+                        Transparencia, honestidad y resultados tangibles en cada metro cuadrado.</p>
+                    <div class="compromiso-stats">
+                        <div class="stat-item">
+                            <span class="material-symbols-outlined">verified</span>
+                            <span>Calidad Premium</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="material-symbols-outlined">history_toggle_off</span>
+                            <span>Plazos Garantizados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="material-symbols-outlined">visibility</span>
+                            <span>Transparencia Total</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="material-symbols-outlined">handshake</span>
+                            <span>Vínculo Cercano</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compromiso-right">
+                    <div class="compromiso-img-frame"></div>
+                    <img class="compromiso-img"
+                        src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h24.jpg"
+                        alt="Interior de obra premium">
+                    <div class="anos-badge">
+                        <div class="num">25+</div>
+                        <div class="lbl">Años de<br>Experiencia</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+        <!-- ================================================================
+         BLOQUE 6 | CALL TO ACTION  (Versión Stitch — con hrefs corregidos)
+    ================================================================ -->
+        <section id="cta">
+            <div class="cta-dots"></div>
+            <div class="cta-inner">
+                <h2>Tu casa definitiva merece un equipo a la altura.</h2>
+                <p>Solicitá una reunión técnica sin compromiso y descubrí por qué somos la constructora que piensa como
+                    arquitecto.</p>
+                <div class="cta-btns">
+                    <!-- 📌 Botón primario → página de contacto o WhatsApp -->
+                    <a class="btn-cta-primary" href="contacto.html">
+                        Solicitar Presupuesto
+                    </a>
+                    <!-- 📌 Botón secundario → galería de obras -->
+                    <a class="btn-cta-secondary" href="obras.html">
+                        Ver Proyectos Reales
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 -->
+
+
+        <!-- ================================================================
+         BLOQUE 7 | PREGUNTAS FRECUENTES
+         Contenido de la versión antigua — estética Stitch
+    ================================================================ -->
+        <section id="faq">
+            <div class="section-header">
+                <span class="section-label">Lo que más nos preguntan</span>
+                <h2>Preguntas Frecuentes</h2>
+                <div class="section-divider"></div>
+                <p>Sabemos que iniciar una obra genera muchas dudas. Respondemos las más comunes con total transparencia
+                    para que puedas tomar decisiones con confianza.</p>
+            </div>
+
+            <div class="faq-inner">
+                <div class="faq-lista">
+
+                    <!-- Pregunta 1 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Cómo puedo saber si el costo de la obra se ajusta a mi presupuesto?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>La primera reunión es siempre gratuita y en ella hacemos un diagnóstico inicial de tu
+                                    proyecto. Sin que te comprometas con nada, te damos una estimación de costos clara y
+                                    honesta según el tipo de obra, los materiales y el plazo que necesitás. No hay letra
+                                    chica ni valores que aparecen después: todo queda definido por escrito antes de
+                                    arrancar. Trabajamos con familias con presupuestos muy distintos, y nuestra
+                                    propuesta siempre se adapta a lo que cada cliente puede y quiere invertir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Qué incluyen exactamente los servicios de Construcción Llave en Mano y Por Etapas?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>Ambos servicios incluyen, sin cargo adicional, todos los servicios del <strong>Módulo
+                                        A — Diseño y Proyecto</strong> (anteproyecto, proyecto ejecutivo, proyecto
+                                    estructural, instalaciones, iluminación, interiorismo y paisajismo) y todos los del
+                                    <strong>Módulo B — Gestión y Dirección</strong> (dirección técnica, gerenciamiento y
+                                    trámites municipales). Contratar todo en conjunto con el mismo equipo es lo que nos
+                                    permite ofrecerte el mejor precio posible, porque la coordinación entre etapas
+                                    reduce enormemente el trabajo interno.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Qué es la metodología BIM y por qué me beneficia a mí como cliente?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>BIM (Building Information Modeling) es la metodología con la que desarrollamos todos
+                                    nuestros proyectos. En lugar de planos independientes por especialidad, generamos un
+                                    modelo digital único donde conviven la arquitectura, la estructura y todas las
+                                    instalaciones. Esto nos permite detectar y resolver cualquier conflicto técnico —por
+                                    ejemplo, una viga que interfiere con un caño— antes de que llegue a la obra. Para
+                                    vos como cliente, eso significa algo muy concreto: ningún imprevisto en obra que no
+                                    estuviera previsto. Lo que está en el modelo, es lo que se construye. Sin sorpresas
+                                    y sin costos adicionales no pactados.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 4 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Qué pasa si durante la obra surgen imprevistos o cambios de último momento?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>Nuestra metodología BIM está diseñada específicamente para que esta situación no
+                                    ocurra. Antes de poner el primer ladrillo, ya resolvimos en el modelo digital todos
+                                    los escenarios posibles: interferencias entre disciplinas, secuencias constructivas,
+                                    y especificaciones de cada material. Los "imprevistos" que afectan el costo y el
+                                    plazo de una obra casi siempre son consecuencia de una planificación incompleta. Con
+                                    nosotros, la planificación es exhaustiva desde el día uno. Si surgiera algún ajuste
+                                    puntual —algo que el cliente quiere modificar una vez que la obra ya arrancó—, lo
+                                    evaluamos, te informamos el impacto en plazo y costo, y decidís vos. Sin sorpresas
+                                    que no hayas elegido.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 5 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Puedo arrancar la construcción sin tener todos los permisos municipales aprobados?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>No lo recomendamos bajo ningún concepto. Una obra sin permisos en regla está expuesta
+                                    a ser paralizada por el municipio, lo que genera costos muy superiores a los que
+                                    hubiera costado tramitar correctamente desde el inicio. Además, una propiedad
+                                    construida sin habilitación puede tener problemas a la hora de escriturar, vender o
+                                    solicitar créditos hipotecarios. En nuestros servicios de Construcción Llave en Mano
+                                    y Por Etapas, la gestión de trámites municipales está incluida y la gestionamos
+                                    antes de que comience la obra. Tu tranquilidad empieza antes del primer ladrillo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 6 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Cuánto tiempo demora una obra típica? ¿Cumplen los plazos pactados?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>Los plazos dependen del tipo y envergadura de la obra, pero en todos los casos
+                                    establecemos un cronograma detallado desde el inicio y lo cumplimos. El cronograma
+                                    BIM nos permite anticipar en qué momento cada material o subcontratista tiene que
+                                    estar disponible, lo que elimina los tiempos muertos por desabastecimiento o falta
+                                    de coordinación. Si alguna situación externa —climática o de provisión de
+                                    materiales— pudiera afectar el plazo, te informamos con anticipación y ajustamos el
+                                    cronograma de manera proactiva. Nunca te enterás de un retraso cuando ya es un hecho
+                                    consumado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 7 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Puedo contratar solo uno de los servicios, como la dirección técnica sin la construcción?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta" role="region">
+                            <div class="faq-respuesta-inner">
+                                <p>Sí. Todos nuestros servicios pueden contratarse de manera independiente. Si ya tenés
+                                    planos propios y solo necesitás dirección técnica, gerenciamiento o gestión de
+                                    trámites, nos adaptamos a eso. También podés sumar módulos a medida que avanza el
+                                    proyecto: muchos clientes nos contactan inicialmente por un servicio puntual y luego
+                                    amplían el alcance al ver los resultados. En cualquier caso, la primera consulta es
+                                    siempre gratuita.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ================================================================
+<!-- ================================================================
+     JAVASCRIPT
+     1. Menú hamburguesa
+     2. Acordeón Servicios en menú móvil
+     3. Acordeón FAQ
+     4. Scroll suave al hash de entrada (ej: #gestion-y-direccion)
+================================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. Menú hamburguesa ────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. Acordeón Servicios (menú móvil) ────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            function actualizarChevronMovil() {
+                var chevron = toggleServ.querySelector('.chevron-movil');
+                if (submenuServ.classList.contains('visible')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                    toggleServ.classList.add('expandido');
+                } else {
+                    chevron.style.transform = '';
+                    toggleServ.classList.remove('expandido');
+                }
+            }
+
+            toggleServ.addEventListener('click', function () {
+                submenuServ.classList.toggle('visible');
+                actualizarChevronMovil();
+            });
+
+
+            /* ── 4. SCROLL SUAVE AL HASH DE ENTRADA ─────────────────────
+               Registrado aquí SOLO como referencia; la lógica real está en el
+               listener 'load' de nivel superior (debajo), fuera de este bloque,
+               para garantizar que corra aunque load dispare antes que este handler.
+            ────────────────────────────────────────────────────────────── */
+
+        });
+    </script>
+
+    <!-- Scroll al hash: fuera de DOMContentLoaded para que funcione siempre,
+         incluso cuando la página carga instantáneamente desde caché. -->
+    <script>
+        (function () {
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function smoothScrollTo(targetY, duration) {
+                var startY    = window.scrollY;
+                var distance  = targetY - startY;
+                var startTime = performance.now();
+                function step(now) {
+                    var elapsed  = now - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            function ejecutarScrollHash() {
+                var hashDestino = window.__hashDestino || '';
+                if (!hashDestino) return;
+
+                var destino = document.getElementById(hashDestino);
+                if (!destino) return;
+
+                /* 1. Tope instantáneo */
+                window.scrollTo({ top: 0, behavior: 'instant' });
+
+                /* 2. Pausa breve → deslizar suave */
+                setTimeout(function () {
+                    /* Buscar el navbar: puede ser inyectado dentro de #gb-navbar
+                       o directamente con id="navbar" */
+                    var navbarEl = document.getElementById('navbar')
+                                || document.getElementById('gb-navbar');
+                    var franjaEl = document.getElementById('franja-contacto')
+                                || document.getElementById('gb-franja');
+                    var navH        = navbarEl ? navbarEl.offsetHeight : 78;
+                    var franH       = franjaEl ? franjaEl.offsetHeight : 32;
+                    var offsetExtra = 24;
+                    var targetY = destino.getBoundingClientRect().top
+                                  + window.scrollY
+                                  - navH
+                                  - franH
+                                  - offsetExtra;
+                    smoothScrollTo(Math.max(0, targetY), 680);
+                }, 400);
+            }
+
+            /* Si load ya disparó (caché), ejecutar de inmediato;
+               si no, esperar a que dispare. */
+            if (document.readyState === 'complete') {
+                ejecutarScrollHash();
+            } else {
+                window.addEventListener('load', ejecutarScrollHash);
+            }
+        })();
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';
+        var FOOTER_TEMA = 'dark';
+        var NAV_ACTIVO = 'servicios';
+    </script>
+    <script src="./componentes.js"></script>
+
+    <!-- ── 3. ACORDEÓN FAQ — corre después de componentes.js ── -->
+    <script>
+        (function () {
+            var faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function (item) {
+                var pregunta = item.querySelector('.faq-pregunta');
+                var respuesta = item.querySelector('.faq-respuesta');
+                var respInner = item.querySelector('.faq-respuesta-inner');
+
+                pregunta.addEventListener('click', function () {
+                    var isOpen = item.classList.contains('open');
+
+                    /* Cerrar todos */
+                    faqItems.forEach(function (other) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-respuesta').style.maxHeight = '0';
+                    });
+
+                    /* Si no estaba abierto, abrir éste */
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        respuesta.style.maxHeight = (respInner.scrollHeight + 40) + 'px';
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

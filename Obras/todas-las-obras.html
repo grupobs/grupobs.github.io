@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  GRUPO B'S — Todas las Obras                                               ║
+║  Archivo: Obras/todas-las-obras.html                                       ║
+║  Franja/Navbar/Footer/WhatsApp → inyectados por ../componentes.js          ║
+║  Datos de proyectos             → ../proyectos-db.js                       ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todas las Obras | Grupo B's — Portafolio de Proyectos</title>
+    <meta name="description"
+        content="Portafolio completo de obras de Grupo B's — Arquitectura, Construcción e Iluminación en Córdoba, Argentina y Bolivia. Proyectos residenciales, corporativos y de iluminación especializada.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,700&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ── Reset y variables ────────────────────────────────── */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ── Header de página ─────────────────────────────────── */
+        .page-main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 44px 120px;
+        }
+
+        .page-header {
+            margin-bottom: 80px;
+        }
+
+        .page-header-label {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .header-line {
+            width: 32px;
+            height: 2px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .header-pretitle {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .page-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .page-header p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .65);
+            line-height: 1.7;
+            max-width: 540px;
+        }
+
+        /* ── Grid de proyectos ────────────────────────────────── */
+        #project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 32px;
+            row-gap: 64px;
+        }
+
+        /* ── Tarjeta ──────────────────────────────────────────── */
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardAppear .5s ease forwards;
+            cursor: pointer;
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Imagen */
+        .card-img-wrap {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background: var(--pearl);
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+            transition: box-shadow .3s;
+            position: relative;
+        }
+
+        .project-card:hover .card-img-wrap {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .13);
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Sin grayscale — siempre a color */
+            transform: scale(1);
+            transition: transform .7s ease;
+        }
+
+        .project-card:hover .card-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay "Ver Proyecto" — visible en hover en TODAS las tarjetas */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .45);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity .35s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .project-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-overlay-btn {
+            background: var(--accent);
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: 11px 28px;
+        }
+
+        /* Info de la tarjeta */
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Año · m² (reemplaza a "city") */
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .card-meta .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .6;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Newsreader', 'Cormorant Garamond', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1.2;
+            transition: color .25s;
+        }
+
+        .project-card:hover .card-title {
+            color: var(--accent);
+        }
+
+        .card-desc {
+            font-size: .83rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .6);
+            line-height: 1.65;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .card-tag {
+            padding: 3px 12px;
+            background: var(--pearl);
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 169, 110, .25);
+        }
+
+        /* Imagen placeholder (proyectos sin foto) */
+        .card-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--pearl) 0%, #e5e2dc 100%);
+        }
+
+        .card-img-placeholder .material-symbols-outlined {
+            font-size: 2.5rem;
+            color: rgba(27, 42, 74, .2);
+        }
+
+        .card-img-placeholder span.placeholder-label {
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(27, 42, 74, .25);
+        }
+
+        /* ── Botón "Cargar más" ───────────────────────────────── */
+        .load-more-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-top: 96px;
+        }
+
+        #btn-cargar-mas {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 16px 0;
+            transition: opacity .2s;
+        }
+
+        #btn-cargar-mas:hover {
+            opacity: .7;
+        }
+
+        .load-label {
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: color .2s;
+        }
+
+        #btn-cargar-mas:hover .load-label {
+            color: var(--accent);
+        }
+
+        .load-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: color .2s, transform .3s;
+        }
+
+        #btn-cargar-mas:hover .load-icon {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .progress-bar-wrap {
+            width: 160px;
+            height: 1px;
+            background: rgba(27, 42, 74, .12);
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width .4s ease;
+        }
+
+        .progress-label {
+            font-family: 'Inter', sans-serif;
+            font-size: .62rem;
+            letter-spacing: .12em;
+            color: rgba(45, 45, 45, .4);
+        }
+
+        .end-message {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 96px;
+            text-align: center;
+        }
+
+        .end-line {
+            height: 1px;
+            width: 80px;
+            background: var(--accent);
+        }
+
+        .end-text {
+            font-family: 'Inter', sans-serif;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, .35);
+        }
+
+        .load-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(201, 169, 110, .2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── Responsive ───────────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .page-main {
+                padding: 64px 32px 96px;
+            }
+
+            #project-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 48px 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-main {
+                padding: 48px 24px 80px;
+            }
+
+            #project-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .card-title {
+                font-size: 1.55rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Franja superior + Navbar (inyectados por componentes.js) -->
+    <div id="gb-franja"></div>
+    <div id="gb-navbar"></div>
+
+    <!-- ═══════════════════════════════════════════════════
+         CONTENIDO PRINCIPAL
+    ═══════════════════════════════════════════════════ -->
+    <main>
+        <div class="page-main">
+
+            <header class="page-header">
+                <div class="page-header-label">
+                    <div class="header-line"></div>
+                    <span class="header-pretitle">Portafolio</span>
+                </div>
+                <h1>Todas las obras</h1>
+                <p>Nuestros proyectos más emblemáticos, donde la solidez técnica se encuentra con la excelencia
+                    estética.</p>
+            </header>
+
+            <!-- Grid — rellena dinámicamente con JS -->
+            <div id="project-grid"></div>
+
+            <!-- Cargar más -->
+            <div class="load-more-wrapper" id="load-more-section">
+                <button id="btn-cargar-mas" aria-label="Cargar más obras">
+                    <span class="load-label">Cargar más obras</span>
+                    <span class="material-symbols-outlined load-icon">trending_flat</span>
+                    <span class="load-spinner" id="load-spinner"></span>
+                </button>
+            </div>
+
+            <div class="end-message" id="end-message">
+                <div class="end-line"></div>
+                <p class="end-text">Has visto todos nuestros proyectos</p>
+                <div class="end-line"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer + WhatsApp flotante (inyectados por componentes.js) -->
+    <div id="gb-footer"></div>
+
+    <!-- ═══════════════════════════════════════════════════
+         BASE DE DATOS DE PROYECTOS (archivo externo)
+    ═══════════════════════════════════════════════════ -->
+    <script src="../proyectos-db.js"></script>
+
+    <!-- ═══════════════════════════════════════════════════
+         LÓGICA DE LA GRILLA
+    ═══════════════════════════════════════════════════ -->
+    <script>
+        (function () {
+
+            /* ── Constantes ──────────────────────────────────────── */
+            var OBRAS = window.OBRAS || [];
+            var TOTAL = OBRAS.length;
+            var INITIAL = 9;
+            var BATCH = 6;
+            var loaded = 0;
+
+            /* ── Referencias DOM ─────────────────────────────────── */
+            var grid = document.getElementById('project-grid');
+            var btnCargar = document.getElementById('btn-cargar-mas');
+            var spinner = document.getElementById('load-spinner');
+            var section = document.getElementById('load-more-section');
+            var endMsg = document.getElementById('end-message');
+            var progBar = document.getElementById('progress-bar');
+            var progLabel = document.getElementById('progress-label');
+
+            /* ── Actualizar barra de progreso ────────────────────── */
+            function updateProgress() {
+                var pct = Math.round((loaded / TOTAL) * 100);
+                if (progBar) progBar.style.width = pct + '%';
+                if (progLabel) progLabel.textContent = loaded + ' de ' + TOTAL + ' proyectos';
+            }
+
+            /* ── Construir una tarjeta ───────────────────────────── */
+            function buildCard(project, index) {
+
+                /* Tags */
+                var tags = (project.tags || []).map(function (t) {
+                    return '<span class="card-tag">' + t + '</span>';
+                }).join('');
+
+                /* Destino del click:
+                   - tiene slug  → página del proyecto
+                   - sin slug    → página en construcción */
+                var dest = project.slug
+                    ? 'todas-las-obras/' + project.slug + '.html'
+                    : '../en-construccion.html';
+
+                /* Imagen — si no existe usamos un placeholder visual */
+                var imgHTML = project.img
+                    ? '<img src="' + project.img + '" alt="' + project.name + '" loading="lazy">'
+                    : '<div class="card-img-placeholder">'
+                    + '<span class="material-symbols-outlined">photo_camera</span>'
+                    + '<span class="placeholder-label">Foto próximamente</span>'
+                    + '</div>';
+
+                /* Metadatos año · m² */
+                var meta = '';
+                if (project.anio) meta += project.anio;
+                if (project.anio && project.m2) meta += '<span class="dot"></span>';
+                if (project.m2) meta += project.m2;
+
+                /* Construir el elemento */
+                var card = document.createElement('article');
+                card.className = 'project-card';
+                card.style.animationDelay = ((index % BATCH) * 80) + 'ms';
+                card.innerHTML =
+                    '<div class="card-img-wrap">'
+                    + imgHTML
+                    + '<div class="card-overlay">'
+                    + '<span class="card-overlay-btn">Ver Proyecto</span>'
+                    + '</div>'
+                    + '</div>'
+                    + '<div class="card-info">'
+                    + (meta ? '<div class="card-meta">' + meta + '</div>' : '')
+                    + '<h3 class="card-title">' + project.name + '</h3>'
+                    + '<p class="card-desc">' + (project.desc || '') + '</p>'
+                    + '<div class="card-tags">' + tags + '</div>'
+                    + '</div>';
+
+                /* Click en toda la tarjeta */
+                card.addEventListener('click', function () {
+                    window.location.href = dest;
+                });
+
+                return card;
+            }
+
+            /* ── Renderizar un lote ──────────────────────────────── */
+            function renderBatch(count) {
+                var fragment = document.createDocumentFragment();
+                var end = Math.min(loaded + count, TOTAL);
+                for (var i = loaded; i < end; i++) {
+                    fragment.appendChild(buildCard(OBRAS[i], i));
+                }
+                grid.appendChild(fragment);
+                loaded = end;
+                updateProgress();
+
+                if (loaded >= TOTAL) {
+                    section.style.display = 'none';
+                    endMsg.style.display = 'flex';
+                }
+            }
+
+            /* ── Carga inicial ───────────────────────────────────── */
+            document.addEventListener('DOMContentLoaded', function () {
+                renderBatch(INITIAL);
+            });
+
+            /* ── Clic "Cargar más" ───────────────────────────────── */
+            if (btnCargar) {
+                btnCargar.addEventListener('click', function () {
+                    spinner.style.display = 'block';
+                    btnCargar.querySelector('.load-label').style.opacity = '0.4';
+                    btnCargar.querySelector('.load-icon').style.display = 'none';
+                    setTimeout(function () {
+                        renderBatch(BATCH);
+                        spinner.style.display = 'none';
+                        btnCargar.querySelector('.load-label').style.opacity = '1';
+                        btnCargar.querySelector('.load-icon').style.display = '';
+                    }, 300);
+                });
+            }
+
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════
+         COMPONENTES.JS — franja, navbar, footer, WhatsApp
+    ═══════════════════════════════════════════════════ -->
+    <script>
+        var BASE = '../';     /* todas-las-obras.html está en /Obras/ */
+        var NAVBAR_TEMA = 'dark';
+        var NAV_ACTIVO = 'obras';
+    </script>
+    <script src="../componentes.js"></script>
+
+</body>
+
+</html>

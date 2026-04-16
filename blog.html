@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Grupo B's – Arquitectura y Construcción</title>
+
+    <!--
+      DEPENDENCIAS EXTERNAS:
+      ─ Tailwind CSS (CDN): estilos del área de contenido del blog
+      ─ Google Fonts: Cormorant Garamond + Inter + Dancing Script
+      ─ Material Symbols: íconos (search, east, etc.)
+      ─ Font Awesome 6: íconos (WhatsApp, mail, redes, etc.)
+      ─ blogs-data.js: datos de los blogs (SIEMPRE cargarlo antes de este HTML)
+    -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Configuración de Tailwind con colores del sitio -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1B2A4A",
+                        "secondary": "#2C5F8A",
+                        "accent": "#C9A96E",
+                        "background-light": "#F8F6F2",
+                        "background-alt": "#EDEAE4",
+                        "text-main": "#2D2D2D",
+                        "neutral-gray": "#9B9896"
+                    },
+                    fontFamily: {
+                        "display": ["Cormorant Garamond", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "script": ["Dancing Script", "cursive"]
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ================================================================
+           VARIABLES DE COLOR (iguales a index.html)
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* ================================================================
+           BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO
+        ================================================================ */
+        #franja-contacto {
+            background-color: var(--footer-bg);
+            color: rgba(237, 234, 228, .75);
+            padding: 7px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .78rem;
+            letter-spacing: .04em;
+            border-bottom: 1px solid rgba(201, 169, 110, .15);
+        }
+
+        .franja-izq {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .franja-izq a,
+        .franja-izq .mail-item {
+            color: rgba(237, 234, 228, .75);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: 500;
+            transition: color .2s;
+        }
+
+        .franja-izq a:hover {
+            color: var(--accent);
+        }
+
+        .franja-izq a i {
+            color: var(--wsp-green);
+            font-size: .95rem;
+        }
+
+        .franja-izq .mail-item i {
+            color: var(--accent);
+            font-size: .95rem;
+        }
+
+        .franja-redes {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .franja-redes a {
+            color: rgba(237, 234, 228, .6);
+            font-size: 1rem;
+            transition: color .2s, transform .2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .franja-redes a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ================================================================
+           BLOQUE 2 — NAVBAR
+        ================================================================ */
+        #navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(27, 42, 74, .97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-icon-box {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            overflow: hidden;
+        }
+
+        .logo-icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            color: var(--white);
+        }
+
+        /* Menú desktop */
+        .menu-desktop {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .menu-desktop>a,
+        .menu-desktop .dropdown-toggle {
+            color: rgba(255, 255, 255, .8);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 8px 13px;
+            border-radius: 6px;
+            transition: color .2s, background .2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .menu-desktop>a:hover,
+        .menu-desktop .dropdown:hover .dropdown-toggle {
+            color: var(--accent);
+            background: rgba(201, 169, 110, .08);
+        }
+
+        /* Link activo (Blogs) */
+        .menu-desktop>a.nav-active {
+            color: var(--accent);
+        }
+
+        /* Blogs en cursiva */
+        .menu-desktop .nav-blogs,
+        #menu-movil .nav-blogs {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            font-style: italic;
+            text-transform: none;
+            letter-spacing: .02em;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown .chevron {
+            font-size: .62rem;
+            transition: transform .2s;
+        }
+
+        .dropdown:hover .chevron {
+            transform: rotate(180deg);
+        }
+
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--primary);
+            border: 1px solid rgba(201, 169, 110, .2);
+            border-radius: 8px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, .35);
+            min-width: 240px;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 11px 20px;
+            color: rgba(237, 234, 228, .75);
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            transition: background .15s, color .15s;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(201, 169, 110, .12);
+            color: var(--accent);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Botón Contactar */
+        .btn-contactar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid rgba(201, 169, 110, .35);
+            background: rgba(201, 169, 110, .1);
+            padding: 9px 22px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            transition: all .3s;
+            white-space: nowrap;
+        }
+
+        .btn-contactar:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Hamburguesa */
+        #btn-hamburguesa {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+        }
+
+        #btn-hamburguesa span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: rgba(237, 234, 228, .85);
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s;
+        }
+
+        #btn-hamburguesa.abierto span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        #btn-hamburguesa.abierto span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #btn-hamburguesa.abierto span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Menú móvil */
+        #menu-movil {
+            display: none;
+            flex-direction: column;
+            background: var(--primary);
+            border-top: 1px solid rgba(201, 169, 110, .15);
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            max-height: calc(100vh - 78px);
+            overflow-y: auto;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+        }
+
+        #menu-movil.visible {
+            display: flex;
+        }
+
+        #menu-movil a {
+            color: rgba(237, 234, 228, .8);
+            font-weight: 500;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 15px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: color .2s, background .2s;
+        }
+
+        #menu-movil a:hover {
+            color: var(--accent);
+            background: rgba(201, 169, 110, .06);
+        }
+
+        #menu-movil a.nav-active {
+            color: var(--accent);
+        }
+
+        .movil-seccion-titulo {
+            padding: 15px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            font-weight: 600;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(237, 234, 228, .8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            transition: color .2s;
+        }
+
+        .movil-seccion-titulo:hover {
+            color: var(--accent);
+        }
+
+        .chevron-movil {
+            font-size: .62rem;
+            transition: transform .25s;
+        }
+
+        .movil-seccion-titulo.expandido .chevron-movil {
+            transform: rotate(180deg);
+        }
+
+        #submenu-servicios-movil {
+            display: none;
+            flex-direction: column;
+        }
+
+        #submenu-servicios-movil.visible {
+            display: flex;
+        }
+
+        #menu-movil a.submenu-item {
+            padding-left: 48px;
+            font-size: .7rem;
+            font-weight: 400;
+            letter-spacing: .08em;
+            color: rgba(237, 234, 228, .5);
+            background: rgba(0, 0, 0, .12);
+        }
+
+        #menu-movil a.submenu-item:hover {
+            color: var(--accent);
+        }
+
+        .movil-contactar-wrapper {
+            padding: 18px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .movil-contactar-wrapper .btn-contactar {
+            width: 100%;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        /* ================================================================
+           BLOQUE 3 — HERO EDITORIAL (estilo stitch, tipografía limpia)
+        ================================================================ */
+        #blog-hero {
+            background-color: var(--bg-warm);
+            padding: 72px 32px 56px;
+            border-bottom: 1px solid var(--pearl);
+        }
+
+        .blog-hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .blog-hero-label {
+            display: inline-block;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .blog-hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6.5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.06;
+            letter-spacing: -.02em;
+            color: var(--primary);
+            margin-bottom: 22px;
+        }
+
+        .blog-hero-title em {
+            color: var(--sec-blue);
+            font-style: italic;
+        }
+
+        .blog-hero-sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #9B9896;
+            line-height: 1.75;
+            max-width: 600px;
+        }
+
+        /* ================================================================
+           BLOQUE 4 — ÚLTIMO BLOG (featured article, inyectado por JS)
+        ================================================================ */
+        .featured-article {
+            cursor: pointer;
+        }
+
+        .featured-article:hover .featured-img {
+            transform: scale(1.04);
+        }
+
+        .featured-img {
+            transition: transform .7s ease;
+        }
+
+        .featured-read-more {
+            transition: gap .2s;
+        }
+
+        .featured-read-more:hover {
+            gap: .8rem;
+        }
+
+        /* ================================================================
+           BLOQUE 6 — CATEGORÍAS: estado activo
+        ================================================================ */
+        .cat-btn {
+            cursor: pointer;
+            transition: color .2s;
+        }
+
+        .cat-btn.activa span:first-child {
+            color: var(--accent) !important;
+        }
+
+        .cat-btn.activa span:last-child {
+            background: rgba(201, 169, 110, .2) !important;
+            color: var(--accent) !important;
+        }
+
+        /* ================================================================
+           BLOQUE 7 — TARJETAS DE BLOG
+        ================================================================ */
+        .blog-card {
+            cursor: pointer;
+        }
+
+        .blog-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-img {
+            transition: transform .7s ease;
+        }
+
+        /* Paginación */
+        .pag-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            transition: all .2s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: .88rem;
+        }
+
+        .pag-btn.activa {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(27, 42, 74, .3);
+        }
+
+        .pag-btn.inactiva {
+            background: var(--white);
+            border: 1px solid var(--pearl);
+            color: var(--primary);
+        }
+
+        .pag-btn.inactiva:hover {
+            border-color: var(--accent);
+        }
+
+        .pag-btn.pag-prev,
+        .pag-btn.pag-next {
+            background: var(--white);
+            border: 1px solid var(--pearl);
+            color: var(--primary);
+        }
+
+        .pag-btn.pag-prev:hover,
+        .pag-btn.pag-next:hover {
+            border-color: var(--accent);
+        }
+
+        .pag-btn:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        /* ================================================================
+           BLOQUE 8 — LO MÁS LEÍDO: skeleton de carga
+        ================================================================ */
+        .skeleton {
+            background: linear-gradient(90deg, var(--pearl) 25%, #e4e1db 50%, var(--pearl) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shine 1.4s infinite;
+            border-radius: 6px;
+        }
+
+        @keyframes skeleton-shine {
+            0% {
+                background-position: 200% 0
+            }
+
+            100% {
+                background-position: -200% 0
+            }
+        }
+
+        /* ================================================================
+           BLOQUE 9 — FOOTER
+        ================================================================ */
+        #footer {
+            background: var(--footer-bg);
+            color: rgba(237, 234, 228, .65);
+            padding: 64px 32px 28px;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1.4fr 1fr;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-marca {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo-icon {
+            width: 34px;
+            height: 34px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .footer-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .footer-brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: .8rem;
+            line-height: 1.7;
+            color: rgba(237, 234, 228, .45);
+            font-weight: 300;
+            max-width: 220px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            margin-bottom: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 22px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .footer-col.menu-col a {
+            display: block;
+            color: rgba(237, 234, 228, .6);
+            font-size: .82rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+            transition: color .2s, padding-left .2s;
+        }
+
+        .footer-col.menu-col a:hover {
+            color: var(--accent);
+            padding-left: 4px;
+        }
+
+        .footer-col.menu-col a.footer-blogs {
+            font-family: 'Dancing Script', cursive;
+            font-size: .98rem;
+            font-style: italic;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 13px;
+            font-size: .82rem;
+            color: rgba(237, 234, 228, .6);
+        }
+
+        .contacto-item i {
+            margin-top: 2px;
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+
+        .contacto-item.wsp i {
+            color: var(--wsp-green);
+        }
+
+        .contacto-item.mail i {
+            color: var(--accent);
+        }
+
+        .contacto-item a {
+            color: rgba(237, 234, 228, .6);
+            transition: color .2s;
+        }
+
+        .contacto-item a:hover {
+            color: var(--accent);
+        }
+
+        .ing-label {
+            font-size: .72rem;
+            color: rgba(237, 234, 228, .3);
+            margin-left: 3px;
+        }
+
+        .red-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 11px;
+            color: rgba(237, 234, 228, .6);
+            font-size: .82rem;
+            transition: color .2s, gap .2s;
+        }
+
+        .red-item i {
+            font-size: 1.1rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        .red-item:hover {
+            color: var(--accent);
+            gap: 16px;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: .68rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(237, 234, 228, .28);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(237, 234, 228, .28);
+            transition: color .2s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: rgba(237, 234, 228, .6);
+        }
+
+        /* ================================================================
+           BLOQUE 10 — BOTÓN WHATSAPP FLOTANTE
+        ================================================================ */
+        #whatsapp-flotante {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            width: 58px;
+            height: 58px;
+            background: var(--wsp-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+            transition: transform .25s, box-shadow .25s;
+            animation: wsp-pulso 2.5s infinite;
+        }
+
+        #whatsapp-flotante:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .65);
+            animation: none;
+        }
+
+        #whatsapp-flotante i {
+            color: var(--white);
+            font-size: 1.9rem;
+        }
+
+        #whatsapp-flotante::before {
+            content: '¡Escribinos!';
+            position: absolute;
+            right: 66px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: .72rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: .06em;
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: opacity .2s, transform .2s;
+            pointer-events: none;
+            border: 1px solid rgba(201, 169, 110, .2);
+        }
+
+        #whatsapp-flotante:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes wsp-pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, .5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* ================================================================
+           RESPONSIVO
+        ================================================================ */
+        @media (max-width: 768px) {
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+                gap: 10px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            #blog-hero {
+                padding: 48px 20px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+        }
+    </style>
+
+    <!-- 📌 Carga el archivo de datos de blogs (SIEMPRE antes del cierre de </head>) -->
+    <script src="blogs-data.js"></script>
+</head>
+
+<body class="bg-background-light text-text-main font-body antialiased">
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 3 | HERO EDITORIAL
+     ─ Estilo tipográfico limpio (versión stitch)
+     ─ "Crónicas de Arquitectura & Construcción"
+=============================================================== -->
+    <section id="blog-hero">
+        <div class="blog-hero-inner">
+            <span class="blog-hero-label">Nuestro Blog</span>
+            <h1 class="blog-hero-title">
+                Crónicas de <em>Arquitectura</em><br>
+                &amp; Construcción
+            </h1>
+            <p class="blog-hero-sub">
+                Perspectivas expertas sobre el diseño de vanguardia, innovaciones técnicas
+                y el futuro del desarrollo residencial en Córdoba.
+            </p>
+        </div>
+    </section>
+    <!-- FIN BLOQUE 3 -->
+
+
+    <!-- ==============================================================
+     ÁREA PRINCIPAL DEL BLOG
+     ─ Columna principal (izquierda) + Sidebar (derecha)
+=============================================================== -->
+    <div class="max-w-7xl mx-auto w-full px-6 md:px-10 lg:px-16 py-16">
+        <div class="flex flex-col lg:flex-row gap-16 xl:gap-20">
+
+            <!-- ══════════════════════════════════════════════════════
+             COLUMNA PRINCIPAL
+        ══════════════════════════════════════════════════════ -->
+            <div class="flex-1 min-w-0 flex flex-col gap-16">
+
+                <!-- ──────────────────────────────────────────────
+                 BLOQUE 4 | ÚLTIMO BLOG (inyectado por JS)
+                 ─ Muestra automáticamente el primer elemento
+                   del array BLOGS en blogs-data.js
+            ────────────────────────────────────────────── -->
+                <!-- FIN BLOQUE 4 -->
+                <div id="bloque-ultimo-blog">
+                    <!-- Skeleton mientras carga -->
+                    <div class="skeleton" style="width:100%;aspect-ratio:21/9;border-radius:.5rem;"></div>
+                    <div style="height:20px;"></div>
+                    <div class="skeleton" style="width:30%;height:14px;"></div>
+                    <div style="height:12px;"></div>
+                    <div class="skeleton" style="width:80%;height:28px;"></div>
+                </div>
+
+                <!-- ──────────────────────────────────────────────
+                 BLOQUE 7 | TODOS LOS BLOGS
+                 ─ Grid de 6 tarjetas por página
+                 ─ Filtrable por categoría y búsqueda
+                 ─ Paginación funcional
+            ────────────────────────────────────────────── -->
+                <!-- FIN BLOQUE 7 -->
+                <section id="bloque-todos-los-blogs">
+                    <!-- Título de sección (dinámico según filtro) -->
+                    <div class="flex items-center justify-between mb-10 pb-4 border-b border-background-alt">
+                        <h2 id="grid-titulo" class="text-2xl md:text-3xl font-bold text-primary font-display">
+                            Todos los artículos
+                        </h2>
+                        <!-- Botón para limpiar filtro (aparece cuando hay filtro activo) -->
+                        <button id="btn-limpiar-filtro"
+                            class="hidden text-xs font-semibold text-accent uppercase tracking-widest flex items-center gap-1 hover:underline transition-all"
+                            onclick="limpiarFiltros()">
+                            <span class="material-symbols-outlined text-base">close</span>
+                            Ver todos
+                        </button>
+                    </div>
+
+                    <!-- Grid de tarjetas -->
+                    <div id="blog-grid" class="grid sm:grid-cols-2 gap-x-10 gap-y-14">
+                        <!-- Skeletons de carga -->
+                        <div class="skeleton" style="height:320px;border-radius:.5rem;"></div>
+                        <div class="skeleton" style="height:320px;border-radius:.5rem;"></div>
+                        <div class="skeleton" style="height:320px;border-radius:.5rem;"></div>
+                        <div class="skeleton" style="height:320px;border-radius:.5rem;"></div>
+                    </div>
+
+                    <!-- Mensaje sin resultados -->
+                    <div id="sin-resultados" class="hidden text-center py-20">
+                        <span class="material-symbols-outlined text-5xl text-neutral-gray mb-4 block">search_off</span>
+                        <p class="text-neutral-gray text-lg font-light">No se encontraron artículos con ese criterio.
+                        </p>
+                        <button onclick="limpiarFiltros()"
+                            class="mt-6 text-sm font-semibold text-accent uppercase tracking-widest hover:underline">
+                            Ver todos los artículos
+                        </button>
+                    </div>
+
+                    <!-- Paginación -->
+                    <div id="blog-paginacion"
+                        class="flex items-center justify-start gap-3 mt-14 border-t border-background-alt pt-8">
+                    </div>
+                </section>
+
+            </div><!-- fin columna principal -->
+
+
+            <!-- ══════════════════════════════════════════════════════
+             SIDEBAR DERECHO
+        ══════════════════════════════════════════════════════ -->
+            <aside class="w-full lg:w-80 xl:w-96 shrink-0 flex flex-col gap-10">
+
+                <!-- ──────────────────────────────────────────────
+                 BLOQUE 5 | BUSCADOR DE ARTÍCULO
+            ────────────────────────────────────────────── -->
+                <!-- FIN BLOQUE 5 -->
+                <div class="bg-background-alt/50 p-8 rounded-xl border border-background-alt">
+                    <h4 class="text-xl font-bold mb-5 flex items-center gap-3 text-primary font-display">
+                        <span class="material-symbols-outlined text-secondary">search</span>
+                        Buscar artículo
+                    </h4>
+                    <div class="relative">
+                        <input id="input-busqueda" type="text" placeholder="Escriba palabras clave..."
+                            class="w-full bg-white border border-background-alt rounded-lg px-5 py-4 pr-12 text-sm focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none transition-all placeholder:text-neutral-gray"
+                            oninput="onBusqueda(this.value)" onkeydown="if(event.key==='Enter') scrollAlGrid()" />
+                        <span
+                            class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-neutral-gray cursor-pointer hover:text-secondary transition-colors"
+                            onclick="scrollAlGrid()">search</span>
+                    </div>
+                    <!-- Contador de resultados -->
+                    <p id="busqueda-info" class="text-xs text-neutral-gray mt-3 hidden"></p>
+                </div>
+
+                <!-- ──────────────────────────────────────────────
+                 BLOQUE 6 | CATEGORÍAS
+                 ─ Al hacer clic filtra el Bloque 7
+                 ─ Los conteos se calculan automáticamente
+                   desde los datos de blogs-data.js
+            ────────────────────────────────────────────── -->
+                <!-- FIN BLOQUE 6 -->
+                <div class="bg-primary p-8 rounded-xl text-white">
+                    <h4 class="text-2xl font-bold mb-6 text-accent font-display">Categorías</h4>
+                    <ul id="lista-categorias" class="flex flex-col gap-4 text-sm">
+                        <!-- Inyectado por JS -->
+                    </ul>
+                </div>
+
+                <!-- ──────────────────────────────────────────────
+                 BLOQUE 8 | LO MÁS LEÍDO
+                 ─ Datos desde CounterAPI (conteo real de visitas)
+                 ─ Fallback: blogs marcados como masLeido:true
+            ────────────────────────────────────────────── -->
+                <!-- FIN BLOQUE 8 -->
+                <div class="p-8 border border-background-alt rounded-xl">
+                    <h4 class="text-xl font-bold mb-6 text-primary font-display border-b border-background-alt pb-4">
+                        Lo más leído
+                    </h4>
+                    <div id="mas-leido-lista" class="flex flex-col gap-7">
+                        <!-- Skeletons de carga -->
+                        <div class="flex gap-4">
+                            <div class="skeleton shrink-0 rounded-lg" style="width:80px;height:80px;"></div>
+                            <div class="flex-1 flex flex-col gap-2 justify-center">
+                                <div class="skeleton" style="height:14px;width:90%;"></div>
+                                <div class="skeleton" style="height:14px;width:70%;"></div>
+                                <div class="skeleton" style="height:10px;width:40%;"></div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="skeleton shrink-0 rounded-lg" style="width:80px;height:80px;"></div>
+                            <div class="flex-1 flex flex-col gap-2 justify-center">
+                                <div class="skeleton" style="height:14px;width:85%;"></div>
+                                <div class="skeleton" style="height:14px;width:65%;"></div>
+                                <div class="skeleton" style="height:10px;width:40%;"></div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="skeleton shrink-0 rounded-lg" style="width:80px;height:80px;"></div>
+                            <div class="flex-1 flex flex-col gap-2 justify-center">
+                                <div class="skeleton" style="height:14px;width:80%;"></div>
+                                <div class="skeleton" style="height:14px;width:60%;"></div>
+                                <div class="skeleton" style="height:10px;width:40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </aside><!-- fin sidebar -->
+
+        </div>
+    </div>
+    <!-- FIN ÁREA PRINCIPAL -->
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT PRINCIPAL
+     ─ 1. Menú hamburguesa + acordeón servicios
+     ─ 2. Renderizado del Bloque 4 (último blog)
+     ─ 3. Renderizado del Bloque 7 (grid + paginación)
+     ─ 4. Buscador en tiempo real (Bloque 5)
+     ─ 5. Filtro de categorías (Bloque 6)
+     ─ 6. Lo más leído via CounterAPI (Bloque 8)
+=============================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ─────────────────────────────────────────────────────────────
+               1. MENÚ HAMBURGUESA Y ACORDEÓN SERVICIOS
+               ✅ Gestionado por componentes.js — no se necesita código acá
+            ───────────────────────────────────────────────────────────── */
+
+
+            /* ─────────────────────────────────────────────────────────────
+               ESTADO GLOBAL DEL FILTRO
+            ───────────────────────────────────────────────────────────── */
+            var estado = {
+                categoria: null,   // null = todas las categorías
+                busqueda: '',
+                pagina: 1,
+                porPagina: 6
+            };
+
+
+            /* ─────────────────────────────────────────────────────────────
+               2. BLOQUE 4 — ÚLTIMO BLOG
+               Lee BLOGS[0] de blogs-data.js y renderiza el artículo destacado
+            ───────────────────────────────────────────────────────────── */
+            function renderUltimoBlog() {
+                var cont = document.getElementById('bloque-ultimo-blog');
+                if (!BLOGS || BLOGS.length === 0) { cont.innerHTML = ''; return; }
+                var b = BLOGS[0];
+                var fechaStr = formatearFecha(b.fecha);
+                var etiquetas = b.categorias.map(function (c) {
+                    return '<span class="text-secondary text-[11px] font-bold uppercase tracking-[0.15em]">' + c + '</span>';
+                }).join('<span class="w-1 h-1 rounded-full bg-neutral-gray/40 inline-block align-middle mx-2"></span>');
+
+                cont.innerHTML =
+                    '<article class="featured-article group" onclick="irABlog(\'' + b.archivo + '\')">' +
+                    '<div class="aspect-[21/9] w-full overflow-hidden rounded-lg mb-8 relative bg-background-alt">' +
+                    '<img src="' + b.imagen + '" alt="' + escHtml(b.titulo) + '" ' +
+                    'class="featured-img w-full h-full object-cover" ' +
+                    'onerror="this.style.display=\'none\'">' +
+                    '<div class="absolute top-6 left-6">' +
+                    '<span class="px-4 py-1 bg-primary text-white text-[10px] font-bold rounded-full uppercase tracking-[0.2em]">' +
+                    'Último artículo' +
+                    '</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="max-w-3xl">' +
+                    '<div class="flex items-center gap-3 mb-4 flex-wrap">' +
+                    etiquetas +
+                    '<span class="w-1 h-1 rounded-full bg-neutral-gray/40 inline-block align-middle"></span>' +
+                    '<span class="text-neutral-gray text-sm">' + fechaStr + '</span>' +
+                    '</div>' +
+                    '<h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary group-hover:text-secondary transition-colors font-display leading-tight">' +
+                    escHtml(b.titulo) +
+                    '</h2>' +
+                    '<p class="text-text-main/80 text-lg font-light leading-relaxed mb-6">' +
+                    escHtml(b.extracto) +
+                    '</p>' +
+                    '<div class="featured-read-more flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-widest border-b border-primary/10 pb-1 w-fit group-hover:gap-4 transition-all">' +
+                    'Seguir leyendo <span class="material-symbols-outlined text-lg">east</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</article>';
+            }
+
+
+            /* ─────────────────────────────────────────────────────────────
+               3. BLOQUE 7 — GRID DE BLOGS (con filtros y paginación)
+            ───────────────────────────────────────────────────────────── */
+
+            // Devuelve los blogs filtrados según estado actual
+            function getBlogsFiltrados() {
+                // Empezamos desde BLOGS[1] para no mostrar el último blog
+                // (ya aparece en Bloque 4), excepto si hay un filtro activo
+                var lista = estado.categoria || estado.busqueda.trim()
+                    ? BLOGS.slice(0)          // con filtro: incluir todos
+                    : BLOGS.slice(1);         // sin filtro: omitir el primero (ya está en Bloque 4)
+
+                if (estado.categoria) {
+                    lista = lista.filter(function (b) {
+                        return b.categorias.indexOf(estado.categoria) !== -1;
+                    });
+                }
+
+                if (estado.busqueda.trim()) {
+                    var q = estado.busqueda.trim().toLowerCase();
+                    lista = lista.filter(function (b) {
+                        return b.titulo.toLowerCase().indexOf(q) !== -1 ||
+                            b.extracto.toLowerCase().indexOf(q) !== -1;
+                    });
+                }
+
+                return lista;
+            }
+
+            function renderGrid() {
+                var grid = document.getElementById('blog-grid');
+                var sinRes = document.getElementById('sin-resultados');
+                var titulo = document.getElementById('grid-titulo');
+                var btnLimp = document.getElementById('btn-limpiar-filtro');
+                var busqInfo = document.getElementById('busqueda-info');
+
+                var filtrados = getBlogsFiltrados();
+                var totalPags = Math.ceil(filtrados.length / estado.porPagina);
+                if (estado.pagina > totalPags && totalPags > 0) estado.pagina = totalPags;
+                var inicio = (estado.pagina - 1) * estado.porPagina;
+                var fin = inicio + estado.porPagina;
+                var pagina = filtrados.slice(inicio, fin);
+
+                // Título dinámico
+                if (estado.categoria) {
+                    titulo.textContent = estado.categoria;
+                } else if (estado.busqueda.trim()) {
+                    titulo.textContent = 'Resultados de búsqueda';
+                } else {
+                    titulo.textContent = 'Todos los artículos';
+                }
+
+                // Botón limpiar
+                if (estado.categoria || estado.busqueda.trim()) {
+                    btnLimp.classList.remove('hidden');
+                } else {
+                    btnLimp.classList.add('hidden');
+                }
+
+                // Info de búsqueda
+                if (estado.busqueda.trim() && filtrados.length > 0) {
+                    busqInfo.textContent = filtrados.length + ' artículo' + (filtrados.length !== 1 ? 's' : '') + ' encontrado' + (filtrados.length !== 1 ? 's' : '');
+                    busqInfo.classList.remove('hidden');
+                } else {
+                    busqInfo.classList.add('hidden');
+                }
+
+                // Sin resultados
+                if (pagina.length === 0) {
+                    grid.innerHTML = '';
+                    sinRes.classList.remove('hidden');
+                    document.getElementById('blog-paginacion').innerHTML = '';
+                    return;
+                }
+                sinRes.classList.add('hidden');
+
+                // Renderizar tarjetas
+                grid.innerHTML = pagina.map(function (b) {
+                    var fecha = formatearFecha(b.fecha);
+                    var tags = b.categorias.map(function (c) {
+                        return '<span class="text-secondary text-[10px] font-bold uppercase tracking-[0.15em]">' + c + '</span>';
+                    }).join('<span class="mx-1 text-neutral-gray/40">·</span>');
+
+                    return (
+                        '<article class="blog-card group" onclick="irABlog(\'' + b.archivo + '\')">' +
+                        '<div class="aspect-[4/3] w-full overflow-hidden rounded-lg mb-5 bg-background-alt">' +
+                        '<img src="' + b.imagen + '" alt="' + escHtml(b.titulo) + '" ' +
+                        'class="card-img w-full h-full object-cover" ' +
+                        'onerror="this.parentNode.style.background=\'#EDEAE4\'">' +
+                        '</div>' +
+                        '<div class="flex items-center gap-1 mb-3 flex-wrap">' + tags + '</div>' +
+                        '<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-secondary transition-colors font-display leading-tight">' +
+                        escHtml(b.titulo) +
+                        '</h3>' +
+                        '<p class="text-text-main/70 text-sm font-light leading-relaxed line-clamp-2 mb-4">' +
+                        escHtml(b.extracto) +
+                        '</p>' +
+                        '<span class="text-neutral-gray text-[10px] uppercase tracking-widest">' + fecha + '</span>' +
+                        '</article>'
+                    );
+                }).join('');
+
+                renderPaginacion(totalPags);
+            }
+
+            function renderPaginacion(totalPags) {
+                var cont = document.getElementById('blog-paginacion');
+                if (totalPags <= 1) { cont.innerHTML = ''; return; }
+
+                var html = '';
+
+                // Botón anterior
+                html += '<button class="pag-btn pag-prev" onclick="cambiarPagina(' + (estado.pagina - 1) + ')" ' +
+                    (estado.pagina === 1 ? 'disabled' : '') + '>' +
+                    '<span class="material-symbols-outlined text-lg">chevron_left</span></button>';
+
+                // Páginas
+                for (var i = 1; i <= totalPags; i++) {
+                    if (
+                        i === 1 || i === totalPags ||
+                        (i >= estado.pagina - 1 && i <= estado.pagina + 1)
+                    ) {
+                        html += '<button class="pag-btn ' + (i === estado.pagina ? 'activa' : 'inactiva') + '" ' +
+                            'onclick="cambiarPagina(' + i + ')">' + i + '</button>';
+                    } else if (i === estado.pagina - 2 || i === estado.pagina + 2) {
+                        html += '<span class="text-neutral-gray px-1">…</span>';
+                    }
+                }
+
+                // Botón siguiente
+                html += '<button class="pag-btn pag-next" onclick="cambiarPagina(' + (estado.pagina + 1) + ')" ' +
+                    (estado.pagina === totalPags ? 'disabled' : '') + '>' +
+                    '<span class="material-symbols-outlined text-lg">chevron_right</span></button>';
+
+                cont.innerHTML = html;
+            }
+
+
+            /* ─────────────────────────────────────────────────────────────
+               4. BLOQUE 5 — BUSCADOR EN TIEMPO REAL
+            ───────────────────────────────────────────────────────────── */
+            window.scrollAlGrid = function () {
+                document.getElementById('bloque-todos-los-blogs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            window.onBusqueda = function (valor) {
+                estado.busqueda = valor;
+                estado.pagina = 1;
+                estado.categoria = null;
+                // Deseleccionar categoría activa
+                document.querySelectorAll('.cat-btn').forEach(function (b) { b.classList.remove('activa'); });
+                renderGrid();
+            };
+
+
+            /* ─────────────────────────────────────────────────────────────
+               5. BLOQUE 6 — CATEGORÍAS (con conteo automático)
+            ───────────────────────────────────────────────────────────── */
+            function renderCategorias() {
+                // Calcular cuántos blogs hay por categoría
+                var conteos = {};
+                BLOGS.forEach(function (b) {
+                    b.categorias.forEach(function (c) {
+                        conteos[c] = (conteos[c] || 0) + 1;
+                    });
+                });
+
+                // Ordenar por cantidad (mayor primero)
+                var cats = Object.keys(conteos).sort(function (a, b) {
+                    return conteos[b] - conteos[a];
+                });
+
+                var lista = document.getElementById('lista-categorias');
+                lista.innerHTML = cats.map(function (cat) {
+                    return (
+                        '<li>' +
+                        '<button class="cat-btn w-full flex justify-between items-center group text-left" ' +
+                        'onclick="filtrarCategoria(\'' + escHtml(cat) + '\')">' +
+                        '<span class="text-white/80 group-hover:text-accent transition-colors font-medium tracking-wide text-sm">' +
+                        cat.toUpperCase() +
+                        '</span>' +
+                        '<span class="bg-white/10 px-3 py-1 rounded text-[10px] text-white/60 font-medium">' +
+                        String(conteos[cat]).padStart(2, '0') +
+                        '</span>' +
+                        '</button>' +
+                        '</li>'
+                    );
+                }).join('');
+            }
+
+            window.filtrarCategoria = function (cat) {
+                // Toggle: clic en la categoría activa la desactiva
+                if (estado.categoria === cat) {
+                    limpiarFiltros();
+                    return;
+                }
+                estado.categoria = cat;
+                estado.busqueda = '';
+                estado.pagina = 1;
+                document.getElementById('input-busqueda').value = '';
+                // Marcar categoría activa
+                document.querySelectorAll('.cat-btn').forEach(function (b) {
+                    if (b.querySelector('span').textContent.trim().toLowerCase() === cat.toLowerCase()) {
+                        b.classList.add('activa');
+                    } else {
+                        b.classList.remove('activa');
+                    }
+                });
+                renderGrid();
+                // Scroll suave al grid en móvil
+                document.getElementById('bloque-todos-los-blogs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+            window.limpiarFiltros = function () {
+                estado.categoria = null;
+                estado.busqueda = '';
+                estado.pagina = 1;
+                document.getElementById('input-busqueda').value = '';
+                document.querySelectorAll('.cat-btn').forEach(function (b) { b.classList.remove('activa'); });
+                renderGrid();
+            };
+
+            window.cambiarPagina = function (pag) {
+                estado.pagina = pag;
+                renderGrid();
+                // Scroll al inicio del grid
+                document.getElementById('bloque-todos-los-blogs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+
+
+            /* ─────────────────────────────────────────────────────────────
+               6. BLOQUE 8 — LO MÁS LEÍDO (CounterAPI + fallback)
+               ─ Namespace: COUNTER_NAMESPACE (definido en blogs-data.js)
+               ─ Fetcha todos los contadores en paralelo
+               ─ Si la API falla, muestra los marcados como masLeido:true
+            ───────────────────────────────────────────────────────────── */
+            function cargarMasLeido() {
+                var ns = (typeof COUNTER_NAMESPACE !== 'undefined') ? COUNTER_NAMESPACE : 'grupobs-blog';
+
+                // Pide los contadores de todos los blogs en paralelo
+                var promesas = BLOGS.map(function (b) {
+                    return fetch('https://api.counterapi.dev/v1/' + ns + '/' + b.id)
+                        .then(function (r) { return r.json(); })
+                        .then(function (data) {
+                            return { blog: b, vistas: (data && data.count) ? data.count : 0 };
+                        })
+                        .catch(function () {
+                            return { blog: b, vistas: 0 };
+                        });
+                });
+
+                Promise.all(promesas).then(function (resultados) {
+                    // ¿Todos los contadores son 0? → posible fallo de API → usar fallback
+                    var todosEnCero = resultados.every(function (r) { return r.vistas === 0; });
+
+                    var top3;
+                    if (todosEnCero) {
+                        // Fallback: blogs marcados como masLeido:true
+                        top3 = BLOGS.filter(function (b) { return b.masLeido; }).slice(0, 3).map(function (b) {
+                            return { blog: b, vistas: null };
+                        });
+                        // Si no hay ninguno marcado, tomar los primeros 3
+                        if (top3.length === 0) {
+                            top3 = BLOGS.slice(0, 3).map(function (b) { return { blog: b, vistas: null }; });
+                        }
+                    } else {
+                        // Ordenar por vistas descendente, tomar top 3
+                        top3 = resultados.sort(function (a, b) { return b.vistas - a.vistas; }).slice(0, 3);
+                    }
+
+                    renderMasLeido(top3);
+                });
+            }
+
+            function renderMasLeido(items) {
+                var cont = document.getElementById('mas-leido-lista');
+                cont.innerHTML = items.map(function (item) {
+                    var b = item.blog;
+                    var fecha = formatearFecha(b.fecha);
+                    var vistas = item.vistas !== null
+                        ? '<span class="text-[10px] text-neutral-gray uppercase tracking-widest">' + item.vistas + ' vistas · ' + fecha + '</span>'
+                        : '<span class="text-[10px] text-neutral-gray uppercase tracking-widest">' + fecha + '</span>';
+
+                    return (
+                        '<a class="flex gap-4 group cursor-pointer" onclick="irABlog(\'' + b.archivo + '\')">' +
+                        '<div class="size-20 shrink-0 rounded-lg overflow-hidden bg-background-alt">' +
+                        '<img src="' + b.imagen + '" alt="' + escHtml(b.titulo) + '" ' +
+                        'class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">' +
+                        '</div>' +
+                        '<div class="flex flex-col justify-center">' +
+                        '<h5 class="text-sm font-semibold leading-snug group-hover:text-secondary transition-colors line-clamp-2 mb-2 text-text-main">' +
+                        escHtml(b.titulo) +
+                        '</h5>' +
+                        vistas +
+                        '</div>' +
+                        '</a>'
+                    );
+                }).join('');
+            }
+
+
+            /* ─────────────────────────────────────────────────────────────
+               NAVEGACIÓN A UN BLOG
+            ───────────────────────────────────────────────────────────── */
+            window.irABlog = function (archivo) {
+                if (archivo) window.location.href = archivo;
+            };
+
+
+            /* ─────────────────────────────────────────────────────────────
+               UTILIDADES
+            ───────────────────────────────────────────────────────────── */
+            function escHtml(str) {
+                if (!str) return '';
+                return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            function formatearFecha(iso) {
+                if (!iso) return '';
+                var meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+                var partes = iso.split('-');
+                if (partes.length < 3) return iso;
+                return parseInt(partes[2], 10) + ' de ' + meses[parseInt(partes[1], 10) - 1] + ', ' + partes[0];
+            }
+
+
+            /* ─────────────────────────────────────────────────────────────
+               INICIALIZACIÓN — ejecutar todo al cargar la página
+            ───────────────────────────────────────────────────────────── */
+            renderUltimoBlog();
+            renderCategorias();
+            renderGrid();
+            cargarMasLeido();
+
+        }); // fin DOMContentLoaded
+    </script>
+
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'dark';     /* 📌 cambiá a 'light' para navbar blanco; 'dark' para navbar azul marino */
+        var NAV_ACTIVO = 'blog';
+    </script>
+    <script src="./componentes.js"></script>
+
+</body>
+
+</html>

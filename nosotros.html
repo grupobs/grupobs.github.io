@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Grupo B's — Arquitectura y Construcción</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+           VARIABLES DE COLOR Y RESET
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Etiqueta dorada pequeña */
+        .gold-label {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        /* ================================================================
+           BLOQUE 3 — HERO SECTION (Versión Stitch)
+        ================================================================ */
+        #hero-nosotros {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(27, 42, 74, 0.65), rgba(27, 42, 74, 0.65)),
+                url('https://lh3.googleusercontent.com/aida-public/AB6AXuBk89pdbKyTTZAV9JNuBoOHePMmWjH5RQgypVoJ_hapqy2maxrX1x-cbVaSt2Cigmcg9VgziYOK72P9bzePVatwxaayPDWrbckUnen0wT0V_qWMFYCk5G3c-9gwU9YkqcZMLAtntUaUHvwsyVmFXOfYVGUgbVO4PYzbEdXi2QKP5ybJwC3Fcd1LyhM1p6BJiEivxbmIuuL2tjutwoOyxcPgCXIckjPYHGaE_JUCujWciVcVM5HZBe2W-SvSOOngdVGkuujFO6I1Jsw');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-nosotros-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 860px;
+            padding: 0 24px;
+        }
+
+        .hero-nosotros-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -.01em;
+        }
+
+        .hero-nosotros-content p {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, .9);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.75;
+            letter-spacing: .02em;
+        }
+
+        /* ================================================================
+           BLOQUE 4 — NUESTRA HISTORIA (Versión Stitch)
+        ================================================================ */
+        #historia {
+            background: var(--white);
+            padding: 96px 48px;
+        }
+
+        .historia-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .historia-texto h2 {
+            font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 32px;
+            line-height: 1.15;
+        }
+
+        .historia-texto .historia-parrafo {
+            font-size: 1.05rem;
+            color: rgba(45, 45, 45, .8);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .historia-texto .historia-parrafo strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        .historia-img {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .14);
+            height: 450px;
+        }
+
+        .historia-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter .7s;
+        }
+
+        .historia-img:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* ================================================================
+           BLOQUE 5 — NUESTROS VALORES (Versión Stitch)
+        ================================================================ */
+        #valores {
+            background: var(--pearl);
+            padding: 96px 48px;
+        }
+
+        .valores-header {
+            max-width: 1100px;
+            margin: 0 auto 72px;
+            text-align: center;
+        }
+
+        .valores-header h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .valores-header p {
+            font-size: 1.05rem;
+            color: var(--sec-blue);
+            font-weight: 400;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .valores-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .valor-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px 28px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .05);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .valor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, .12);
+        }
+
+        .valor-card .material-symbols-outlined {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        .valor-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .valor-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: .85rem;
+            color: rgba(45, 45, 45, .7);
+            line-height: 1.75;
+        }
+
+        /* ================================================================
+           BLOQUE 6 — CAPITAL HUMANO (Versión Stitch)
+        ================================================================ */
+        #capital-humano {
+            background: var(--white);
+            padding: 96px 48px;
+        }
+
+        .ch-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .ch-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .ch-header h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .ch-header p {
+            font-size: 1.05rem;
+            color: rgba(45, 45, 45, .6);
+            max-width: 740px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ch-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .ch-pillar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ch-img-wrap {
+            position: relative;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+            margin-bottom: 32px;
+        }
+
+        .ch-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+
+        .ch-img-wrap:hover img {
+            transform: scale(1.06);
+        }
+
+        .ch-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+        .ch-img-wrap:hover .ch-img-overlay {
+            opacity: 1;
+        }
+
+        .ch-img-overlay .material-symbols-outlined {
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .ch-pillar h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .ch-pillar p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: rgba(45, 45, 45, .7);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .ch-quote {
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 1px solid var(--pearl);
+            text-align: center;
+        }
+
+        .ch-quote p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--sec-blue);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* ================================================================
+           BLOQUE 7 — MISIÓN Y VISIÓN + CALL TO ACTION
+        ================================================================ */
+        #mision-vision {
+            background: var(--primary);
+            padding: 96px 48px;
+            color: var(--white);
+        }
+
+        .mv-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .mv-item {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .mv-item-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mv-item-header .material-symbols-outlined {
+            font-size: 3rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .mv-item-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .mv-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .75);
+            line-height: 1.85;
+            font-weight: 300;
+        }
+
+        /* CTA dentro de la sección */
+        .cta-bloque {
+            max-width: 1100px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            padding-top: 64px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .cta-bloque .gold-label {
+            margin-bottom: 4px;
+        }
+
+        .cta-bloque h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+            max-width: 680px;
+        }
+
+        .cta-bloque h2 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .cta-bloque p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .65);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 560px;
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            background: var(--accent);
+            padding: 17px 44px;
+            font-family: 'Inter', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: background .3s, color .3s;
+            box-shadow: 0 8px 28px rgba(201, 169, 110, .3);
+        }
+
+        .btn-cta-primary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .3);
+            background: rgba(255, 255, 255, .06);
+            padding: 17px 44px;
+            font-family: 'Inter', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: background .3s;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255, 255, 255, .14);
+        }
+
+        /* ================================================================
+           BLOQUE 8 — PREGUNTAS FRECUENTES
+        ================================================================ */
+        #faq {
+            background: var(--bg-warm);
+            padding: 96px 48px;
+        }
+
+        .faq-inner {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .faq-header h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .faq-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: rgba(45, 45, 45, .6);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 10px;
+            border: 1px solid var(--pearl);
+            overflow: hidden;
+            transition: box-shadow .2s;
+        }
+
+        .faq-item.open {
+            box-shadow: 0 8px 32px rgba(27, 42, 74, .10);
+        }
+
+        .faq-pregunta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 28px;
+            cursor: pointer;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-pregunta h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+            transition: color .2s;
+        }
+
+        .faq-item.open .faq-pregunta h3 {
+            color: var(--accent);
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1.5px solid var(--pearl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background .2s, border-color .2s, transform .3s;
+        }
+
+        .faq-icon i {
+            font-size: .7rem;
+            color: var(--primary);
+            transition: color .2s, transform .3s;
+        }
+
+        .faq-item.open .faq-icon {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(180deg);
+        }
+
+        .faq-item.open .faq-icon i {
+            color: var(--primary);
+        }
+
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .faq-respuesta-inner {
+            padding: 0 28px 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: .95rem;
+            color: rgba(45, 45, 45, .7);
+            line-height: 1.8;
+            font-weight: 300;
+            border-top: 1px solid var(--pearl);
+            padding-top: 20px;
+        }
+
+        /* ================================================================
+           RESPONSIVE
+        ================================================================ */
+        @media (max-width: 1024px) {
+            .historia-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .historia-img {
+                max-width: 520px;
+            }
+
+            .valores-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ch-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .mv-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: inline-flex;
+            }
+
+            #hero-nosotros {
+                height: 480px;
+            }
+
+            .hero-nosotros-content h1 {
+                font-size: 2.6rem;
+            }
+
+            #historia,
+            #valores,
+            #capital-humano,
+            #mision-vision,
+            #faq {
+                padding: 72px 24px;
+            }
+
+            .valores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mv-inner {
+                margin-bottom: 48px;
+            }
+
+            .cta-bloque h2 {
+                font-size: 2rem;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero-nosotros {
+                height: 420px;
+            }
+
+            .hero-nosotros-content h1 {
+                font-size: 2rem;
+            }
+
+            .historia-inner,
+            .ch-grid {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ==============================================================
+     BLOQUE 3 | HERO SECTION (Versión Stitch)
+     "Tu casa definitiva..."
+============================================================== -->
+        <section id="hero-nosotros">
+            <div class="hero-bg"></div>
+            <div class="hero-nosotros-content">
+                <h1>
+                    Tu casa definitiva,<br>diseñada desde el primer trazo.
+                </h1>
+                <p>
+                    La constructora que piensa como arquitecto y ejecuta como constructor.
+                    25 años de experiencia real en obra.
+                </p>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 4 | NUESTRA HISTORIA (Versión Stitch)
+============================================================== -->
+        <section id="historia">
+            <div class="historia-inner">
+
+                <div class="historia-texto">
+                    <span class="gold-label">Nuestra Trayectoria</span>
+                    <h2>Nuestra Historia</h2>
+                    <p class="historia-parrafo">
+                        Grupo B's nació con una convicción clara: que construir bien no es solo una cuestión técnica,
+                        sino una responsabilidad hacia quien deposita su confianza en nosotros. No vendemos metros
+                        cuadrados ni artefactos. Vendemos <strong>criterio, compromiso y resultados que
+                            perduran</strong>.
+                    </p>
+                    <p class="historia-parrafo">
+                        A lo largo de los años hemos desarrollado proyectos de construcción, diseño arquitectónico,
+                        iluminación e interiorismo en los que la calidad no fue una aspiración, sino el punto de
+                        partida. Desde viviendas unifamiliares y complejos residenciales hasta edificios corporativos y
+                        estudios profesionales, cada obra recibió el mismo nivel de atención, criterio y exigencia.
+                    </p>
+                    <p class="historia-parrafo">
+                        Nos especializamos en escuchar. Antes de diseñar, entendemos al cliente: sus necesidades, su
+                        presupuesto, sus tiempos y su visión. A partir de ahí construimos soluciones reales — no
+                        genéricas — que responden exactamente a lo que cada proyecto requiere.
+                    </p>
+                </div>
+
+                <div class="historia-img">
+                    <!-- 📌 Reemplazá con una foto real de Grupo B's -->
+                    <img src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h24.jpg"
+                        alt="Construcción real de Grupo B's">
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 5 | NUESTROS VALORES (Versión Stitch)
+============================================================== -->
+        <section id="valores">
+            <div class="valores-header">
+                <span class="gold-label">Lo que nos define</span>
+                <h2>Nuestros Valores</h2>
+                <p>Cinco pilares que definen nuestra manera de transformar la realidad a través de la arquitectura y la
+                    ingeniería.</p>
+            </div>
+
+            <div class="valores-grid">
+
+                <div class="valor-card">
+                    <span class="material-symbols-outlined">verified</span>
+                    <h3>Calidad</h3>
+                    <p>Excelencia en cada detalle, desde la selección de materiales premium hasta la ejecución final de
+                        obra.</p>
+                </div>
+
+                <div class="valor-card">
+                    <span class="material-symbols-outlined">layers</span>
+                    <h3>Metodología BIM</h3>
+                    <p>Integración tecnológica total para una planificación precisa que evita sorpresas en costos y
+                        plazos.</p>
+                </div>
+
+                <div class="valor-card">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <h3>Innovación</h3>
+                    <p>Búsqueda constante de soluciones constructivas de vanguardia y diseño arquitectónico inteligente.
+                    </p>
+                </div>
+
+                <div class="valor-card">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <h3>Compromiso</h3>
+                    <p>Honestidad y transparencia absoluta con los presupuestos y la visión a largo plazo de nuestros
+                        clientes.</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 6 | CAPITAL HUMANO (Versión Stitch)
+============================================================== -->
+        <section id="capital-humano">
+            <div class="ch-inner">
+
+                <div class="ch-header">
+                    <span class="gold-label">Capital Humano</span>
+                    <h2>Estructura Profesional</h2>
+                    <p>
+                        Contamos con un equipo multidisciplinar coordinado bajo una visión estratégica que integra la
+                        solidez
+                        técnica y la sensibilidad estética. Nuestra operatividad se fundamenta en la sinergia de dos
+                        pilares
+                        de ingeniería de primer nivel.
+                    </p>
+                </div>
+
+                <div class="ch-grid">
+
+                    <!-- Pilar 1: Ingeniería Civil -->
+                    <div class="ch-pillar">
+                        <div class="ch-img-wrap">
+                            <!-- 📌 Reemplazá con foto de obra real -->
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXV0w37v7hEJg00arON16YREfIJ6kFBM34R8IsYn1569YqA0OYg7_7lC4gmevi-wUdOpOEV46EXt7qqoRKGWo5L2tsAjgzU98y4pEIo87UizlAhqhWtPINW-vN8kEtcryCeuFeuz-pAgO_3c4M5Wkirwgevumx8LXmEPqGuNQMf36SYGalQNL0c_TH-bwWSnE1WJpI3PVtHSWlKgIyhLQvuKAZjqrgSwTZMYJ_5-F_O4ypFgG06ko1AYo_PRNaQwYXhGbTGWjA5xo"
+                                alt="Ingeniería Civil y Estructural">
+                            <div class="ch-img-overlay">
+                                <span class="material-symbols-outlined">architecture</span>
+                            </div>
+                        </div>
+                        <h3>Ingeniería Civil y Ejecución Técnica</h3>
+                        <p>
+                            Liderado por especialistas en cálculo estructural y gestión de obra, este pilar garantiza
+                            que
+                            cada diseño se materialice con la máxima seguridad, eficiencia de recursos y cumplimiento
+                            riguroso de normativas internacionales.
+                        </p>
+                    </div>
+
+                    <!-- Pilar 2: Iluminación -->
+                    <div class="ch-pillar">
+                        <div class="ch-img-wrap">
+                            <!-- 📌 Reemplazá con foto de proyecto de iluminación real -->
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGppKY0T2eS6eaTVCuWMWXVMnbyjCGWempZG2kpJlu9lrnTAwkQJY-f26pcH1CsuJuk5IHA2UD2_9lMYUhdIDi_-IpVQqeMv0Ead-uhXzixuUP1fzFNqdlSCKQzM9Bj96sZkLzVCX8IBfJKrZX4vQUmd0yR_6utUPAcqS7bKCovJWQVvy1-jnPBOH6WiWawk7wKBMmR0Gi_KVA2MSzfu4yJFaTIi1mdDxsBs60z2AheDQpqjL8tgMtMkjnnU95PAc3_7z0SNHc_qs"
+                                alt="Especialización en Iluminación y Diseño">
+                            <div class="ch-img-overlay">
+                                <span class="material-symbols-outlined">light</span>
+                            </div>
+                        </div>
+                        <h3>Especialización en Diseño Lumínico</h3>
+                        <p>
+                            Aportamos una dimensión sensorial a la arquitectura. Nuestro liderazgo en ingeniería de
+                            iluminación define atmósferas únicas, optimizando el confort visual y la eficiencia
+                            energética
+                            para transformar espacios en experiencias de vida.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="ch-quote">
+                    <p>"Un equipo coordinado donde la ingeniería y el arte convergen para superar la expectativa del
+                        cliente."</p>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 7 | MISIÓN & VISIÓN + CALL TO ACTION
+     Estética de la versión Stitch (fondo primary oscuro)
+============================================================== -->
+        <section id="mision-vision">
+
+            <!-- Misión y Visión -->
+            <div class="mv-inner">
+
+                <div class="mv-item">
+                    <div class="mv-item-header">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                        <h2>Misión</h2>
+                    </div>
+                    <p>
+                        Proveer soluciones constructivas integrales que superen los estándares de calidad del mercado,
+                        utilizando tecnología BIM y procesos innovadores para garantizar la satisfacción total de
+                        nuestros
+                        clientes y el desarrollo sostenible de nuestro entorno.
+                    </p>
+                </div>
+
+                <div class="mv-item">
+                    <div class="mv-item-header">
+                        <span class="material-symbols-outlined">visibility</span>
+                        <h2>Visión</h2>
+                    </div>
+                    <p>
+                        Ser reconocidos como el grupo constructor y de diseño líder en la región por nuestra excelencia
+                        técnica, integridad empresarial y capacidad para materializar los proyectos más ambiciosos con
+                        eficiencia y creatividad.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-bloque">
+                <span class="gold-label">¿Listo para empezar?</span>
+                <h2>
+                    Tu proyecto merece<br>
+                    <em>el mejor equipo.</em>
+                </h2>
+                <p>
+                    Conversemos sobre tu idea. Nuestros ingenieros y arquitectos están listos para
+                    transformar tu visión en un espacio que supere tus expectativas.
+                </p>
+                <div class="cta-btns">
+                    <a class="btn-cta-primary" href="contacto.html">
+                        <i class="fa-solid fa-envelope"></i>
+                        Hablemos de tu proyecto
+                    </a>
+                    <a class="btn-cta-secondary" href="obras.html">
+                        <i class="fa-solid fa-images"></i>
+                        Ver nuestras obras
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 8 | PREGUNTAS FRECUENTES
+     Acordeón accesible, estética consistente con Stitch
+============================================================== -->
+        <section id="faq">
+            <div class="faq-inner">
+
+                <div class="faq-header">
+                    <span class="gold-label">Todo lo que necesitás saber</span>
+                    <h2>Preguntas Frecuentes</h2>
+                    <p>Respondemos las consultas más comunes para que puedas tomar la mejor decisión con toda la
+                        información.</p>
+                </div>
+
+                <div class="faq-list">
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿En qué zonas o provincias trabajan?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                Trabajamos principalmente en la provincia de Córdoba y el interior del país. Sin
+                                embargo,
+                                para proyectos de envergadura podemos coordinar trabajo en cualquier región de
+                                Argentina.
+                                Consultanos sin compromiso y evaluamos tu caso en particular.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿Cuánto tiempo demora un proyecto desde el diseño hasta la entrega?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                Los tiempos varían según la complejidad y escala del proyecto. En general, la etapa de
+                                diseño y anteproyecto lleva entre 4 y 8 semanas. La ejecución de obra depende del tipo
+                                de construcción; en promedio, una vivienda familiar de mediana escala insume entre 10 y
+                                18 meses. Trabajamos con cronogramas detallados y actualizamos al cliente de forma
+                                periódica.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿Ofrecen financiamiento o planes de pago?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                Sí. Contamos con distintos esquemas de pago adaptados a cada proyecto: pago por avance
+                                de obra, cuotas mensuales y acuerdos personalizados. En la primera reunión de
+                                consultoría
+                                analizamos juntos la mejor modalidad para tu caso.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿Qué diferencia a Grupo B's de otras constructoras?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                Somos la única empresa de la región que fusiona ingeniería civil, diseño arquitectónico
+                                e
+                                ingeniería de iluminación bajo un mismo equipo. Usamos metodología BIM para planificar y
+                                anticipar cada aspecto del proyecto, lo que reduce errores, desvíos de presupuesto y
+                                tiempos de obra. Más de 25 años de trayectoria respaldan cada decisión que tomamos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿Puedo traer mi propio diseño y que lo ejecuten?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                Absolutamente. Podemos encargarnos únicamente de la ejecución y dirección de obra si ya
+                                contás con un proyecto aprobado. También podemos revisar y adaptar planos existentes
+                                para
+                                optimizar costos y tiempos sin perder la visión original del diseño.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-pregunta">
+                            <h3>¿Cómo es el primer paso para iniciar un proyecto?</h3>
+                            <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                        </div>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                El primer paso es una reunión de consultoría sin costo donde conocemos tu proyecto, tus
+                                expectativas y tu presupuesto estimado. Podés contactarnos por WhatsApp, email o a
+                                través
+                                del formulario de contacto en nuestra página. A partir de ahí, elaboramos una propuesta
+                                técnica y económica personalizada.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 8 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT
+     1. Menú hamburguesa
+     2. Acordeón servicios (menú móvil)
+     3. Acordeón FAQ
+============================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. MENÚ HAMBURGUESA ──────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. ACORDEÓN SERVICIOS (MENÚ MÓVIL) ─────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            toggleServ.addEventListener('click', function () {
+                toggleServ.classList.toggle('expandido');
+                submenuServ.classList.toggle('visible');
+            });
+
+        });
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';
+        var FOOTER_TEMA = 'light';
+        var NAV_ACTIVO = 'nosotros';
+    </script>
+    <script src="./componentes.js"></script>
+
+    <!-- ── 3. ACORDEÓN FAQ — corre después de componentes.js ── -->
+    <script>
+        (function () {
+            var faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function (item) {
+                var pregunta = item.querySelector('.faq-pregunta');
+                var respuesta = item.querySelector('.faq-respuesta');
+                var respInner = item.querySelector('.faq-respuesta-inner');
+
+                pregunta.addEventListener('click', function () {
+                    var isOpen = item.classList.contains('open');
+
+                    /* Cerrar todos */
+                    faqItems.forEach(function (other) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-respuesta').style.maxHeight = '0';
+                    });
+
+                    /* Si no estaba abierto, abrir éste */
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        respuesta.style.maxHeight = (respInner.scrollHeight + 40) + 'px';
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

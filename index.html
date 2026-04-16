@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Empresa | Arquitectura y Construcción</title>
+
+    <!--
+  DEPENDENCIAS EXTERNAS (solo tipografías e íconos — livianos, no bloquean):
+  ─ Google Fonts: Cormorant Garamond + Inter + Dancing Script
+  ─ Font Awesome 6: íconos (WhatsApp, mail, redes, etc.)
+  ─ Material Symbols: íconos adicionales del bloque de Servicios
+  NO hay ningún framework CSS externo. Todo el estilo está en <style>.
+-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+   VARIABLES DE COLOR Y RESET
+================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Tipografías especiales */
+        .font-display,
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Etiqueta dorada pequeña (usada en varios bloques) */
+        .gold-label {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        /* Contenedor centrado */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ================================================================
+   BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO
+================================================================ */
+
+
+        /* ================================================================
+   BLOQUE 2 — NAVBAR
+================================================================ */
+
+
+        /* ================================================================
+   BLOQUE 3 — HERO / CARRUSEL
+================================================================ */
+        #hero {
+            position: relative;
+            height: 90vh;
+            min-height: 680px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Slides */
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay oscuro */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .55);
+            z-index: 10;
+        }
+
+        /* Contenido del hero */
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .hero-inner {
+            max-width: 760px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 9999px;
+            background: rgba(201, 169, 110, .18);
+            border: 1px solid rgba(201, 169, 110, .35);
+            padding: 6px 18px;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge span {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5.4rem);
+            font-weight: 700;
+            line-height: 1.08;
+            color: var(--white);
+            letter-spacing: -.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero-title em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--pearl);
+            line-height: 1.75;
+            font-weight: 300;
+            max-width: 580px;
+            margin-bottom: 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 8px;
+            background: var(--accent);
+            padding: 16px 38px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .25);
+            transition: background .3s, color .3s;
+        }
+
+        .btn-hero-primary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .3);
+            background: rgba(255, 255, 255, .06);
+            padding: 16px 38px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--white);
+            backdrop-filter: blur(8px);
+            transition: background .3s;
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, .15);
+        }
+
+        /* Puntos del carrusel */
+        .carousel-dots {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 30;
+            display: flex;
+            gap: 12px;
+        }
+
+        .carousel-dot {
+            height: 5px;
+            width: 32px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, .3);
+            border: none;
+            cursor: pointer;
+            transition: background .3s;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--white);
+        }
+
+        /* ================================================================
+   BLOQUE 4 — QUIÉNES SOMOS
+================================================================ */
+        #nosotros {
+            background: var(--bg-warm);
+            padding: 96px 32px;
+        }
+
+        .nosotros-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 96px;
+            align-items: center;
+        }
+
+        .nosotros-titulo {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -.01em;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .nosotros-titulo em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nosotros-texto {
+            font-size: 1.05rem;
+            color: rgba(45, 45, 45, .8);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .nosotros-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            padding-top: 8px;
+        }
+
+        .stat-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, .4);
+        }
+
+        /* Imagen lado derecho */
+        .nosotros-img-wrap {
+            position: relative;
+        }
+
+        .nosotros-img-box {
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .16);
+        }
+
+        .nosotros-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nosotros-badge {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            border-radius: 12px;
+            background: var(--primary);
+            padding: 24px 28px;
+            color: var(--white);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .3);
+            border: 1px solid rgba(201, 169, 110, .22);
+        }
+
+        .nosotros-badge .material-symbols-outlined {
+            font-size: 2.2rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .nosotros-badge p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        /* ================================================================
+   BLOQUE 5 — SERVICIOS
+================================================================ */
+        #servicios {
+            background: var(--white);
+            padding: 96px 32px;
+        }
+
+        .servicios-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .servicios-titulo {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            letter-spacing: -.01em;
+            color: var(--primary);
+        }
+
+        .servicios-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+        }
+
+        .srv-card {
+            background: var(--bg-warm);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid var(--pearl);
+            cursor: pointer;
+            transition: box-shadow .5s, transform .5s;
+        }
+
+        .srv-card:hover {
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .12);
+            transform: translateY(-8px);
+        }
+
+        .srv-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+            margin-bottom: 32px;
+            transition: background .3s, color .3s;
+        }
+
+        .srv-card:hover .srv-icon {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .srv-icon .material-symbols-outlined {
+            font-size: 1.9rem;
+        }
+
+        .srv-nombre {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .srv-desc {
+            font-size: .85rem;
+            line-height: 1.75;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .7);
+            margin-bottom: 24px;
+        }
+
+        .srv-lista {
+            list-style: none;
+        }
+
+        .srv-lista li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: .78rem;
+            font-weight: 500;
+            color: rgba(45, 45, 45, .5);
+            margin-bottom: 10px;
+        }
+
+        .srv-lista li .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* ================================================================
+   BLOQUE 6 — ACORDEÓN MODELOS (EN PAUSA — descomentar cuando esté listo)
+   Para reactivar: eliminá los delimitadores  /* INICIO-MODELOS-CSS  y  FINAL-MODELOS-CSS */
+        /* INICIO-MODELOS-CSS
+
+        #modelos {
+            background: var(--bg-warm);
+            /* mismo fondo cálido que el resto 
+            padding: 96px 32px;
+            /* respira igual que los demás bloques 
+        }
+
+        /* Encabezado: alineado con el contenedor centrado 
+        .modelos-header {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 0 52px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .modelos-titulo {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -.01em;
+            line-height: 1.15;
+        }
+
+        /* Enlace "Ver todos" en el header 
+        .modelos-ver-todos {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            white-space: nowrap;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(201, 169, 110, .35);
+            transition: gap .25s, border-color .25s;
+        }
+
+        .modelos-ver-todos:hover {
+            gap: 13px;
+            border-color: var(--accent);
+        }
+
+        .modelos-ver-todos i {
+            font-size: .8rem;
+        }
+
+        /* Contenedor del acordeón — flota como una card 
+        .modelos-wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 4px 6px rgba(0, 0, 0, .04),
+                0 24px 60px rgba(27, 42, 74, .14),
+                0 0 0 1px rgba(27, 42, 74, .06);
+        }
+
+        /* Acordeón 
+        .modelos-acordeon {
+            display: flex;
+            height: 560px;
+            gap: 3px;
+            /* separación mínima — la forma define los paneles 
+            background: var(--primary);
+            /* el gap toma este color = divisor sutil 
+        }
+
+        .modelo-panel {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            flex: 1;
+            transition: flex .6s cubic-bezier(.4, 0, .2, 1);
+            min-width: 56px;
+            text-decoration: none;
+        }
+
+        .modelo-panel.activo {
+            flex: 5;
+        }
+
+        /* Foto 
+        .modelo-panel .modelo-foto {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s ease, filter .6s ease;
+            filter: brightness(.85);
+            /* paneles cerrados: ligeramente oscuros 
+        }
+
+        .modelo-panel.activo .modelo-foto {
+            transform: scale(1.03);
+            filter: brightness(1);
+            /* panel abierto: foto a plena luminosidad 
+        }
+
+        /* Overlay con información 
+        .modelo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 64px 36px 36px;
+            background: linear-gradient(to top,
+                    rgba(17, 29, 51, .95) 0%,
+                    rgba(17, 29, 51, .6) 55%,
+                    transparent 100%);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .45s ease, transform .45s ease;
+        }
+
+        .modelo-panel.activo .modelo-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Línea dorada decorativa encima del título 
+        .modelo-overlay::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 14px;
+            border-radius: 2px;
+        }
+
+        .mod-titulo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: -.01em;
+        }
+
+        .mod-dato {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .79rem;
+            color: rgba(237, 234, 228, .8);
+            margin-bottom: 7px;
+            white-space: nowrap;
+        }
+
+        .mod-dato i {
+            color: var(--accent);
+            font-size: .82rem;
+            width: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Etiqueta lateral en paneles cerrados 
+        .modelo-etiqueta-lateral {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            /* Gradiente oscuro sutil en paneles cerrados para que el texto se lea bien 
+            background: linear-gradient(to bottom,
+                    rgba(17, 29, 51, .25) 0%,
+                    rgba(17, 29, 51, .55) 100%);
+            transition: opacity .45s ease;
+        }
+
+        /* Cuando el panel está activo, el fondo de la etiqueta desaparece
+   (el overlay del panel toma el control visual) 
+        .modelo-panel.activo .modelo-etiqueta-lateral {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modelo-etiqueta-lateral span {
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            /* Texto en blanco con sombra para legibilidad sobre cualquier foto 
+            color: rgba(237, 234, 228, .92);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, .6);
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-family: 'Inter', sans-serif;
+        }
+
+        FINAL-MODELOS-CSS */
+
+        /* ================================================================
+   BLOQUE 7 — ILUMINACIÓN
+================================================================ */
+        #iluminacion {
+            background: var(--bg-warm);
+            padding: 96px 32px;
+            overflow: hidden;
+        }
+
+        .iluminacion-card {
+            max-width: 1280px;
+            margin: 0 auto;
+            border-radius: 28px;
+            background: var(--primary);
+            color: var(--white);
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 24px 72px rgba(0, 0, 0, .22);
+            border: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .iluminacion-texto {
+            padding: 80px 72px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .iluminacion-titulo {
+            font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -.01em;
+            color: var(--white);
+        }
+
+        .iluminacion-desc {
+            font-size: 1.02rem;
+            color: rgba(237, 234, 228, .7);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .iluminacion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding-top: 8px;
+        }
+
+        .ilum-item-titulo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: .72rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .ilum-item-titulo .material-symbols-outlined {
+            font-size: 1.1rem;
+        }
+
+        .ilum-item-desc {
+            font-size: .76rem;
+            color: rgba(237, 234, 228, .5);
+            line-height: 1.7;
+        }
+
+        .btn-ilum {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(201, 169, 110, .4);
+            background: rgba(201, 169, 110, .1);
+            padding: 12px 24px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            align-self: flex-start;
+            transition: all .3s;
+        }
+
+        .btn-ilum:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-ilum .material-symbols-outlined {
+            font-size: .9rem;
+        }
+
+        /* Imagen lado derecho */
+        .iluminacion-img {
+            width: 50%;
+            position: relative;
+            min-height: 440px;
+        }
+
+        .iluminacion-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .iluminacion-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to left, rgba(27, 42, 74, .3) 0%, transparent 60%);
+        }
+
+        /* ================================================================
+   BLOQUE 8 — CALL TO ACTION
+================================================================ */
+        #cta {
+            background: var(--white);
+            padding: 96px 32px;
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .cta-titulo {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .cta-desc {
+            font-size: 1.1rem;
+            color: rgba(45, 45, 45, .6);
+            line-height: 1.75;
+            font-weight: 300;
+            margin-bottom: 48px;
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 8px;
+            background: var(--primary);
+            padding: 18px 48px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--white);
+            box-shadow: 0 12px 32px rgba(27, 42, 74, .22);
+            transition: background .3s;
+        }
+
+        .btn-cta-primary:hover {
+            background: var(--sec-blue);
+        }
+
+        .btn-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(27, 42, 74, .2);
+            background: var(--bg-warm);
+            padding: 18px 48px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: background .3s, color .3s;
+        }
+
+        .btn-cta-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-cta-secondary i {
+            font-size: 1rem;
+        }
+
+        /* ================================================================
+   BLOQUE 9 — FOOTER
+================================================================ */
+
+
+        /* ================================================================
+   RESPONSIVE
+================================================================ */
+        @media (max-width: 1024px) {
+            .nosotros-inner {
+                grid-template-columns: 1fr;
+                gap: 64px;
+            }
+
+            .nosotros-img-wrap {
+                max-width: 500px;
+            }
+
+            .nosotros-badge {
+                display: none;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+
+            /* Portafolio: 2 columnas en tablet */
+            .portafolio-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .iluminacion-card {
+                flex-direction: column;
+            }
+
+            .iluminacion-texto {
+                width: 100%;
+                padding: 56px 48px;
+            }
+
+            .iluminacion-img {
+                width: 100%;
+                min-height: 360px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            /* Franja contacto */
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+                gap: 10px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            /* Hero */
+            #hero {
+                height: 85vh;
+                min-height: 560px;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .hero-btns {
+                gap: 12px;
+            }
+
+            .btn-hero-primary,
+            .btn-hero-secondary {
+                padding: 14px 28px;
+            }
+
+            /* Nosotros */
+            #nosotros {
+                padding: 72px 20px;
+            }
+
+            /* Servicios */
+            #servicios {
+                padding: 72px 20px;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .srv-card {
+                padding: 32px;
+            }
+
+            /* Portafolio: 1 columna en móvil */
+            #portafolio {
+                padding: 72px 20px;
+            }
+
+            .portafolio-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .portafolio-encabezado {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /* Acordeón modelos → vertical */
+            .modelos-acordeon {
+                flex-direction: column;
+                height: auto;
+                gap: 6px;
+                padding: 0 16px 24px;
+            }
+
+            .modelo-panel {
+                flex: 1;
+                height: 80px;
+                min-width: unset;
+                min-height: 80px;
+            }
+
+            .modelo-panel.activo {
+                flex: 5;
+                height: 300px;
+                min-height: 300px;
+            }
+
+            .modelo-etiqueta-lateral {
+                bottom: auto;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .modelos-header {
+                padding: 0 20px 36px;
+            }
+
+            /* Iluminación */
+            #iluminacion {
+                padding: 72px 20px;
+            }
+
+            .iluminacion-texto {
+                padding: 40px 32px;
+                gap: 20px;
+            }
+
+            .iluminacion-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            /* CTA */
+            #cta {
+                padding: 72px 20px;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                padding: 16px 32px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Footer */
+            #footer {
+                padding: 52px 20px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nosotros-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+        }
+
+
+
+        /* ================================================================
+           BLOQUE 6 — PORTAFOLIO (galería de proyectos)
+        ================================================================ */
+        #portafolio {
+            background: var(--white);
+            padding: 96px 32px;
+        }
+
+        .portafolio-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .portafolio-encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .portafolio-encabezado-left .etiqueta-dorada {
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .portafolio-encabezado-left h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -.01em;
+        }
+
+        .portafolio-ver-todos {
+            color: var(--accent);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(201, 169, 110, .35);
+            transition: gap .25s, border-color .25s;
+            text-decoration: none;
+        }
+
+        .portafolio-ver-todos:hover {
+            gap: 13px;
+            border-color: var(--accent);
+        }
+
+        .portafolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .portafolio-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--pearl);
+            cursor: pointer;
+        }
+
+        .portafolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s;
+            display: block;
+        }
+
+        .portafolio-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .portafolio-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .68);
+            opacity: 0;
+            transition: opacity .5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .portafolio-item:hover .portafolio-item-overlay {
+            opacity: 1;
+        }
+
+        /* En móvil el overlay siempre visible (no hay hover) */
+        @media (hover: none) {
+            .portafolio-item-overlay {
+                opacity: 1;
+                background: rgba(27, 42, 74, .45);
+            }
+        }
+
+        .portafolio-cat {
+            font-size: .65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .portafolio-nombre {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.25;
+        }
+
+        .portafolio-icono {
+            font-size: 2rem;
+            color: var(--white);
+            margin-top: 16px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .5s .1s, transform .5s .1s;
+        }
+
+        .portafolio-item:hover .portafolio-icono {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+        /* Botón de enlace "Ver más" — compartido por Nosotros y Portafolio */
+        .bloque-link-mas {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 36px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(201, 169, 110, .35);
+            transition: gap .25s, border-color .25s;
+        }
+
+        .bloque-link-mas:hover {
+            gap: 14px;
+            border-color: var(--accent);
+        }
+
+        .bloque-link-mas .material-symbols-outlined {
+            font-size: 1rem;
+            transition: transform .25s;
+        }
+
+        .bloque-link-mas:hover .material-symbols-outlined {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ==============================================================
+     BLOQUE 3 | HERO — CARRUSEL CON TEXTO
+     ─ 3 fotos en carrusel automático (5 seg)
+     ─ Texto + 2 botones CTA a la izquierda
+     ─ Puntos indicadores en la parte inferior
+=============================================================== -->
+        <section id="hero">
+
+            <!-- ─────── SLIDES DE FONDO ─────── -->
+
+            <!-- ┌──────────────────────────────────────────────────────────────┐
+       │  🖼  IMAGEN 2 — CARRUSEL PORTADA (foto 1 de 3)             │
+       │  Carpeta: 01 - Fotos/01 - Fotos carucel portada/           │
+       │  Archivo: 01-carrucel portada.jpg                           │
+       │  Tamaño recomendado: 1920 × 1080 px, formato JPG o WebP    │
+       └──────────────────────────────────────────────────────────────┘ -->
+            <div class="carousel-slide active">
+                <img src="01 - Fotos/01 - Fotos carucel portada/01-carrucel portada.jpg" alt="Arquitectura moderna">
+            </div>
+
+            <!-- ┌──────────────────────────────────────────────────────────────┐
+       │  🖼  IMAGEN 3 — CARRUSEL PORTADA (foto 2 de 3)             │
+       │  Carpeta: 01 - Fotos/01 - Fotos carucel portada/           │
+       │  Archivo: 02-carrucel portada.jpg                           │
+       └──────────────────────────────────────────────────────────────┘ -->
+            <div class="carousel-slide">
+                <img src="01 - Fotos/01 - Fotos carucel portada/02-carrucel portada.jpg"
+                    alt="Interiorismo de alta gama">
+            </div>
+
+            <!-- ┌──────────────────────────────────────────────────────────────┐
+       │  🖼  IMAGEN 4 — CARRUSEL PORTADA (foto 3 de 3)             │
+       │  Carpeta: 01 - Fotos/01 - Fotos carucel portada/           │
+       │  Archivo: 03-carrucel portada.jpg                           │
+       └──────────────────────────────────────────────────────────────┘ -->
+            <div class="carousel-slide">
+                <img src="01 - Fotos/01 - Fotos carucel portada/03-carrucel portada.jpg"
+                    alt="Construcción de precisión">
+            </div>
+
+            <!-- Overlay oscuro -->
+            <div class="hero-overlay"></div>
+
+            <!-- Contenido -->
+            <div class="hero-content">
+                <div class="hero-inner">
+                    <div class="hero-badge">
+                        <span>Seguridad · Fiabilidad · Compromiso</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Transformamos <em>visiones</em> en realidades.
+                    </h1>
+                    <p class="hero-subtitle">
+                        Arquitectura, construcción e iluminación de alta gama con más de 25 años de experiencia,
+                        precisión técnica y el compromiso de materializar el hogar de tu vida.
+                    </p>
+                    <div class="hero-btns">
+                        <a class="btn-hero-primary" href="#modelos">Explorar Proyectos</a>
+                        <a class="btn-hero-secondary" href="#nosotros">Nuestra Metodología</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Puntos del carrusel -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0" aria-label="Foto 1"></button>
+                <button class="carousel-dot" data-index="1" aria-label="Foto 2"></button>
+                <button class="carousel-dot" data-index="2" aria-label="Foto 3"></button>
+            </div>
+
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 4 | QUIÉNES SOMOS — "Precisión técnica, alma creativa"
+     ─ Texto + stats a la izquierda
+     ─ Foto del equipo/obra a la derecha con badge flotante
+=============================================================== -->
+        <section id="nosotros">
+            <div class="nosotros-inner">
+
+                <!-- Texto izquierdo -->
+                <div>
+                    <span class="gold-label">Sobre nosotros</span>
+                    <h2 class="nosotros-titulo">
+                        Precisión técnica,<br>
+                        <em>alma creativa.</em>
+                    </h2>
+                    <p class="nosotros-texto">
+                        Somos ingenieros con más de 25 años en la industria de la construcción y ejecución de obras.
+                        Nuestra especialidad es la iluminación y, con ella, dar vida a los espacios del hogar.
+                        Fusionamos el diseño vanguardista con la eficiencia operativa, garantizando plazos,
+                        costos y una calidad estética insuperable. Desde siempre, nuestra visión es materializar
+                        ese lugar al que las familias llaman hogar.
+                    </p>
+                    <div class="nosotros-stats">
+                        <div>
+                            <div class="stat-num">25+</div>
+                            <div class="stat-label">Años de Exp.</div>
+                        </div>
+                        <div>
+                            <div class="stat-num">50+</div>
+                            <div class="stat-label">Proyectos</div>
+                        </div>
+                        <div>
+                            <div class="stat-num">100%</div>
+                            <div class="stat-label">Compromiso</div>
+                        </div>
+                    </div>
+
+                    <!-- Botón → nosotros.html -->
+                    <a class="bloque-link-mas" href="nosotros.html">
+                        Ver mas Sobre Nosotros
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Imagen derecha -->
+                <div class="nosotros-img-wrap">
+                    <div class="nosotros-img-box">
+                        <!-- ┌──────────────────────────────────────────────────────────────┐
+             │  🖼  IMAGEN 5 — SECCIÓN "QUIÉNES SOMOS"                    │
+             │  Carpeta: 01 - Fotos/02 - Fotos bloque quienes somos/      │
+             │  Archivo: 01 - Fotos/02 - Fotos bloque quienes somos/logo.jpg  (o la foto de tu equipo / obra)        │
+             │  Tamaño recomendado: proporción 4:5 (portrait), mín 800 px │
+             └──────────────────────────────────────────────────────────────┘ -->
+                        <img src="01 - Fotos/02 - Fotos bloque quienes somos/Nosotros.jpg" alt="Quiénes somos">
+                    </div>
+                    <!-- Badge flotante (se oculta en móvil) -->
+                    <div class="nosotros-badge">
+                        <span class="material-symbols-outlined">verified</span>
+                        <p>Alta<br>Ingeniería</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 5 | SERVICIOS Y ESPECIALIDADES
+     ─ 3 tarjetas: Diseño Arquitectónico / Ejecución / Iluminación
+     ─ Hover: tarjeta sube + ícono cambia a azul marino
+=============================================================== -->
+        <section id="servicios">
+            <div class="servicios-header">
+                <span class="gold-label">Especialidades</span>
+                <h2 class="servicios-titulo">Servicios de Alta Gama</h2>
+            </div>
+
+            <div class="servicios-grid">
+
+                <!-- Tarjeta 1: Diseño Arquitectónico -->
+                <div class="srv-card" onclick="window.location='diseno-y-proyecto.html'" role="button" tabindex="0">
+                    <div class="srv-icon">
+                        <span class="material-symbols-outlined">home_work</span>
+                    </div>
+                    <h3 class="srv-nombre">Diseño Arquitectónico</h3>
+                    <p class="srv-desc">
+                        Creación de espacios únicos que equilibran funcionalidad y estética contemporánea.
+                        Desde el anteproyecto hasta el proyecto ejecutivo con cálculo estructural integrado.
+                    </p>
+                    <ul class="srv-lista">
+                        <li><span class="dot"></span>Elaboración de anteproyecto</li>
+                        <li><span class="dot"></span>Proyecto ejecutivo completo</li>
+                        <li><span class="dot"></span>Cálculo estructural</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2: Ejecución de Obra -->
+                <div class="srv-card" onclick="window.location='ejecucion-del-proyecto.html'" role="button"
+                    tabindex="0">
+                    <div class="srv-icon">
+                        <span class="material-symbols-outlined">construction</span>
+                    </div>
+                    <h3 class="srv-nombre">Ejecución de Obra</h3>
+                    <p class="srv-desc">
+                        Construcción de alta precisión gestionada por ingenieros expertos, asegurando que
+                        cada detalle técnico se cumpla con rigor y dentro de los plazos acordados.
+                    </p>
+                    <ul class="srv-lista">
+                        <li><span class="dot"></span>Gestión y dirección de obra</li>
+                        <li><span class="dot"></span>Construcción integral</li>
+                        <li><span class="dot"></span>Supervisión técnica permanente</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3: Iluminación -->
+                <div class="srv-card" onclick="window.location='iluminacion.html'" role="button" tabindex="0">
+                    <div class="srv-icon">
+                        <span class="material-symbols-outlined">light_mode</span>
+                    </div>
+                    <h3 class="srv-nombre">Iluminación de Espacios</h3>
+                    <p class="srv-desc">
+                        Nuestra especialidad más distintiva. Diseñamos atmósferas integrando luz natural
+                        y artificial para transformar cada ambiente en una experiencia única e irrepetible.
+                    </p>
+                    <ul class="srv-lista">
+                        <li><span class="dot"></span>Diseño lumínico integral</li>
+                        <li><span class="dot"></span>Sistemas LED de alta fidelidad</li>
+                        <li><span class="dot"></span>Automatización inteligente</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+
+        <!-- ══════════════════════════════════════════════════════════════
+             BLOQUE 6 — ACORDEÓN MODELOS (EN PAUSA)
+             Para reactivar: eliminá las etiquetas <script type="text/x-disabled">
+             que lo envuelven y el </script> del final
+        ══════════════════════════════════════════════════════════════ -->
+        <script type="text/x-disabled">
+        <!-- ==============================================================
+     BLOQUE 6 | MODELOS — ACORDEÓN INTERACTIVO (estilo premium)
+     ─ Desktop: hover expande suavemente + slide-up del overlay
+     ─ Móvil: click expande verticalmente
+     ─ Toda la galería flota como una card con border-radius y sombra
+=============================================================== -->
+        <section id="modelos">
+
+            <!-- Encabezado: título a la izquierda, enlace "Ver todos" a la derecha -->
+            <div class="modelos-header">
+                <div>
+                    <span class="gold-label">Inspirate</span>
+                    <h2 class="modelos-titulo">Modelos</h2>
+                </div>
+                <a class="modelos-ver-todos" href="obras.html">
+                    Ver todos los proyectos <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Card flotante que contiene el acordeón -->
+            <div class="modelos-wrap">
+                <div class="modelos-acordeon" id="modelos-acordeon">
+
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 6 — ACORDEÓN MODELOS (panel 1 de 5)            │
+           │  Archivo: img/modelo-1.jpg                                   │
+           │  Descripción: foto del primer proyecto/modelo               │
+           │  Tamaño recomendado: 800 × 600 px mínimo                   │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <a class="modelo-panel" href="obras.html#modelo-1">
+                        <img class="modelo-foto" src="img/modelo-1.jpg" alt="Modelo 1">
+                        <div class="modelo-overlay">
+                            <p class="mod-titulo">Proyecto 1</p> <!-- 📌 Nombre del proyecto -->
+                            <div class="mod-dato"><i class="fa-solid fa-ruler-combined"></i><span>XX m²</span></div>
+                            <div class="mod-dato"><i class="fa-solid fa-bed"></i><span>3 dormitorios y 2 baños</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-car"></i><span>Cochera para 2 vehículos</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-star"></i><span>Dato relevante del
+                                    proyecto</span></div>
+                        </div>
+                        <div class="modelo-etiqueta-lateral"><span>Proyecto 1</span></div>
+                    </a>
+
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 7 — ACORDEÓN MODELOS (panel 2 de 5)            │
+           │  Archivo: img/modelo-2.jpg                                   │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <a class="modelo-panel activo" href="obras.html#modelo-2">
+                        <img class="modelo-foto" src="img/modelo-2.jpg" alt="Modelo 2">
+                        <div class="modelo-overlay">
+                            <p class="mod-titulo">Proyecto 2</p>
+                            <div class="mod-dato"><i class="fa-solid fa-ruler-combined"></i><span>XX m²</span></div>
+                            <div class="mod-dato"><i class="fa-solid fa-bed"></i><span>3 dormitorios y 2 baños</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-car"></i><span>Cochera para 2 vehículos</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-star"></i><span>Dato relevante del
+                                    proyecto</span></div>
+                        </div>
+                        <div class="modelo-etiqueta-lateral"><span>Proyecto 2</span></div>
+                    </a>
+
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 8 — ACORDEÓN MODELOS (panel 3 de 5)            │
+           │  Archivo: img/modelo-3.jpg                                   │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <a class="modelo-panel" href="obras.html#modelo-3">
+                        <img class="modelo-foto" src="img/modelo-3.jpg" alt="Modelo 3">
+                        <div class="modelo-overlay">
+                            <p class="mod-titulo">Proyecto 3</p>
+                            <div class="mod-dato"><i class="fa-solid fa-ruler-combined"></i><span>XX m²</span></div>
+                            <div class="mod-dato"><i class="fa-solid fa-bed"></i><span>3 dormitorios y 2 baños</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-car"></i><span>Cochera para 2 vehículos</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-star"></i><span>Dato relevante del
+                                    proyecto</span></div>
+                        </div>
+                        <div class="modelo-etiqueta-lateral"><span>Proyecto 3</span></div>
+                    </a>
+
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 9 — ACORDEÓN MODELOS (panel 4 de 5)            │
+           │  Archivo: img/modelo-4.jpg                                   │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <a class="modelo-panel" href="obras.html#modelo-4">
+                        <img class="modelo-foto" src="img/modelo-4.jpg" alt="Modelo 4">
+                        <div class="modelo-overlay">
+                            <p class="mod-titulo">Proyecto 4</p>
+                            <div class="mod-dato"><i class="fa-solid fa-ruler-combined"></i><span>XX m²</span></div>
+                            <div class="mod-dato"><i class="fa-solid fa-bed"></i><span>3 dormitorios y 2 baños</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-car"></i><span>Cochera para 2 vehículos</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-star"></i><span>Dato relevante del
+                                    proyecto</span></div>
+                        </div>
+                        <div class="modelo-etiqueta-lateral"><span>Proyecto 4</span></div>
+                    </a>
+
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 10 — ACORDEÓN MODELOS (panel 5 de 5)           │
+           │  Archivo: img/modelo-5.jpg                                   │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <a class="modelo-panel" href="obras.html#modelo-5">
+                        <img class="modelo-foto" src="img/modelo-5.jpg" alt="Modelo 5">
+                        <div class="modelo-overlay">
+                            <p class="mod-titulo">Proyecto 5</p>
+                            <div class="mod-dato"><i class="fa-solid fa-ruler-combined"></i><span>XX m²</span></div>
+                            <div class="mod-dato"><i class="fa-solid fa-bed"></i><span>3 dormitorios y 2 baños</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-car"></i><span>Cochera para 2 vehículos</span>
+                            </div>
+                            <div class="mod-dato"><i class="fa-solid fa-star"></i><span>Dato relevante del
+                                    proyecto</span></div>
+                        </div>
+                        <div class="modelo-etiqueta-lateral"><span>Proyecto 5</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- FIN BLOQUE 6 -->
+        </script>
+        <!-- FIN BLOQUE 6 EN PAUSA -->
+
+
+
+
+
+        <!-- ==============================================================
+             BLOQUE 6 | PORTAFOLIO — GALERÍA DE PROYECTOS
+             ─ 3 tarjetas con foto, categoría y nombre
+             ─ Hover: overlay azul marino con slide-up del ícono
+             ─ Responsive: 2 col en tablet, 1 col en móvil
+        =============================================================== -->
+        <section id="portafolio">
+            <div class="portafolio-inner">
+
+                <div class="portafolio-encabezado">
+                    <div class="portafolio-encabezado-left">
+                        <span class="etiqueta-dorada gold-label">Portafolio</span>
+                        <h2>Galería de Proyectos</h2>
+                    </div>
+                    <a class="portafolio-ver-todos" href="obras.html">
+                        Ver todos los proyectos
+                        <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="portafolio-grid">
+
+                    <div class="portafolio-item">
+                        <!-- 🖼 IMAGEN: Iluminación Estudio Jurídico -->
+                        <img src="Obras/todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.jpg"
+                            alt="Iluminación Estudio Jurídico">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Corporativo</span>
+                            <h4 class="portafolio-nombre">Iluminación Estudio Jurídico</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                    <div class="portafolio-item">
+                        <!-- 🖼 IMAGEN: Dos viviendas en un mismo lote -->
+                        <img src="Obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg"
+                            alt="Dos viviendas en un mismo lote">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Residencial</span>
+                            <h4 class="portafolio-nombre">Dos viviendas en un mismo lote</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                    <div class="portafolio-item">
+                        <!-- 🖼 IMAGEN: Living de quincho — Casa Country Campos del Virrey -->
+                        <img src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.jpg"
+                            alt="Living de quincho">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Interiorismo</span>
+                            <h4 class="portafolio-nombre">Living de quincho</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón → obras.html -->
+                <div style="text-align:center; margin-top:48px;">
+                    <a class="bloque-link-mas" href="obras.html">
+                        Ver todas las obras
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 | PORTAFOLIO -->
+
+        <!-- ==============================================================
+     BLOQUE 7 | ILUMINACIÓN — "MAESTRÍA EN LUZ"
+     ─ Card oscura: texto a la izquierda + foto a la derecha
+     ─ En móvil se apila verticalmente
+=============================================================== -->
+        <section id="iluminacion">
+            <div class="iluminacion-card">
+
+                <!-- Texto izquierdo -->
+                <div class="iluminacion-texto">
+                    <span class="gold-label">Maestría en Luz</span>
+                    <h2 class="iluminacion-titulo">Iluminación: El alma del espacio</h2>
+                    <p class="iluminacion-desc">
+                        Diseñamos atmósferas. Integramos la luz natural como elemento constructivo y la iluminación
+                        artificial como acento emocional, siempre con eficiencia energética y control inteligente.
+                    </p>
+                    <div class="iluminacion-grid">
+                        <div>
+                            <div class="ilum-item-titulo">
+                                <span class="material-symbols-outlined">wb_sunny</span> Natural
+                            </div>
+                            <p class="ilum-item-desc">
+                                Estudio solar y apertura de vanos para confort térmico y lumínico.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="ilum-item-titulo">
+                                <span class="material-symbols-outlined">light_mode</span> Artificial
+                            </div>
+                            <p class="ilum-item-desc">
+                                Sistemas LED de alta fidelidad cromática y automatización inteligente.
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btn-ilum" href="iluminacion.html">
+                        Ver más sobre iluminación
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Imagen derecha -->
+                <div class="iluminacion-img">
+                    <!-- ┌──────────────────────────────────────────────────────────────┐
+           │  🖼  IMAGEN 11 — SECCIÓN ILUMINACIÓN                       │
+           │  Carpeta: 01 - Fotos/03 - Fotos seccion lo que hacemos/    │
+           │  Archivo: Iluminacion.jpg                                   │
+           │  Tamaño recomendado: 900 × 1200 px (portrait)             │
+           └──────────────────────────────────────────────────────────────┘ -->
+                    <img src="01 - Fotos/03 - Fotos seccion lo que hacemos/Iluminacion.jpg" alt="Interior iluminado">
+                    <div class="iluminacion-img-overlay"></div>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+
+        <!-- ==============================================================
+     BLOQUE 8 | CALL TO ACTION
+     ─ Texto centrado + 2 botones: Email / WhatsApp
+=============================================================== -->
+        <section id="cta">
+            <div class="cta-inner">
+                <h2 class="cta-titulo">¿Listo para construir<br>su próximo legado?</h2>
+                <p class="cta-desc">
+                    Hablemos de su proyecto. Nuestro equipo técnico está listo para convertir su visión
+                    arquitectónica en una realidad impecable.
+                </p>
+                <div class="cta-btns">
+                    <a class="btn-cta-primary" href="contacto.html">Iniciar Consulta</a>
+                    <!-- 📌 Reemplazá "549351XXXXXXXX" con tu número real -->
+                    <a class="btn-cta-secondary"
+                        href="https://wa.me/5493513579053?text=Buenas%20tardes.%20Estaba%20interesado%20en%20su%20servicio."
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 8 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT — sin dependencias externas
+     1. Carrusel Hero (automático + dots)
+     2. Menú hamburguesa
+     3. Acordeón Servicios en menú móvil
+     4. Acordeón de Modelos (hover/click)
+=============================================================== -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. CARRUSEL HERO ─────────────────────────────── */
+            var slides = document.querySelectorAll('.carousel-slide');
+            var dots = document.querySelectorAll('.carousel-dot');
+            var current = 0;
+            var interval;
+
+            function showSlide(idx) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = (idx + slides.length) % slides.length;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            function startInterval() {
+                interval = setInterval(function () { showSlide(current + 1); }, 5000);
+            }
+
+            dots.forEach(function (dot, i) {
+                dot.addEventListener('click', function () {
+                    clearInterval(interval);
+                    showSlide(i);
+                    startInterval();
+                });
+            });
+
+            startInterval();
+
+
+            /* ── 2. MENÚ HAMBURGUESA ──────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 3. ACORDEÓN SERVICIOS (MENÚ MÓVIL) ──────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            toggleServ.addEventListener('click', function () {
+                toggleServ.classList.toggle('expandido');
+                submenuServ.classList.toggle('visible');
+            });
+
+
+            /* ── 4. ACORDEÓN DE MODELOS ──────────────────────── */
+            var panels = document.querySelectorAll('.modelo-panel');
+
+            function activarPanel(panel) {
+                panels.forEach(function (p) { p.classList.remove('activo'); });
+                panel.classList.add('activo');
+            }
+
+            panels.forEach(function (panel) {
+                /* Desktop: hover */
+                panel.addEventListener('mouseenter', function () { activarPanel(panel); });
+                /* Móvil: tap — activar sin navegar si aún no estaba activo */
+                panel.addEventListener('click', function (e) {
+                    if (!panel.classList.contains('activo')) {
+                        e.preventDefault();
+                        activarPanel(panel);
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'dark';
+        var FOOTER_TEMA = 'dark';
+        var NAV_ACTIVO = 'inicio';
+    </script>
+    <script src="./componentes.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obras | Grupo B's — Arquitectura y Construcción</title>
+
+    <!--
+  DEPENDENCIAS EXTERNAS (solo tipografías e íconos):
+  ─ Google Fonts: Cormorant Garamond + Inter + Dancing Script + Newsreader
+  ─ Font Awesome 6: íconos (WhatsApp, mail, redes, etc.)
+  ─ Material Symbols: íconos adicionales
+-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+   VARIABLES DE COLOR Y RESET
+================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #F8F6F2;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .font-display,
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Línea dorada arquitectónica */
+        .architectural-line {
+            height: 2px;
+            background-color: var(--accent);
+            width: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Etiqueta dorada pequeña */
+        .gold-label {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+
+        /* ================================================================
+   BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO
+================================================================ */
+
+
+        /* ================================================================
+   BLOQUE 3 — HERO SECTION (Versión Stitch)
+================================================================ */
+        #hero-obras {
+            position: relative;
+            height: 820px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .60);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .hero-content-obras {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .hero-pretitulo {
+            font-family: 'Inter', sans-serif;
+            font-size: .68rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .hero-titulo-obras {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 9vw, 7rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.0;
+            color: var(--white);
+            max-width: 900px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-line-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .hero-divider {
+            height: 2px;
+            width: 80px;
+            background: var(--accent);
+        }
+
+        .hero-subtitulo {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(.95rem, 2vw, 1.15rem);
+            font-weight: 300;
+            line-height: 1.75;
+            color: rgba(248, 246, 242, .80);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+
+        /* ================================================================
+   BLOQUE 4 — PROYECTOS DESTACADOS (Versión Stitch)
+================================================================ */
+        #proyectos {
+            padding: 100px 0;
+            background: var(--bg-warm);
+        }
+
+        .proyectos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 64px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .proyectos-header-left {
+            max-width: 480px;
+        }
+
+        .proyectos-header-left h2 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 12px;
+            white-space: nowrap;
+        }
+
+        .proyectos-header-left p {
+            font-size: .9rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .65);
+            line-height: 1.6;
+        }
+
+        .ver-todas-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: color .2s, gap .2s;
+            white-space: nowrap;
+        }
+
+        .ver-todas-link:hover {
+            color: var(--accent);
+            gap: 14px;
+        }
+
+        .ver-todas-link .material-symbols-outlined {
+            font-size: 1.1rem;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 28px;
+        }
+
+        /* Tarjeta grande (8/12 columnas) */
+        .bento-card-lg {
+            grid-column: span 8;
+            position: relative;
+            overflow: hidden;
+            background: var(--pearl);
+        }
+
+        .bento-card-sm {
+            grid-column: span 4;
+            position: relative;
+            overflow: hidden;
+            background: var(--pearl);
+        }
+
+        .bento-img-wrapper {
+            overflow: hidden;
+        }
+
+        .bento-card-lg .bento-img-wrapper {
+            aspect-ratio: 16/9;
+        }
+
+        .bento-card-sm .bento-img-wrapper {
+            aspect-ratio: 4/5;
+        }
+
+        .bento-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+
+        .bento-card-lg:hover .bento-img-wrapper img,
+        .bento-card-sm:hover .bento-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* Overlay degradado sobre tarjetas grandes */
+        .bento-overlay-grad {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(27, 42, 74, .90) 0%, rgba(27, 42, 74, .2) 50%, transparent 100%);
+            opacity: .82;
+            pointer-events: none;
+        }
+
+        .bento-info-abs {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 40px;
+            color: var(--white);
+        }
+
+        .bento-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .tag-gold {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 3px 12px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .tag-glass {
+            background: rgba(255, 255, 255, .18);
+            backdrop-filter: blur(8px);
+            color: var(--white);
+            padding: 3px 12px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .bento-info-abs h3 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .bento-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .bento-location .material-symbols-outlined {
+            font-size: .9rem;
+        }
+
+        /* Info dentro de tarjetas pequeñas */
+        .bento-info-below {
+            padding: 20px 24px 24px;
+        }
+
+        /* Tags en tarjetas pequeñas — badge visible igual que las grandes */
+        .bento-tags-sm {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3px 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .tag-accent {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 3px 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .bento-info-below h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--primary);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        .bento-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, .5);
+            margin-bottom: 8px;
+        }
+
+        .bento-location-sm {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: .62rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 8px;
+        }
+
+        .bento-location-sm .material-symbols-outlined {
+            font-size: .85rem;
+        }
+
+        /* Hover overlay en tarjetas pequeñas */
+        .bento-hover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 90px;
+            background: rgba(27, 42, 74, .45);
+            opacity: 0;
+            transition: opacity .4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+
+        .bento-card-sm:hover .bento-hover-overlay {
+            opacity: 1;
+        }
+
+        /* Hover "Ver Proyecto" en tarjetas grandes */
+        .bento-hover-overlay-lg {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .20);
+            opacity: 0;
+            transition: opacity .4s;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 40px;
+            z-index: 3;
+        }
+
+        .bento-card-lg:hover .bento-hover-overlay-lg {
+            opacity: 1;
+        }
+
+        .btn-ver-proyecto {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 10px 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .btn-ver-proyecto:hover {
+            background: var(--white);
+        }
+
+        /* Botón "Ver todas las obras" — centrado debajo del grid */
+        .ver-todas-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 56px;
+        }
+
+
+        /* ================================================================
+   BLOQUE 5 — ILUMINACIÓN DE INTERIORES (Versión Stitch)
+================================================================ */
+        #interiores {
+            padding: 100px 0;
+            background: var(--pearl);
+            overflow: hidden;
+        }
+
+        .interiores-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .interiores-texto h2 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .interiores-texto p.int-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .7);
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+
+        .int-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .int-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .int-features li .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .int-feat-title {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .int-feat-desc {
+            font-size: .85rem;
+            color: rgba(45, 45, 45, .6);
+            line-height: 1.55;
+        }
+
+        /* Galería en mosaico para interiores */
+        .interiores-galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .gal-col-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 48px;
+        }
+
+        .gal-col-right {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .gal-img {
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+        }
+
+        .gal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .gal-img:hover img {
+            transform: scale(1.04);
+        }
+
+        .gal-img-tall {
+            height: 280px;
+        }
+
+        .gal-img-short {
+            height: 220px;
+        }
+
+        .gal-img-med {
+            height: 340px;
+        }
+
+
+        /* ================================================================
+   BLOQUE 6 — ILUMINACIÓN DE EXTERIORES (Versión Stitch)
+================================================================ */
+        #exteriores {
+            padding: 100px 0;
+            background: var(--primary);
+            color: var(--white);
+            position: relative;
+        }
+
+        .ext-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .ext-header h2 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .ext-header p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(248, 246, 242, .70);
+            max-width: 600px;
+            line-height: 1.75;
+        }
+
+        .ext-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .ext-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ext-img-wrap {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .ext-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .ext-card:hover .ext-img-wrap img {
+            transform: scale(1.10);
+        }
+
+        .ext-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .ext-card-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+
+        /* ================================================================
+   BLOQUE 7 — METODOLOGÍA BIM (Versión Stitch)
+================================================================ */
+        #bim {
+            padding: 100px 0;
+            background: var(--bg-warm);
+        }
+
+        .bim-card {
+            background: var(--pearl);
+            border: 1px solid rgba(201, 169, 110, .2);
+            border-radius: 2px;
+            padding: 64px 80px;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, .06);
+        }
+
+        .bim-texto {
+            flex: 1;
+        }
+
+        .bim-texto h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .bim-texto p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .7);
+            line-height: 1.85;
+            margin-bottom: 36px;
+        }
+
+        .bim-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .bim-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(237, 234, 228, .8);
+            border: 1px solid rgba(201, 169, 110, .15);
+            padding: 10px 18px;
+            border-radius: 2px;
+        }
+
+        .bim-badge .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .bim-badge span.badge-label {
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .bim-visual {
+            flex-shrink: 0;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #D7D4CE;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bim-visual .bim-icon-bg {
+            position: absolute;
+            font-size: 9rem;
+            color: rgba(27, 42, 74, .05);
+        }
+
+        .bim-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: multiply;
+            opacity: .7;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+
+        /* ================================================================
+   BLOQUE 8 — CALL TO ACTION (Nuevo, estética coherente)
+================================================================ */
+        #cta-obras {
+            padding: 120px 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Fondo decorativo */
+        #cta-obras::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, .08);
+            pointer-events: none;
+        }
+
+        #cta-obras::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, .04);
+            pointer-events: none;
+        }
+
+        .cta-inner-obras {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .cta-pretitulo {
+            font-family: 'Inter', sans-serif;
+            font-size: .68rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .cta-titulo-obras {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .cta-desc-obras {
+            font-size: .95rem;
+            font-weight: 300;
+            color: rgba(248, 246, 242, .65);
+            line-height: 1.8;
+            margin-bottom: 52px;
+        }
+
+        .cta-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn-cta-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 16px 44px;
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background .3s, color .3s, transform .2s;
+            box-shadow: 0 8px 32px rgba(201, 169, 110, .25);
+        }
+
+        .btn-cta-gold:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(201, 169, 110, .4);
+            background: rgba(201, 169, 110, .06);
+            color: var(--white);
+            padding: 16px 44px;
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background .3s, border-color .3s, transform .2s;
+        }
+
+        .btn-cta-outline:hover {
+            background: rgba(201, 169, 110, .15);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta-gold i,
+        .btn-cta-outline i {
+            font-size: 1rem;
+        }
+
+
+
+        /* ================================================================
+   RESPONSIVE
+================================================================ */
+        @media (max-width: 1024px) {
+
+            /* Bento grid → 1 columna */
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .bento-card-lg,
+            .bento-card-sm {
+                grid-column: span 1;
+            }
+
+            .bento-card-sm .bento-img-wrapper {
+                aspect-ratio: 16/9;
+            }
+
+            /* BIM horizontal → vertical */
+            .bim-card {
+                flex-direction: column;
+                padding: 48px 40px;
+                gap: 48px;
+                align-items: center;
+            }
+
+            .bim-visual {
+                width: 260px;
+                height: 260px;
+            }
+
+            /* Footer 2 col */
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+
+            /* Interiores → apilado */
+            .interiores-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            /* Franja contacto */
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+                gap: 10px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            /* Hero */
+            #hero-obras {
+                height: 640px;
+                padding-top: 0;
+            }
+
+            /* Proyectos */
+            #proyectos {
+                padding: 72px 0;
+            }
+
+            .proyectos-header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+
+            /* Exteriores */
+            .ext-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ext-img-wrap {
+                aspect-ratio: 4/3;
+            }
+
+            /* BIM */
+            #bim {
+                padding: 72px 0;
+            }
+
+            .bim-card {
+                padding: 36px 24px;
+            }
+
+            /* CTA */
+            #cta-obras {
+                padding: 80px 0;
+            }
+
+            .cta-botones {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-cta-gold,
+            .btn-cta-outline {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+
+            /* Footer */
+            #footer {
+                padding: 52px 20px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-titulo-obras {
+                font-size: 2.6rem;
+            }
+
+            .interiores-galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .gal-col-left {
+                padding-top: 0;
+            }
+
+            .gal-img-tall,
+            .gal-img-short,
+            .gal-img-med {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ==============================================================
+         BLOQUE 3 | HERO SECTION (Versión Stitch)
+         ─ Fondo arquitectónico full-height
+         ─ Texto centrado: pretítulo, h1 itálica, línea dorada, subtítulo
+        =============================================================== -->
+        <section id="hero-obras">
+            <!-- Imagen de fondo -->
+            <div class="hero-bg">
+                <!-- 🖼 IMAGEN: reemplazá el src con tu foto de obra principal -->
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAWQ9tIsiBXK1XJm2tCe0QJmmQszpW5DKS7FXzA9kF9ufyhviwK7qjHDy7ISDlCxHA4YW5c2cVJLBj1n88iQRjXRUMK-2c7xUcr81lMXCefcikH_y6v_0GqjLyoyG_bT_111iDuniEbkxjon8wG-rfaDtVTN4QvW77mIdn7--IPOZrnNWKfUzq5aIdO-aidW7he6yqNfQvtiSkKNvrVCFoxqxZxQFaelk-X_M9KRC7pVQt09Ww2H5l_3XZWWzeu2s4Wa11sMLPkXE"
+                    alt="Obra arquitectónica Grupo B's">
+            </div>
+            <div class="hero-overlay"></div>
+
+            <!-- Contenido centrado -->
+            <div class="hero-content-obras">
+                <span class="hero-pretitulo">Nuestra Trayectoria</span>
+                <h1 class="hero-titulo-obras">
+                    Obras que Definen<br>el Horizonte
+                </h1>
+                <div class="hero-line-wrapper">
+                    <div class="hero-divider"></div>
+                </div>
+                <p class="hero-subtitulo">
+                    Desde la concepción estructural hasta el último detalle de iluminación,
+                    transformamos espacios en legados arquitectónicos.
+                </p>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 4 | PROYECTOS DESTACADOS (Versión Stitch)
+         ─ Header con link "Ver todas las obras"
+         ─ Bento Grid: 2 tarjetas grandes + 2 tarjetas pequeñas
+        =============================================================== -->
+        <section id="proyectos">
+            <div class="container">
+
+                <!-- Header de sección -->
+                <div class="proyectos-header">
+                    <div class="proyectos-header-left">
+                        <div class="architectural-line"></div>
+                        <h2>Proyectos Destacados</h2>
+                        <p>Una selección de nuestras intervenciones más emblemáticas.</p>
+                    </div>
+                </div>
+
+                <!-- Bento Grid -->
+                <div class="bento-grid">
+
+                    <!-- Tarjeta 1 — Grande (8 col) -->
+                    <div class="bento-card-lg">
+                        <div class="bento-img-wrapper">
+                            <!-- 🖼 IMAGEN: proyecto destacado grande 1 -->
+                            <img src="obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h5.jpg"
+                                alt="Casa Country Campos del Virrey">
+                        </div>
+                        <div class="bento-overlay-grad"></div>
+                        <!-- Hover overlay con botón -->
+                        <div class="bento-hover-overlay-lg">
+                            <a href="obras/todas-las-obras/casa-country-campos-del-Virrey.html"
+                                class="btn-ver-proyecto">Ver Proyecto</a>
+                        </div>
+                        <div class="bento-info-abs">
+                            <div class="bento-tags">
+                                <span class="tag-gold">Construcción</span>
+                                <span class="tag-glass">Diseño Arquitectónico</span>
+                                <span class="tag-gold">Iluminación</span>
+                                <span class="tag-glass">Interiorismo</span>
+                            </div>
+                            <h3>Casa Country Campos del Virrey</h3>
+                            <p class="bento-sub" style="color:rgba(255,255,255,.6);margin-bottom:10px;">Vivienda
+                                unifamiliar y quincho multiespacio de 340 m². Ladrillo visto, iluminación indirecta y
+                                espacios de diseño singular en entorno arbolado.</p>
+                            <p class="bento-location">
+                                <span class="material-symbols-outlined" style="font-size:.9rem">construction</span>
+                                2021 · 340 m²
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 — Pequeña (4 col) -->
+                    <div class="bento-card-sm">
+                        <div class="bento-img-wrapper">
+                            <!-- 🖼 IMAGEN: proyecto pequeño 1 -->
+                            <img src="obras/todas-las-obras/Imagenes/iluminacion-residencia-alto-de-achumani/iluminacion-residencia-alto-de-achumani-h2.jpg"
+                                alt="Residencia Alto de Achumani">
+                        </div>
+                        <div class="bento-hover-overlay">
+                            <a href="obras/todas-las-obras/iluminacion-residencia-alto-de-achumani.html"
+                                class="btn-ver-proyecto">Ver Proyecto</a>
+                        </div>
+                        <div class="bento-info-below">
+                            <div class="bento-tags-sm">
+                                <span class="tag-accent">Iluminación</span>
+                                <span class="tag-primary">Residencial</span>
+                            </div>
+                            <h3>Residencia Alto de Achumani</h3>
+                            <p class="bento-sub">Iluminación integral de 787 m² y 3 pisos con vistas panorámicas.
+                                Piscina, sauna, gym, salón de entretenimiento, bar y taller de motos.</p>
+                            <p class="bento-location-sm">
+                                <span class="material-symbols-outlined" style="font-size:.9rem">construction</span>
+                                2023 · 787 m²
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 — Pequeña (4 col) -->
+                    <div class="bento-card-sm">
+                        <div class="bento-img-wrapper">
+                            <!-- 🖼 IMAGEN: proyecto pequeño 2 -->
+                            <img src="obras/todas-las-obras/Imagenes/iluminacion-casona-country-golf/iluminacion-casona-country-golf-h4.jpg"
+                                alt="Iluminación Casona Country Golf">
+                        </div>
+                        <div class="bento-hover-overlay">
+                            <a href="obras/todas-las-obras/iluminacion-casona-country-golf.html"
+                                class="btn-ver-proyecto">Ver Proyecto</a>
+                        </div>
+                        <div class="bento-info-below">
+                            <div class="bento-tags-sm">
+                                <span class="tag-accent">Iluminación</span>
+                                <span class="tag-primary">Residencial</span>
+                            </div>
+                            <h3>Iluminación Casona Country Golf</h3>
+                            <p class="bento-sub">Hall-museo con cúpula, colección de antigüedades, escalera metálica con
+                                vidrio, piscina interior y jardín con luminarias de diseño propio.</p>
+                            <p class="bento-location-sm">
+                                <span class="material-symbols-outlined" style="font-size:.9rem">construction</span>
+                                2017 · 540 m²
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 — Grande (8 col) -->
+                    <div class="bento-card-lg">
+                        <div class="bento-img-wrapper">
+                            <!-- 🖼 IMAGEN: proyecto destacado grande 2 -->
+                            <img src="obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg"
+                                alt="Dos Viviendas en un Mismo Lote">
+                        </div>
+                        <div class="bento-overlay-grad"></div>
+                        <!-- Hover overlay con botón -->
+                        <div class="bento-hover-overlay-lg">
+                            <a href="obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html"
+                                class="btn-ver-proyecto">Ver Proyecto</a>
+                        </div>
+                        <div class="bento-info-abs">
+                            <div class="bento-tags">
+                                <span class="tag-gold">Construcción</span>
+                                <span class="tag-glass">Diseño Arquitectónico</span>
+                                <span class="tag-gold">Iluminación</span>
+                                <span class="tag-glass">Interiorismo</span>
+                            </div>
+                            <h3>Dos Viviendas en un Mismo Lote</h3>
+                            <p class="bento-sub" style="color:rgba(255,255,255,.6);margin-bottom:10px;">
+                                Refuncionalización y ampliación de dos unidades habitacionales. Estética minimalista,
+                                optimización de cada m² y rentabilidad como objetivo.</p>
+                            <p class="bento-location">
+                                <span class="material-symbols-outlined" style="font-size:.9rem">construction</span>
+                                2020 · 161 m²
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- fin .bento-grid -->
+
+                <!-- Botón "Ver todas las obras" — debajo del grid, centrado -->
+                <div class="ver-todas-wrapper">
+                    <a class="ver-todas-link" href="obras/todas-las-obras.html">
+                        Ver todas las obras
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 5 | ILUMINACIÓN DE INTERIORES (Versión Stitch)
+         ─ Texto izquierda con features + Galería mosaico derecha
+        =============================================================== -->
+        <section id="interiores">
+            <div class="container">
+                <div class="interiores-grid">
+
+                    <!-- Columna texto -->
+                    <div class="interiores-texto">
+                        <div class="architectural-line"></div>
+                        <span class="gold-label">Especialistas en Atmósferas</span>
+                        <h2>Iluminación de Interiores</h2>
+                        <p class="int-desc">
+                            La luz no solo ilumina, esculpe el espacio. Integramos sistemas inteligentes
+                            que adaptan la calidez y el flujo lumínico según el momento del día y
+                            el propósito de cada estancia.
+                        </p>
+                        <ul class="int-features">
+                            <li>
+                                <span class="material-symbols-outlined">wb_sunny</span>
+                                <div>
+                                    <span class="int-feat-title">Luz Indirecta</span>
+                                    <p class="int-feat-desc">Sistemas que no molestan a la vista y ofrecen una
+                                        iluminacion homogenea.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">settings_input_component</span>
+                                <div>
+                                    <span class="int-feat-title">Diseño y fabricacion de luminarias a medida</span>
+                                    <p class="int-feat-desc">Diseñamos las luminarias segun las necesidades, espacios y
+                                        caracteristicas del proyecto.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="material-symbols-outlined">palette</span>
+                                <div>
+                                    <span class="int-feat-title">Temperatura de Color</span>
+                                    <p class="int-feat-desc">Diseño lumínico personalizado para cada ambiente.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Galería mosaico -->
+                    <div class="interiores-galeria">
+                        <div class="gal-col-left">
+                            <div class="gal-img gal-img-tall">
+                                <!-- 🖼 IMAGEN: iluminación interior 1 -->
+                                <img src="Obras\todas-las-obras\Imagenes\iluminacion-country-aleman\iluminacion-country-aleman-h2.jpg"
+                                    alt="Iluminación living">
+                            </div>
+                            <div class="gal-img gal-img-med">
+                                <!-- 🖼 IMAGEN: iluminación interior 2 -->
+                                <img src="Obras\todas-las-obras\Imagenes\Iluminacion-la-florida\Iluminacion-la-florida-v3.jpg"
+                                    alt="Iluminación cocina">
+                            </div>
+                        </div>
+                        <div class="gal-col-right">
+                            <div class="gal-img gal-img-med">
+                                <!-- 🖼 IMAGEN: iluminación interior 3 -->
+                                <img src="Obras\todas-las-obras\Imagenes\Iluminacion-la-escondida\Iluminacion-la-escondida-h5.jpg"
+                                    alt="Iluminación pasillo">
+                            </div>
+                            <div class="gal-img gal-img-short">
+                                <!-- 🖼 IMAGEN: iluminación interior 4 -->
+                                <img src="Obras\todas-las-obras\Imagenes\iluminacion-comlpejo-familiar-tres-residencias\iluminacion-comlpejo-familiar-tres-residencias-h11.jpg"
+                                    alt="Lámparas diseño">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 6 | ILUMINACIÓN DE EXTERIORES (Versión Stitch)
+         ─ Fondo azul marino (primary), 3 tarjetas cuadradas
+        =============================================================== -->
+        <section id="exteriores">
+            <div class="container">
+
+                <div class="ext-header">
+                    <div class="architectural-line" style="background-color:var(--accent);margin:0 auto 24px;"></div>
+                    <h2>Iluminación de Exteriores</h2>
+                    <p>
+                        Realzamos la arquitectura nocturna, creando recorridos seguros y visualmente
+                        impactantes en fachadas, jardines y áreas sociales exteriores.
+                    </p>
+                </div>
+
+                <div class="ext-grid">
+
+                    <!-- Card 1 -->
+                    <div class="ext-card">
+                        <div class="ext-img-wrap">
+                            <!-- 🖼 IMAGEN: iluminación exterior – fachada -->
+                            <img src="obras/todas-las-obras/Imagenes/iluminacion-residencia-alto-de-achumani/iluminacion-residencia-alto-de-achumani-h2.jpg"
+                                alt="Fachadas monumentales">
+                        </div>
+                        <h4>Fachadas Monumentales</h4>
+                        <p class="ext-card-sub">Proyección &amp; Acento</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="ext-card">
+                        <div class="ext-img-wrap">
+                            <!-- 🖼 IMAGEN: iluminación exterior – paisajismo -->
+                            <img src="Obras\todas-las-obras\Imagenes\Iluminacion-la-florida/Iluminacion-la-florida-h12.jpg"
+                                alt="Paisajismo lumínico">
+                        </div>
+                        <h4>Paisajismo Lumínico</h4>
+                        <p class="ext-card-sub">Naturaleza Viva</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="ext-card">
+                        <div class="ext-img-wrap">
+                            <!-- 🖼 IMAGEN: iluminación exterior – terrazas y piscinas -->
+                            <img src="Obras\todas-las-obras\Imagenes\Iluminacion-la-florida/Iluminacion-la-florida-h3.jpg"
+                                alt="Terrazas y piscinas">
+                        </div>
+                        <h4>Terrazas &amp; Piscinas</h4>
+                        <p class="ext-card-sub">Atmósfera Social</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 7 | METODOLOGÍA BIM (Versión Stitch)
+         ─ Tarjeta con texto + imagen circular + badges
+        =============================================================== -->
+        <section id="bim">
+            <div class="container">
+                <div class="bim-card">
+
+                    <!-- Texto -->
+                    <div class="bim-texto">
+                        <div class="architectural-line"></div>
+                        <h2>Precisión con Metodología BIM</h2>
+                        <p>
+                            En Grupo B's, todos nuestros proyectos son ejecutados bajo estándares
+                            <strong>BIM (Building Information Modeling)</strong>. Esta tecnología nos permite
+                            crear gemelos digitales que garantizan precisión milimétrica, reducción drástica
+                            de costos imprevistos y el cumplimiento riguroso de los plazos de entrega.
+                        </p>
+                        <div class="bim-badges">
+                            <div class="bim-badge">
+                                <span class="material-symbols-outlined">verified</span>
+                                <span class="badge-label">Cero Colisiones</span>
+                            </div>
+                            <div class="bim-badge">
+                                <span class="material-symbols-outlined">schedule</span>
+                                <span class="badge-label">Cronograma Optimizado</span>
+                            </div>
+                            <div class="bim-badge">
+                                <span class="material-symbols-outlined">payments</span>
+                                <span class="badge-label">Control de Costos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual circular -->
+                    <div class="bim-visual">
+                        <span class="material-symbols-outlined bim-icon-bg">architecture</span>
+                        <!-- 🖼 IMAGEN: planos BIM / maqueta digital -->
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBshpn3QkYdMhUYgFiFZrHjQV9RUh-hkPff-tCob_UZgNoBHqv8rpjf8LXXBGMa-cU3crxs45Ph3TRAV6GMRGrdT6o0wAU-fWbf-OyaAENaYB0DHTOwRebEiLjTNkKW4dKL9iG_gHE6PbdNrJoTHCdfpYfwcXjoohmsAiokgMmrTH7JYSvSqxLpPxRZVt_IlWMJqSSelNQFLxmJrHtUwF1-1C05xt804G3yQFx4uBD03N0ealQvEDlZoVuVzWNKbkGQJqKC7LeaW8k"
+                            alt="Metodología BIM">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 8 | CALL TO ACTION
+         ─ Nuevo bloque con la estética, paleta y tipografía de la página
+         ─ Fondo azul marino, texto centrado, 2 botones
+        =============================================================== -->
+        <section id="cta-obras">
+            <div class="container">
+                <div class="cta-inner-obras">
+
+                    <span class="cta-pretitulo">¿Tu próximo proyecto?</span>
+                    <h2 class="cta-titulo-obras">
+                        Convertimos tu visión<br>en una obra que perdura
+                    </h2>
+                    <p class="cta-desc-obras">
+                        Contamos con más de 25 años de experiencia transformando proyectos en realidades.
+                        Desde el primer boceto hasta la entrega de llaves, acompañamos cada etapa con
+                        precisión técnica y compromiso real.
+                    </p>
+                    <div class="cta-botones">
+                        <a class="btn-cta-gold" href="contacto.html">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Iniciar mi Proyecto
+                        </a>
+                        <a class="btn-cta-outline"
+                            href="https://wa.me/5493513579053?text=Buenas%20tardes.%20Estaba%20interesado%20en%20su%20servicio."
+                            target="_blank" rel="noopener noreferrer">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 8 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT
+     1. Menú hamburguesa (mobile nav)
+     2. Acordeón Servicios en menú móvil
+    =============================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. MENÚ HAMBURGUESA ──────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. ACORDEÓN SERVICIOS (MENÚ MÓVIL) ──────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            toggleServ.addEventListener('click', function () {
+                toggleServ.classList.toggle('expandido');
+                submenuServ.classList.toggle('visible');
+            });
+
+        });
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';     /* 📌 cambiá a 'light' para navbar blanco; 'dark' para navbar azul marino */
+        var FOOTER_TEMA = 'light';
+        var NAV_ACTIVO = 'obras';
+    </script>
+    <script src="./componentes.js"></script>
+
+</body>
+
+</html>

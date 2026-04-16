@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  GRUPO B'S — Sub-página de proyecto                                        ║
+║  Casona en Etapas                                                          ║
+║  Archivo: Obras/todas-las-obras/casona-en-etapas.html                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casona en Etapas | Grupo B's — Arquitectura y Construcción Córdoba</title>
+    <meta name="description"
+        content="Vivienda unifamiliar de 480 m² desarrollada en cuatro etapas entre 2001 y 2018. Tres plantas, quincho, cine en casa, gym y diseño de paisajismo integral. La Paz, Bolivia.">
+    <link rel="canonical" href="https://grupobes.com/obras/todas-las-obras/casona-en-etapas.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:site_name"   content="Grupo B's — Arquitectura y Construcción">
+    <meta property="og:title"       content="Casona en Etapas | Grupo B's">
+    <meta property="og:description" content="Vivienda unifamiliar de 480 m² desarrollada en cuatro etapas entre 2001 y 2018. Tres plantas, quincho, cine en casa, gym y diseño de paisajismo integral. La Paz, Bolivia.">
+    <meta property="og:image"       content="https://grupobes.com/Obras/todas-las-obras/Imagenes/casona-en-etapas/casona-en-etapas-h1.jpg">
+    <meta property="og:url"         content="https://grupobes.com/obras/todas-las-obras/casona-en-etapas.html">
+    <meta property="og:locale"      content="es_AR">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Casona en Etapas",
+        "description": "Vivienda unifamiliar de 480 m² desarrollada en cuatro etapas entre 2001 y 2018. Tres plantas, quincho, cine en casa, gym y diseño de paisajismo integral.",
+        "creator": {
+            "@type": "Organization",
+            "name": "Grupo B's",
+            "url": "https://grupobes.com"
+        },
+        "locationCreated": {
+            "@type": "Place",
+            "name": "La Paz, Bolivia"
+        },
+        "dateCreated": "2018",
+        "image": "https://grupobes.com/Obras/todas-las-obras/Imagenes/casona-en-etapas/casona-en-etapas-h1.jpg"
+    }
+    </script>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary:   #1B2A4A;
+            --secondary: #2C5F8A;
+            --accent:    #C9A96E;
+            --bg-warm:   #F8F6F2;
+            --pearl:     #EDEAE4;
+            --charcoal:  #2D2D2D;
+            --white:     #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html  { scroll-behavior: smooth; }
+        body  { font-family: 'Inter', sans-serif; background: var(--bg-warm); color: var(--charcoal); -webkit-font-smoothing: antialiased; }
+        img   { display: block; max-width: 100%; }
+        a     { text-decoration: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+        /* ════════ 1. HERO ════════ */
+        .proj-hero {
+            position: relative;
+            height: 100vh; min-height: 600px;
+            overflow: hidden; display: flex; align-items: flex-end;
+        }
+        .proj-hero-img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+        }
+        .proj-hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(27,42,74,.88) 0%, rgba(27,42,74,.30) 55%, rgba(27,42,74,.10) 100%);
+        }
+        .proj-hero-back {
+            position: absolute; top: 40px; left: 44px; z-index: 10;
+            display: flex; align-items: center; gap: 9px;
+            color: rgba(255,255,255,.75);
+            font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+            transition: color .2s;
+        }
+        .proj-hero-back:hover { color: var(--accent); }
+        .proj-hero-back .material-symbols-outlined { font-size: 1rem; }
+        .proj-hero-content {
+            position: relative; z-index: 10;
+            padding: 0 44px 72px; max-width: 1100px;
+        }
+        .architectural-line { width: 72px; height: 2px; background: var(--accent); margin-bottom: 24px; }
+        .proj-hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 20px;
+        }
+        .proj-hero-meta {
+            font-size: .68rem; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
+            color: rgba(255,255,255,.65);
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+        }
+        .proj-hero-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .7; }
+        .proj-hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .tag {
+            display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px;
+            background: rgba(201,169,110,.15); border: 1px solid rgba(201,169,110,.35);
+            color: var(--accent); font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+            border-radius: 2px; backdrop-filter: blur(6px);
+        }
+
+        /* ════════ 2. FICHA + DESCRIPCIÓN ════════ */
+        .proj-content-section {
+            max-width: 1280px; margin: 0 auto; padding: 96px 44px;
+            display: grid; grid-template-columns: 340px 1fr; gap: 80px; align-items: start;
+        }
+        .ficha-tecnica { position: sticky; top: 100px; }
+        .ficha-card { background: var(--white); border-left: 4px solid var(--accent); padding: 36px 32px; }
+        .ficha-label-top { font-size: .65rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+        .ficha-row { margin-bottom: 20px; }
+        .ficha-row:last-child { margin-bottom: 0; }
+        .ficha-row .field-label { display: block; font-size: .62rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(27,42,74,.4); margin-bottom: 4px; }
+        .ficha-row .field-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); line-height: 1.1; }
+        .ficha-divider { border: none; border-top: 1px solid var(--pearl); margin: 20px 0; }
+        .ficha-servicios-list { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+        .ficha-servicios-list li { font-size: .85rem; font-weight: 400; color: var(--charcoal); display: flex; align-items: center; gap: 8px; }
+        .ficha-servicios-list li::before { content: ''; display: inline-block; width: 14px; height: 1px; background: var(--accent); flex-shrink: 0; }
+        .ficha-estado { display: inline-flex; align-items: center; gap: 7px; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px 5px 8px; border-radius: 2px; margin-top: 4px; }
+        .ficha-estado.completado { background: rgba(37,211,102,.08); color: #1a8a43; border: 1px solid rgba(37,211,102,.25); }
+        .ficha-estado .material-symbols-outlined { font-size: .9rem; }
+
+        /* Timeline de etapas */
+        .etapas-timeline { margin-top: 4px; display: flex; flex-direction: column; gap: 0; }
+        .etapa-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px 0; border-bottom: 1px solid var(--pearl); position: relative;
+        }
+        .etapa-item:last-child { border-bottom: none; }
+        .etapa-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--accent); flex-shrink: 0; margin-top: 3px;
+        }
+        .etapa-year { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--primary); min-width: 42px; }
+        .etapa-desc { font-size: .78rem; color: var(--charcoal); line-height: 1.4; opacity: .75; }
+
+        .proj-descripcion h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 600; color: var(--primary); margin-bottom: 24px; line-height: 1.1; }
+        .proj-descripcion .architectural-line { margin-bottom: 32px; }
+        .proj-descripcion .desc-lead { font-size: 1.15rem; font-weight: 300; color: var(--primary); line-height: 1.75; margin-bottom: 24px; }
+        .proj-descripcion .desc-body { font-size: .95rem; font-weight: 400; color: var(--charcoal); line-height: 1.8; opacity: .85; }
+
+        /* ════════ 3. GALERÍA ASIMÉTRICA ════════
+           23 fotos totales. h1 = portada (hero).
+           Galería: h2–h19 (18H) + v1–v4 (4V) = 22 fotos.
+
+           Grupos 1–4: stitch estándar (5 fotos c/u = 20 fotos)
+           Cierre:     h18 + h19 — dos horizontales simétricas (2 fotos)
+
+           Distribución:
+           Grupo 1 → h2(A)  h3(B)  v1(C)  h4(D)  h5(E)
+           Grupo 2 → h6(A)  h7(B)  v2(C)  h8(D)  h9(E)
+           Grupo 3 → h10(A) h11(B) v3(C)  h12(D) h13(E)
+           Grupo 4 → h14(A) h15(B) v4(C)  h16(D) h17(E)
+           Cierre  → h18 (izq 6 col) + h19 (der 6 col) — 420px alto
+        ════════════════════════════════════════════════ */
+        .proj-gallery-section { background: var(--pearl); padding: 96px 44px; }
+        .gallery-header { text-align: center; margin-bottom: 56px; }
+        .gallery-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-style: italic; font-weight: 300; color: var(--primary); }
+
+        .gallery-groups { max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 12px; }
+        .gallery-grid-std   { grid-auto-rows: 300px; }
+        .gallery-grid-close { grid-auto-rows: 420px; }
+
+        .gallery-slot { overflow: hidden; }
+        .gallery-slot img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; cursor: zoom-in; }
+        .gallery-slot:hover img { transform: scale(1.04); }
+
+        /* Slots stitch */
+        .s-A { grid-column: span 8; grid-row: span 2; }
+        .s-B { grid-column: span 4; grid-row: span 1; }
+        .s-C { grid-column: span 4; grid-row: span 2; }
+        .s-D { grid-column: span 4; grid-row: span 1; }
+        .s-E { grid-column: span 4; grid-row: span 1; }
+
+        /* Cierre: dos columnas iguales */
+        .s-L { grid-column: span 6; grid-row: span 1; }
+        .s-R { grid-column: span 6; grid-row: span 1; }
+
+        /* ════════ 4. CAPACIDAD TÉCNICA ════════ */
+        .proj-tecnica-section { padding: 80px 44px; display: flex; justify-content: center; background: var(--bg-warm); }
+        .tecnica-card { max-width: 960px; width: 100%; background: var(--primary); color: var(--white); padding: 64px 72px; position: relative; overflow: hidden; }
+        .tecnica-card-deco { position: absolute; top: 0; right: 0; padding: 32px; opacity: .07; }
+        .tecnica-card-deco .material-symbols-outlined { font-size: 9rem; }
+        .tecnica-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+        .tecnica-pretitle { font-size: .65rem; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+        .tecnica-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; margin-bottom: 20px; line-height: 1.1; }
+        .tecnica-desc { font-size: .9rem; font-weight: 300; line-height: 1.75; opacity: .8; }
+        .tecnica-checklist { list-style: none; display: flex; flex-direction: column; gap: 16px; border-left: 1px solid rgba(255,255,255,.1); padding-left: 48px; }
+        .tecnica-checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .9; }
+        .tecnica-checklist li .material-symbols-outlined { color: var(--accent); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+        /* ════════ 5. CTA ════════ */
+        .proj-cta-section { padding: 120px 44px; text-align: center; background: var(--bg-warm); }
+        .proj-cta-pretitle { font-size: .68rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 16px; }
+        .proj-cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 700; color: var(--primary); line-height: 1.05; margin-bottom: 48px; }
+        .proj-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .btn-gold { display: inline-flex; align-items: center; gap: 9px; background: var(--accent); color: var(--primary); padding: 15px 36px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-radius: 2px; transition: opacity .25s, transform .2s; }
+        .btn-gold:hover { opacity: .88; transform: translateY(-1px); }
+        .btn-outline-navy { display: inline-flex; align-items: center; gap: 9px; background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 13px 36px; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border-radius: 2px; transition: background .25s, color .25s, transform .2s; }
+        .btn-outline-navy:hover { background: var(--primary); color: var(--white); transform: translateY(-1px); }
+        .btn-outline-navy i.fa-whatsapp { color: var(--wsp-green); font-size: 1rem; }
+
+        /* ════════ RESPONSIVE ════════ */
+        @media (max-width: 1024px) {
+            .proj-content-section { grid-template-columns: 1fr; gap: 48px; padding: 72px 32px; }
+            .ficha-tecnica { position: static; }
+            .tecnica-inner { grid-template-columns: 1fr; gap: 40px; }
+            .tecnica-checklist { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,.1); padding-top: 40px; }
+            .tecnica-card { padding: 48px 40px; }
+        }
+        @media (max-width: 768px) {
+            .proj-hero-content { padding: 0 24px 56px; }
+            .proj-hero-back { top: 28px; left: 24px; }
+            .proj-content-section { padding: 56px 24px; }
+            .proj-gallery-section { padding: 72px 16px; }
+            .proj-tecnica-section { padding: 56px 24px; }
+            .tecnica-card { padding: 40px 28px; }
+            .proj-cta-section { padding: 80px 24px; }
+
+            .gallery-grid-std,
+            .gallery-grid-close { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 8px; }
+
+            .s-A { grid-column: 1 / -1; grid-row: span 2; }
+            .s-B, .s-C, .s-D, .s-E { grid-column: span 1; grid-row: span 1; }
+            .s-L, .s-R { grid-column: span 1; grid-row: span 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="gb-franja"></div>
+    <div id="gb-navbar"></div>
+
+    <main>
+
+        <!-- ════════ 1. HERO ════════
+             Portada: h1 (no se designó ninguna en la ficha;
+             si querés cambiarla, reemplazá el src)
+        ════════════════════════════ -->
+        <section class="proj-hero">
+            <img
+                class="proj-hero-img"
+                src="Imagenes/casona-en-etapas/casona-en-etapas-h1.jpg"
+                alt="Vista exterior de la fachada final tras la remodelación de 2018 — Casona en Etapas · Grupo B's"
+            >
+            <div class="proj-hero-overlay"></div>
+
+            <a class="proj-hero-back" href="../../obras.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Todas las obras
+            </a>
+
+            <div class="proj-hero-content">
+                <div class="architectural-line"></div>
+                <h1 class="proj-hero-title">Casona<br>en Etapas</h1>
+                <div class="proj-hero-meta">
+                    <span>La Paz, Bolivia</span>
+                    <span class="dot"></span>
+                    <span>2001 — 2018</span>
+                    <span class="dot"></span>
+                    <span>480 m²</span>
+                </div>
+                <div class="proj-hero-tags">
+                    <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">construction</span> Construcción</span>
+                    <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">architecture</span> Diseño Arquitectónico</span>
+                    <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">lightbulb</span> Iluminación</span>
+                    <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">chair</span> Interiorismo</span>
+                    <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">home</span> Residencial</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ════════ 2. FICHA TÉCNICA + DESCRIPCIÓN ════════ -->
+        <section class="proj-content-section">
+
+            <aside class="ficha-tecnica">
+                <div class="ficha-card">
+                    <p class="ficha-label-top">Ficha Técnica</p>
+
+                    <div class="ficha-row">
+                        <span class="field-label">Ubicación</span>
+                        <span class="field-value">La Paz, Bolivia</span>
+                    </div>
+                    <hr class="ficha-divider">
+
+                    <!-- Timeline de etapas — reemplaza el campo "Año" estándar -->
+                    <div class="ficha-row">
+                        <span class="field-label">Etapas de construcción</span>
+                        <div class="etapas-timeline">
+                            <div class="etapa-item">
+                                <span class="etapa-dot"></span>
+                                <span class="etapa-year">2001</span>
+                                <span class="etapa-desc">Estructura principal y planta baja</span>
+                            </div>
+                            <div class="etapa-item">
+                                <span class="etapa-dot"></span>
+                                <span class="etapa-year">2007</span>
+                                <span class="etapa-desc">Segunda planta — dormitorios</span>
+                            </div>
+                            <div class="etapa-item">
+                                <span class="etapa-dot"></span>
+                                <span class="etapa-year">2010</span>
+                                <span class="etapa-desc">Tercer piso y quincho exterior</span>
+                            </div>
+                            <div class="etapa-item">
+                                <span class="etapa-dot"></span>
+                                <span class="etapa-year">2018</span>
+                                <span class="etapa-desc">Terminaciones, paisajismo e iluminación integral</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Superficie total</span>
+                        <span class="field-value">480 m²</span>
+                    </div>
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Estado</span>
+                        <span class="ficha-estado completado">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Completado
+                        </span>
+                    </div>
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Servicios aplicados</span>
+                        <ul class="ficha-servicios-list">
+                            <li>Diseño Arquitectónico</li>
+                            <li>Construcción Integral</li>
+                            <li>Iluminación Especializada</li>
+                            <li>Interiorismo</li>
+                            <li>Paisajismo</li>
+                        </ul>
+                    </div>
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Cliente</span>
+                        <span class="field-value" style="font-size:1.1rem;">Cliente privado</span>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="proj-descripcion">
+                <h2>La Visión</h2>
+                <div class="architectural-line"></div>
+
+                <p class="desc-lead">
+                    Esta casa es el resultado de diecisiete años de construcción a través de cuatro etapas con una lógica precisa: primero lo esencial, luego lo funcional, finalmente lo deseado. Cada intervención respondió al momento de vida de la familia y al presupuesto disponible, sin perder de vista un resultado final coherente y de alta calidad. El proyecto demuestra que construir en etapas no significa resignar calidad — significa planificar con inteligencia.
+                </p>
+
+                <p class="desc-body">
+                    La vivienda final cuenta con tres plantas: planta baja destinada al área social y de servicio — living-comedor con iluminación indirecta y cortinero embutido, cocina y comedor de diario. El segundo piso aloja los cuatro dormitorios, con piso alfombrado y un dormitorio principal con vestidor, baño privado y jacuzzi. El tercer piso incorpora depósito amplio y espacio de hobby. El quincho exterior cuenta con parrillero, comedor, gym, cine en casa y complementa el patio intervenido con diseño de paisajismo, mini cancha de fútbol y césped natural cuidado. Las paredes interiores de cada ambiente presentan texturas artesanales únicas, materializadas con revoques diferenciados por espacio. Film solar en ventanas, apliques de pared en todos los pasillos y luminarias de diseño en cada ambiente completan una propuesta de iluminación integral. El espacioso estacionamiento cubierto fue construido con previsión para incorporar hasta tres pisos adicionales.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ════════ 3. GALERÍA ASIMÉTRICA — 22 fotos ════════
+             h1 = portada (hero). Galería: h2–h19 + v1–v4 = 22 fotos.
+
+             Grupo 1 → h2(A)  h3(B)  v1(C)  h4(D)  h5(E)
+             Grupo 2 → h6(A)  h7(B)  v2(C)  h8(D)  h9(E)
+             Grupo 3 → h10(A) h11(B) v3(C)  h12(D) h13(E)
+             Grupo 4 → h14(A) h15(B) v4(C)  h16(D) h17(E)
+             Cierre  → h18 (L, 6 col) + h19 (R, 6 col) — 420px
+        ════════════════════════════════════════════════════ -->
+        <section class="proj-gallery-section">
+            <div class="gallery-header">
+                <h2>Perspectivas y Detalles</h2>
+            </div>
+
+            <div class="gallery-groups">
+
+                <!-- ── GRUPO 1 ── h2 · h3 · v1 · h4 · h5 ── -->
+                <div class="gallery-grid gallery-grid-std">
+                    <div class="gallery-slot s-A">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h2.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-B">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h3.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-C">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-v1.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-D">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h4.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-E">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h5.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- ── GRUPO 2 ── h6 · h7 · v2 · h8 · h9 ── -->
+                <div class="gallery-grid gallery-grid-std">
+                    <div class="gallery-slot s-A">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h6.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-B">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h7.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-C">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-v2.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-D">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h8.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-E">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h9.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- ── GRUPO 3 ── h10 · h11 · v3 · h12 · h13 ── -->
+                <div class="gallery-grid gallery-grid-std">
+                    <div class="gallery-slot s-A">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h10.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-B">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h11.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-C">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-v3.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-D">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h12.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-E">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h13.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- ── GRUPO 4 ── h14 · h15 · v4 · h16 · h17 ── -->
+                <div class="gallery-grid gallery-grid-std">
+                    <div class="gallery-slot s-A">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h14.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-B">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h15.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-C">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-v4.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-D">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h16.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-E">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h17.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- ── CIERRE ── h18 (izq) + h19 (der) — simétricas ──
+                     Dos horizontales a mismo alto → cierre equilibrado.
+                ─────────────────────────────────────────────────────── -->
+                <div class="gallery-grid gallery-grid-close">
+                    <div class="gallery-slot s-L">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h18.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                    <div class="gallery-slot s-R">
+                        <img src="Imagenes/casona-en-etapas/casona-en-etapas-h19.jpg"
+                             alt="Casona en Etapas · Grupo B's" loading="lazy">
+                    </div>
+                </div>
+
+            </div><!-- .gallery-groups -->
+        </section>
+
+
+        <!-- ════════ 4. CAPACIDAD TÉCNICA ════════ -->
+        <section class="proj-tecnica-section">
+            <div class="tecnica-card">
+
+                <div class="tecnica-card-deco">
+                    <span class="material-symbols-outlined">architecture</span>
+                </div>
+
+                <div class="tecnica-inner">
+                    <div>
+                        <p class="tecnica-pretitle">Construcción por Etapas · Diseño Interior · Iluminación · Paisajismo</p>
+                        <h3 class="tecnica-title">Planificación Estratégica en Cuatro Etapas</h3>
+                        <p class="tecnica-desc">
+                            El proyecto siguió una lógica de crecimiento progresivo: cada etapa fue planificada sin cerrar las posibilidades de la siguiente. El resultado es una vivienda de 480 m² que creció con la familia durante 17 años, sin compromisos de calidad ni retrabajo costoso entre fases.
+                        </p>
+                    </div>
+
+                    <ul class="tecnica-checklist">
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Construcción progresiva en 4 etapas (2001 · 2007 · 2010 · 2018) sin retrabajo entre fases
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Estructura del estacionamiento calculada para soportar hasta 3 pisos adicionales
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Texturas artesanales únicas por ambiente — revoques diferenciados en cada espacio
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Iluminación integral: luz indirecta, apliques de pasillo y film solar en ventanas
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Programa completo: cine en casa, gym, sala de juegos, quincho y 2 parrilleros
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Diseño de paisajismo integral con plantación, césped natural y jardinería
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ════════ 5. CTA FINAL ════════ -->
+        <section class="proj-cta-section">
+            <span class="proj-cta-pretitle">¿Tenés un proyecto para construir en etapas?</span>
+            <h2 class="proj-cta-title">Hagámoslo realidad<br>juntos</h2>
+            <div class="proj-cta-btns">
+                <a class="btn-gold" href="../../contacto.html">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Contactar
+                </a>
+                <a class="btn-outline-navy"
+                   href="https://wa.me/549351XXXXXXXX?text=Buenas%20tardes.%20Vi%20el%20proyecto%20de%20la%20casona%20en%20etapas%20en%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20consultar%20sobre%20una%20vivienda%20o%20ampliaci%C3%B3n%20por%20etapas.%20%C2%BFPodr%C3%ADan%20enviarme%20m%C3%A1s%20informaci%C3%B3n%3F"
+                   target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="gb-footer"></div>
+
+    <script>
+        var BASE        = '../../';
+        var NAVBAR_TEMA = 'dark';
+        var NAV_ACTIVO  = 'obras';
+    </script>
+    <script src="../../componentes.js"></script>
+
+    <!-- ════ LIGHTBOX ════ -->
+    <script>
+    (function () {
+        var s = document.createElement('style');
+        s.textContent = [
+            '.lb-ov{display:none;position:fixed;inset:0;z-index:9900;',
+            'background:rgba(10,15,28,.93);backdrop-filter:blur(6px);',
+            '-webkit-backdrop-filter:blur(6px);',
+            'align-items:center;justify-content:center;cursor:default;}',
+            '.lb-ov.on{display:flex;}',
+            '.lb-wrap{position:relative;display:flex;align-items:center;',
+            'justify-content:center;max-width:90vw;max-height:90vh;',
+            'cursor:zoom-in;overflow:hidden;}',
+            '.lb-wrap.z{cursor:zoom-out;}',
+            '.lb-img{display:block;max-width:90vw;max-height:90vh;',
+            'object-fit:contain;transform-origin:center center;',
+            'transition:transform .35s cubic-bezier(.4,0,.2,1);',
+            'pointer-events:none;user-select:none;}',
+            '.lb-wrap.z .lb-img{transform:scale(2.2);}',
+            '.lb-x{position:fixed;top:22px;right:26px;z-index:9910;',
+            'width:44px;height:44px;border-radius:2px;',
+            'background:rgba(201,169,110,.12);',
+            'border:1px solid rgba(201,169,110,.4);',
+            'color:#C9A96E;font-size:1.5rem;line-height:1;',
+            'display:flex;align-items:center;justify-content:center;',
+            'cursor:pointer;transition:background .2s,color .2s;}',
+            '.lb-x:hover{background:#C9A96E;color:#1B2A4A;}',
+            '.lb-arr{position:fixed;top:50%;transform:translateY(-50%);',
+            'z-index:9910;width:48px;height:72px;',
+            'background:rgba(27,42,74,.65);',
+            'border:1px solid rgba(201,169,110,.2);',
+            'color:rgba(255,255,255,.75);font-size:1.6rem;',
+            'display:flex;align-items:center;justify-content:center;',
+            'cursor:pointer;transition:background .2s,color .2s;',
+            'user-select:none;border-radius:2px;}',
+            '.lb-arr:hover{background:rgba(201,169,110,.2);color:#C9A96E;}',
+            '.lb-p{left:14px;}.lb-n{right:14px;}',
+            '.lb-cnt{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);',
+            'font-family:"Inter",sans-serif;font-size:.6rem;font-weight:600;',
+            'letter-spacing:.2em;text-transform:uppercase;',
+            'color:rgba(255,255,255,.35);z-index:9910;white-space:nowrap;}',
+            '.lb-tip{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);',
+            'font-family:"Inter",sans-serif;font-size:.58rem;',
+            'letter-spacing:.14em;text-transform:uppercase;',
+            'color:rgba(201,169,110,.4);z-index:9910;white-space:nowrap;}',
+            '.gallery-slot img{cursor:zoom-in!important;}',
+            '@keyframes lb-in{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}',
+            '.lb-wrap{animation:lb-in .22s ease both;}',
+        ].join('');
+        document.head.appendChild(s);
+
+        function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
+        var ov   = el('div','lb-ov');
+        var wrap = el('div','lb-wrap');
+        var img  = el('img','lb-img');
+        var x    = el('div','lb-x');       x.innerHTML = '&#215;';
+        var p    = el('div','lb-arr lb-p'); p.innerHTML = '&#8592;';
+        var n    = el('div','lb-arr lb-n'); n.innerHTML = '&#8594;';
+        var cnt  = el('div','lb-cnt');
+        var tip  = el('div','lb-tip');
+
+        wrap.appendChild(img);
+        [wrap,x,p,n,cnt,tip].forEach(function(c){ ov.appendChild(c); });
+        document.body.appendChild(ov);
+
+        var imgs = [], idx = 0, zoomed = false;
+
+        function init() {
+            imgs = [];
+            document.querySelectorAll('.gallery-slot img').forEach(function(im) {
+                var i = imgs.length;
+                imgs.push({ src: im.src, alt: im.alt });
+                im.addEventListener('click', function(){ open(i); });
+            });
+        }
+
+        function open(i) {
+            idx = i; setZoom(false);
+            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+            refresh();
+            ov.classList.add('on');
+            document.body.style.overflow = 'hidden';
+            wrap.style.animation = 'none';
+            requestAnimationFrame(function(){ wrap.style.animation = ''; });
+        }
+
+        function close() {
+            ov.classList.remove('on');
+            document.body.style.overflow = '';
+            setZoom(false);
+            setTimeout(function(){ img.src = ''; }, 250);
+        }
+
+        function nav(dir) {
+            setZoom(false);
+            idx = (idx + dir + imgs.length) % imgs.length;
+            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+            refresh();
+        }
+
+        function setZoom(on) { zoomed = on; wrap.classList.toggle('z', zoomed); }
+
+        function refresh() {
+            cnt.textContent = (idx + 1) + ' / ' + imgs.length;
+            tip.textContent = zoomed
+                ? 'Clic para alejar  ·  Esc para cerrar'
+                : 'Clic para ampliar  ·  ← →  navegar  ·  Esc cerrar';
+        }
+
+        ov.addEventListener('click',   function(e){ if(e.target===ov) close(); });
+        wrap.addEventListener('click', function(e){ e.stopPropagation(); setZoom(!zoomed); refresh(); });
+        x.addEventListener('click',    function(e){ e.stopPropagation(); close(); });
+        p.addEventListener('click',    function(e){ e.stopPropagation(); nav(-1); });
+        n.addEventListener('click',    function(e){ e.stopPropagation(); nav(1); });
+
+        document.addEventListener('keydown', function(e) {
+            if (!ov.classList.contains('on')) return;
+            if (e.key === 'Escape')     close();
+            if (e.key === 'ArrowLeft')  nav(-1);
+            if (e.key === 'ArrowRight') nav(1);
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else { init(); }
+    })();
+    </script>
+
+</body>
+</html>

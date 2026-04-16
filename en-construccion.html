@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+╔══════════════════════════════════════════════════════════════════════╗
+║  GRUPO B'S — Página en Construcción                                ║
+║  Archivo: en-construccion.html (raíz del sitio)                    ║
+╚══════════════════════════════════════════════════════════════════════╝
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página en Construcción | Grupo B's</title>
+    <meta name="robots" content="noindex">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary:#1B2A4A; --accent:#C9A96E;
+            --bg-warm:#F8F6F2; --pearl:#EDEAE4; --charcoal:#2D2D2D;
+            --white:#ffffff; --wsp-green:#25d366;
+        }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Inter',sans-serif;background:var(--bg-warm);color:var(--charcoal);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;}
+        a{text-decoration:none;}
+        .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;vertical-align:middle;}
+
+        /* ── CONTENIDO CENTRAL ── */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 24px;
+        }
+
+        .ec-container {
+            max-width: 660px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Ícono animado */
+        .ec-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background: rgba(201,169,110,.12);
+            border: 1px solid rgba(201,169,110,.3);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            animation: ec-pulse 3s ease-in-out infinite;
+        }
+        .ec-icon-wrap .material-symbols-outlined {
+            font-size: 2.2rem;
+            color: var(--accent);
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+        }
+        @keyframes ec-pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(201,169,110,.2); }
+            50%      { box-shadow: 0 0 0 14px rgba(201,169,110,0); }
+        }
+
+        /* Línea dorada */
+        .ec-line {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 28px;
+        }
+
+        /* Pretítulo */
+        .ec-pretitle {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        /* Título */
+        .ec-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        /* Descripción */
+        .ec-desc {
+            font-size: .95rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            line-height: 1.8;
+            opacity: .8;
+            margin-bottom: 48px;
+        }
+
+        /* Botones */
+        .ec-btns {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 14px 32px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            transition: opacity .25s, transform .2s;
+        }
+        .btn-gold:hover { opacity: .88; transform: translateY(-1px); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 32px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background .25s, color .25s, transform .2s;
+        }
+        .btn-outline:hover { background: var(--primary); color: var(--white); transform: translateY(-1px); }
+        .btn-outline i.fa-whatsapp { color: var(--wsp-green); font-size: 1rem; }
+
+        /* Volver */
+        .ec-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(45,45,45,.4);
+            transition: color .2s;
+        }
+        .ec-back:hover { color: var(--accent); }
+        .ec-back .material-symbols-outlined { font-size: 1rem; }
+
+        @media(max-width:480px){
+            .ec-btns { flex-direction: column; align-items: center; }
+            .btn-gold, .btn-outline { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Franja y Navbar -->
+    <div id="gb-franja"></div>
+    <div id="gb-navbar"></div>
+
+    <main>
+        <div class="ec-container">
+
+            <div class="ec-icon-wrap">
+                <span class="material-symbols-outlined">construction</span>
+            </div>
+
+            <div class="ec-line"></div>
+
+            <span class="ec-pretitle">Portafolio en expansión</span>
+
+            <h1 class="ec-title">Esta página<br>está en preparación</h1>
+
+            <p class="ec-desc">
+                Estamos terminando de documentar este proyecto para mostrártelo con el nivel de detalle que se merece. Si te interesa ver más información sobre esta obra o consultarnos algo similar, escribinos directamente — con gusto te enviamos fotos, detalles técnicos y respondemos todas tus preguntas.
+            </p>
+
+            <div class="ec-btns">
+                <a class="btn-gold" href="contacto.html">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Consultarnos sobre esta obra
+                </a>
+                <a class="btn-outline"
+                   href="https://wa.me/549351XXXXXXXX?text=Buenas%20tardes.%20Vi%20un%20proyecto%20en%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20%C3%A9l.%20%C2%BFPodr%C3%ADan%20enviarme%20detalles%3F"
+                   target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+
+            <a class="ec-back" href="Obras/todas-las-obras.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Volver a todas las obras
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="gb-footer"></div>
+
+    <script>
+        var BASE        = './';
+        var NAVBAR_TEMA = 'dark';
+        var NAV_ACTIVO  = 'obras';
+    </script>
+    <script src="componentes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║  GRUPO B'S — TEMPLATE DE SUB-PÁGINA DE PROYECTO                            ║
+║  Uso: Copiar este archivo, renombrarlo con el slug del proyecto             ║
+║  y completar todos los campos marcados con 📌                               ║
+║  Ejemplo de ruta: /obras/todas-las-obras/residencia-el-olivo/              ║
+║                    residencia-el-olivo.html                                  ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ══════════════════════════════════════════════════════
+         SEO BÁSICO
+         📌 Completar con los datos reales del proyecto
+    ══════════════════════════════════════════════════════ -->
+    <title>📌 Nombre del Proyecto | Grupo B's — Arquitectura y Construcción Córdoba</title>
+    <meta name="description" content="📌 Resumen corto del proyecto (máx. 155 caracteres). Ej: Vivienda unifamiliar de alta gama con muros de vidrio y jardín integrado al interior. Córdoba, Argentina.">
+    <link rel="canonical" href="📌 URL completa de esta página">
+
+    <!-- Open Graph (para compartir en redes) -->
+    <meta property="og:type"        content="website">
+    <meta property="og:site_name"   content="Grupo B's — Arquitectura y Construcción">
+    <meta property="og:title"       content="📌 Nombre del Proyecto | Grupo B's">
+    <meta property="og:description" content="📌 Mismo texto que meta description">
+    <meta property="og:image"       content="📌 URL absoluta de la foto de portada del proyecto">
+    <meta property="og:url"         content="📌 URL completa de esta página">
+    <meta property="og:locale"      content="es_AR">
+
+    <!-- Schema.org — Portafolio de obra -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "📌 Nombre del Proyecto",
+        "description": "📌 Descripción corta del proyecto",
+        "creator": {
+            "@type": "Organization",
+            "name": "Grupo B's",
+            "url": "📌 https://grupobes.com"
+        },
+        "locationCreated": {
+            "@type": "Place",
+            "name": "📌 Ciudad, Provincia, Argentina"
+        },
+        "dateCreated": "📌 Año de finalización",
+        "image": "📌 URL absoluta de la foto de portada"
+    }
+    </script>
+
+    <!-- ══════════════════════════════════════════════════════
+         FUENTES Y RECURSOS
+    ══════════════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ══════════════════════════════════════════════════════
+         ESTILOS
+    ══════════════════════════════════════════════════════ -->
+    <style>
+        /* ── Variables ─────────────────────────────────────── */
+        :root {
+            --primary:   #1B2A4A;
+            --secondary: #2C5F8A;
+            --accent:    #C9A96E;
+            --bg-warm:   #F8F6F2;
+            --pearl:     #EDEAE4;
+            --charcoal:  #2D2D2D;
+            --black-el:  #111111;
+            --white:     #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        /* ── Reset ─────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html  { scroll-behavior: smooth; }
+        body  { font-family: 'Inter', sans-serif; background: var(--bg-warm); color: var(--charcoal); -webkit-font-smoothing: antialiased; }
+        img   { display: block; max-width: 100%; }
+        a     { text-decoration: none; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+        /* ── Franja y Navbar: gestionados por componentes.js ─ */
+        /* (sin CSS propio aquí) */
+
+        /* ════════════════════════════════════════════════════
+           1. HERO
+        ════════════════════════════════════════════════════ */
+        .proj-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .proj-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Gradiente de abajo hacia arriba para legibilidad del título */
+        .proj-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(27, 42, 74, 0.88) 0%,
+                rgba(27, 42, 74, 0.30) 55%,
+                rgba(27, 42, 74, 0.10) 100%
+            );
+        }
+
+        /* Volver atrás */
+        .proj-hero-back {
+            position: absolute;
+            top: 40px;
+            left: 44px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: rgba(255,255,255,.75);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            transition: color .2s;
+        }
+        .proj-hero-back:hover { color: var(--accent); }
+        .proj-hero-back .material-symbols-outlined { font-size: 1rem; }
+
+        /* Contenido del hero */
+        .proj-hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 44px 72px;
+            max-width: 1100px;
+        }
+
+        .architectural-line {
+            width: 72px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .proj-hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .proj-hero-meta {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.65);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .proj-hero-meta .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .7;
+        }
+
+        /* Tags de categoría */
+        .proj-hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(201, 169, 110, .15);
+            border: 1px solid rgba(201, 169, 110, .35);
+            color: var(--accent);
+            font-size: .62rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            backdrop-filter: blur(6px);
+        }
+
+        /* ════════════════════════════════════════════════════
+           2. SECCIÓN: FICHA TÉCNICA + DESCRIPCIÓN
+        ════════════════════════════════════════════════════ */
+        .proj-content-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 96px 44px;
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* ── Ficha Técnica (columna izquierda, sticky) ────── */
+        .ficha-tecnica {
+            position: sticky;
+            top: 100px;  /* debajo del navbar fijo */
+        }
+
+        .ficha-card {
+            background: var(--white);
+            border-left: 4px solid var(--accent);
+            padding: 36px 32px;
+        }
+
+        .ficha-label-top {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 28px;
+        }
+
+        .ficha-row {
+            margin-bottom: 20px;
+        }
+
+        .ficha-row:last-child { margin-bottom: 0; }
+
+        .ficha-row .field-label {
+            display: block;
+            font-size: .62rem;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: rgba(27, 42, 74, .4);
+            margin-bottom: 4px;
+        }
+
+        .ficha-row .field-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .ficha-divider {
+            border: none;
+            border-top: 1px solid var(--pearl);
+            margin: 20px 0;
+        }
+
+        /* Lista de servicios dentro de la ficha */
+        .ficha-servicios-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .ficha-servicios-list li {
+            font-size: .85rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ficha-servicios-list li::before {
+            content: '';
+            display: inline-block;
+            width: 14px;
+            height: 1px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Estado del proyecto */
+        .ficha-estado {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 5px 12px 5px 8px;
+            border-radius: 2px;
+            margin-top: 4px;
+        }
+        .ficha-estado.completado {
+            background: rgba(37, 211, 102, .08);
+            color: #1a8a43;
+            border: 1px solid rgba(37, 211, 102, .25);
+        }
+        .ficha-estado.en-ejecucion {
+            background: rgba(201, 169, 110, .1);
+            color: #8a6520;
+            border: 1px solid rgba(201, 169, 110, .3);
+        }
+        .ficha-estado.en-diseno {
+            background: rgba(44, 95, 138, .08);
+            color: var(--secondary);
+            border: 1px solid rgba(44, 95, 138, .2);
+        }
+        .ficha-estado .material-symbols-outlined { font-size: .9rem; }
+
+        /* ── Descripción (columna derecha) ───────────────── */
+        .proj-descripcion h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .proj-descripcion .architectural-line { margin-bottom: 32px; }
+
+        .proj-descripcion .desc-lead {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: var(--primary);
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .proj-descripcion .desc-body {
+            font-size: .95rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.8;
+            opacity: .85;
+        }
+
+        /* ════════════════════════════════════════════════════
+           3. GALERÍA ASIMÉTRICA
+           Slot layout (desktop, 5 fotos):
+           ┌───────────────────┬──────────┐
+           │                   │  FOTO 2  │
+           │     FOTO 1        │(H · 300) │
+           │  (H · 600px)      ├──────────┤
+           │                   │  FOTO 3  │
+           │                   │(V · 300) │
+           ├──────────┬────────┴──────────┤  ← row 3
+           │  FOTO 4  │       FOTO 5      │
+           │(H · 300) │    (H · 300)      │
+           └──────────┴───────────────────┘
+
+           📌 Guía de fotos:
+           · Slot 1 → HORIZONTAL grande (interior o exterior amplio). Mín. 1920×1080.
+           · Slot 2 → HORIZONTAL o CUADRADO (detalle, material, acceso). Mín. 800×600.
+           · Slot 3 → VERTICAL o CUADRADO (fachada, jardín, espacio vertical). Mín. 600×900.
+           · Slot 4 → HORIZONTAL (cocina, baño, detalle interior). Mín. 800×600.
+           · Slot 5 → HORIZONTAL (ambiente, escalera, terraza, vista). Mín. 1200×800.
+        ════════════════════════════════════════════════════ */
+        .proj-gallery-section {
+            background: var(--pearl);
+            padding: 96px 44px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .gallery-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--primary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: 300px;
+            gap: 12px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .gallery-slot { overflow: hidden; }
+        .gallery-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+        .gallery-slot:hover img { transform: scale(1.04); }
+
+        /* Tamaños de los slots */
+        .slot-1 { grid-column: span 8; grid-row: span 2; }
+        .slot-2 { grid-column: span 4; grid-row: span 1; }
+        .slot-3 { grid-column: span 4; grid-row: span 2; }
+        .slot-4 { grid-column: span 4; grid-row: span 1; }
+        .slot-5 { grid-column: span 4; grid-row: span 1; }
+
+        /* ════════════════════════════════════════════════════
+           4. CAPACIDAD TÉCNICA
+        ════════════════════════════════════════════════════ */
+        .proj-tecnica-section {
+            padding: 80px 44px;
+            display: flex;
+            justify-content: center;
+            background: var(--bg-warm);
+        }
+
+        .tecnica-card {
+            max-width: 960px;
+            width: 100%;
+            background: var(--primary);
+            color: var(--white);
+            padding: 64px 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ícono de fondo decorativo */
+        .tecnica-card-deco {
+            position: absolute;
+            top: 0; right: 0;
+            padding: 32px;
+            opacity: .07;
+        }
+        .tecnica-card-deco .material-symbols-outlined { font-size: 9rem; }
+
+        .tecnica-inner {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .tecnica-pretitle {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .tecnica-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .tecnica-desc {
+            font-size: .9rem;
+            font-weight: 300;
+            line-height: 1.75;
+            opacity: .8;
+        }
+
+        .tecnica-checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border-left: 1px solid rgba(255,255,255,.1);
+            padding-left: 48px;
+        }
+
+        .tecnica-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            opacity: .9;
+        }
+
+        .tecnica-checklist li .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ════════════════════════════════════════════════════
+           5. CTA FINAL
+        ════════════════════════════════════════════════════ */
+        .proj-cta-section {
+            padding: 120px 44px;
+            text-align: center;
+            background: var(--bg-warm);
+        }
+
+        .proj-cta-pretitle {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .proj-cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 5.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.05;
+            margin-bottom: 48px;
+        }
+
+        .proj-cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px 36px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: opacity .25s, transform .2s;
+        }
+        .btn-gold:hover { opacity: .88; transform: translateY(-1px); }
+
+        .btn-outline-navy {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 13px 36px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background .25s, color .25s, transform .2s;
+        }
+        .btn-outline-navy:hover { background: var(--primary); color: var(--white); transform: translateY(-1px); }
+        .btn-outline-navy i.fa-whatsapp { color: var(--wsp-green); font-size: 1rem; }
+
+        /* ════════════════════════════════════════════════════
+           RESPONSIVE
+        ════════════════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .proj-content-section {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 72px 32px;
+            }
+            .ficha-tecnica { position: static; }
+
+            .tecnica-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .tecnica-checklist {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid rgba(255,255,255,.1);
+                padding-top: 40px;
+            }
+            .tecnica-card { padding: 48px 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .proj-hero-content { padding: 0 24px 56px; }
+            .proj-hero-back { top: 28px; left: 24px; }
+
+            .proj-content-section { padding: 56px 24px; }
+
+            .proj-gallery-section { padding: 72px 16px; }
+
+            /* En mobile la galería se apila verticalmente */
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 200px;
+                gap: 8px;
+            }
+            .slot-1 { grid-column: 1 / -1; grid-row: span 2; }
+            .slot-2 { grid-column: span 1; grid-row: span 1; }
+            .slot-3 { grid-column: span 1; grid-row: span 1; }
+            .slot-4 { grid-column: span 1; grid-row: span 1; }
+            .slot-5 { grid-column: span 1; grid-row: span 1; }
+
+            .proj-tecnica-section { padding: 56px 24px; }
+            .tecnica-card { padding: 40px 28px; }
+
+            .proj-cta-section { padding: 80px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════════════════════
+         COMPONENTES EXTERNOS (inyectados por componentes.js)
+         Franja de contacto + Navbar + menú móvil
+    ══════════════════════════════════════════════════════ -->
+
+    <!-- ══════════════════════════════════════════════════════
+         CONTENIDO PRINCIPAL
+    ══════════════════════════════════════════════════════ -->
+    <main>
+
+        <!-- ────────────────────────────────────────────────
+             1. HERO
+        ──────────────────────────────────────────────────── -->
+        <section class="proj-hero">
+
+            <!-- 📌 FOTO DE PORTADA: horizontal, alta resolución (mín. 1920×1080) -->
+            <img
+                class="proj-hero-img"
+                src="📌 ruta/a/foto-portada.jpg"
+                alt="📌 Descripción de lo que se ve en la foto de portada — Nombre del Proyecto · Grupo B's"
+            >
+
+            <div class="proj-hero-overlay"></div>
+
+            <!-- Volver a todas las obras -->
+            <a class="proj-hero-back" href="../../obras.html">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Todas las obras
+            </a>
+
+            <div class="proj-hero-content">
+                <div class="architectural-line"></div>
+
+                <!-- 📌 Nombre del proyecto -->
+                <h1 class="proj-hero-title">📌 Nombre del Proyecto</h1>
+
+                <!-- 📌 Ubicación · Año · Superficie -->
+                <div class="proj-hero-meta">
+                    <span>📌 Ciudad, Provincia</span>
+                    <span class="dot"></span>
+                    <span>📌 Año</span>
+                    <span class="dot"></span>
+                    <span>📌 000 m²</span>
+                </div>
+
+                <!-- 📌 Etiquetas de categoría: eliminar las que no apliquen, agregar las que falten -->
+                <div class="proj-hero-tags">
+                    <!-- Descomentar las categorías que apliquen: -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">construction</span> Construcción</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">architecture</span> Diseño Arquitectónico</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">lightbulb</span> Iluminación</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">chair</span> Interiorismo</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">view_in_ar</span> BIM</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">home</span> Residencial</span> -->
+                    <!-- <span class="tag"><span class="material-symbols-outlined" style="font-size:.9rem">business</span> Comercial</span> -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ────────────────────────────────────────────────
+             2. FICHA TÉCNICA + DESCRIPCIÓN DEL PROYECTO
+        ──────────────────────────────────────────────────── -->
+        <section class="proj-content-section">
+
+            <!-- ── Ficha técnica (columna izquierda, sticky) ── -->
+            <aside class="ficha-tecnica">
+                <div class="ficha-card">
+                    <p class="ficha-label-top">Ficha Técnica</p>
+
+                    <div class="ficha-row">
+                        <span class="field-label">Ubicación</span>
+                        <!-- 📌 Ciudad, Provincia -->
+                        <span class="field-value">📌 Ciudad, Provincia</span>
+                    </div>
+
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Año de finalización</span>
+                        <!-- 📌 Año -->
+                        <span class="field-value">📌 Año</span>
+                    </div>
+
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Superficie total</span>
+                        <!-- 📌 000 m² -->
+                        <span class="field-value">📌 000 m²</span>
+                    </div>
+
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Estado</span>
+                        <!--
+                            📌 Usar la clase correcta:
+                            · class="ficha-estado completado"
+                            · class="ficha-estado en-ejecucion"
+                            · class="ficha-estado en-diseno"
+                            y cambiar el ícono y el texto según corresponda.
+                        -->
+                        <span class="ficha-estado completado">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Completado
+                        </span>
+                    </div>
+
+                    <hr class="ficha-divider">
+
+                    <div class="ficha-row">
+                        <span class="field-label">Servicios aplicados</span>
+                        <!-- 📌 Listar solo los que apliquen -->
+                        <ul class="ficha-servicios-list">
+                            <!-- <li>Diseño Arquitectónico</li> -->
+                            <!-- <li>Construcción Integral</li> -->
+                            <!-- <li>Iluminación Especializada</li> -->
+                            <!-- <li>Interiorismo</li> -->
+                            <!-- <li>Modelado BIM</li> -->
+                            <!-- <li>Llave en mano</li> -->
+                        </ul>
+                    </div>
+
+                    <!-- 📌 OPCIONAL: si el cliente autoriza mostrar empresa/cliente -->
+                    <!--
+                    <hr class="ficha-divider">
+                    <div class="ficha-row">
+                        <span class="field-label">Cliente</span>
+                        <span class="field-value" style="font-size:1.1rem;">📌 Nombre o tipo de cliente</span>
+                    </div>
+                    -->
+                </div>
+            </aside>
+
+            <!-- ── Descripción (columna derecha) ────────── -->
+            <div class="proj-descripcion">
+                <!-- 📌 Título de la sección. Opciones: "El Proyecto", "La Obra", "El Desafío", "La Visión", etc. -->
+                <h2>📌 El Proyecto</h2>
+
+                <div class="architectural-line"></div>
+
+                <!-- 📌 Párrafo principal: qué tipo de proyecto, qué hace especial esta obra. 2-4 oraciones. -->
+                <p class="desc-lead">
+                    📌 Párrafo principal con la descripción más importante del proyecto. Este texto tiene más peso visual y es lo primero que se lee después del título.
+                </p>
+
+                <!-- 📌 Párrafo de detalle: materiales, sistemas, decisiones técnicas. Opcional pero muy recomendado. -->
+                <p class="desc-body">
+                    📌 Descripción más técnica y detallada. Aquí podés mencionar materiales específicos, sistemas constructivos, soluciones adoptadas, el contexto del sitio, etc. Cuantos más detalles concretos, más credibilidad transmite el portfolio.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ────────────────────────────────────────────────
+             3. GALERÍA ASIMÉTRICA (5 fotos)
+             Ver guía de slots arriba en los estilos CSS.
+        ──────────────────────────────────────────────────── -->
+        <section class="proj-gallery-section">
+            <div class="gallery-header">
+                <h2>Perspectivas y Detalles</h2>
+            </div>
+
+            <div class="gallery-grid">
+
+                <!-- SLOT 1 · Grande horizontal (8 cols × 600px)
+                     Recomendado: interior amplio, living, espacio principal -->
+                <div class="gallery-slot slot-1">
+                    <img
+                        src="📌 ruta/foto-galeria-1.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- SLOT 2 · Pequeño horizontal (4 cols × 300px)
+                     Recomendado: detalle de material, acceso, recepción -->
+                <div class="gallery-slot slot-2">
+                    <img
+                        src="📌 ruta/foto-galeria-2.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- SLOT 3 · Vertical (4 cols × 600px)
+                     Recomendado: fachada vertical, jardín, espacio con altura -->
+                <div class="gallery-slot slot-3">
+                    <img
+                        src="📌 ruta/foto-galeria-3.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- SLOT 4 · Pequeño horizontal (4 cols × 300px)
+                     Recomendado: cocina, baño, dormitorio, detalle específico -->
+                <div class="gallery-slot slot-4">
+                    <img
+                        src="📌 ruta/foto-galeria-4.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- SLOT 5 · Pequeño horizontal (4 cols × 300px)
+                     Recomendado: escalera, terraza, vista exterior, ambiente -->
+                <div class="gallery-slot slot-5">
+                    <img
+                        src="📌 ruta/foto-galeria-5.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ────────────────────────────────────────────────
+             4. CAPACIDAD TÉCNICA APLICADA
+             Este bloque comunica el know-how de Grupo B's
+             en este proyecto específico.
+             📌 Adaptar título, subtítulo, descripción y
+             checklist según las características reales
+             de cada obra.
+        ──────────────────────────────────────────────────── -->
+        <section class="proj-tecnica-section">
+            <div class="tecnica-card">
+
+                <div class="tecnica-card-deco">
+                    <!-- 📌 Cambiar ícono según el tipo de proyecto:
+                         architecture · construction · lightbulb · engineering · view_in_ar -->
+                    <span class="material-symbols-outlined">architecture</span>
+                </div>
+
+                <div class="tecnica-inner">
+                    <!-- Texto izquierdo -->
+                    <div>
+                        <!-- 📌 Subtítulo: ej. "Metodología BIM" / "Construcción Premium" / "Iluminación de Acento" -->
+                        <p class="tecnica-pretitle">📌 Categoría o Metodología</p>
+
+                        <!-- 📌 Título de la sección técnica -->
+                        <h3 class="tecnica-title">📌 Capacidad Técnica Aplicada</h3>
+
+                        <!-- 📌 1-2 oraciones describiendo el enfoque técnico de esta obra -->
+                        <p class="tecnica-desc">
+                            📌 Descripción del enfoque técnico específico usado en esta obra. ¿Qué metodología o sistema constructivo fue clave? ¿Qué ventajas trajo al cliente?
+                        </p>
+                    </div>
+
+                    <!-- Checklist derecho -->
+                    <ul class="tecnica-checklist">
+                        <!-- 📌 3 a 6 logros técnicos, métricas o características destacadas.
+                             Ser específico: datos reales valen más que frases genéricas. -->
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            📌 Logro o característica técnica 1
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            📌 Logro o característica técnica 2
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">check_circle</span>
+                            📌 Logro o característica técnica 3
+                        </li>
+                        <!-- Agregar más <li> si hace falta -->
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ────────────────────────────────────────────────
+             5. CTA FINAL
+        ──────────────────────────────────────────────────── -->
+        <section class="proj-cta-section">
+            <span class="proj-cta-pretitle">¿Tenés un proyecto similar en mente?</span>
+            <h2 class="proj-cta-title">Hagámoslo realidad<br>juntos</h2>
+            <div class="proj-cta-btns">
+                <a class="btn-gold" href="../../contacto.html">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Contactar
+                </a>
+                <!--
+                    📌 Reemplazar el número de WhatsApp y personalizar el mensaje preescrito.
+                    Formato del número: 549 + código área + número (sin 0 ni 15).
+                    Ej: 5493512345678
+                    El texto del mensaje debe estar codificado en URL (%20 = espacio).
+                -->
+                <a
+                    class="btn-outline-navy"
+                    href="https://wa.me/549351XXXXXXXX?text=📌%20Mensaje%20preescrito%20del%20proyecto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════
+         COMPONENTES EXTERNOS (inyectados por componentes.js)
+         Footer + WhatsApp flotante
+    ══════════════════════════════════════════════════════ -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+         LLAMADA A COMPONENTES.JS
+         📌 Ajustar BASE según la profundidad de la carpeta.
+            Ej: si el archivo está en /obras/todas-las-obras/residencia-el-olivo/
+            entonces BASE = '../../../'
+    ══════════════════════════════════════════════════════ -->
+    <script>
+        var BASE         = '📌 ../../../';   /* ruta relativa hasta la raíz */
+        var NAVBAR_TEMA  = 'dark';            /* 'dark' = navbar azul marino */
+        var NAV_ACTIVO   = 'obras';           /* resalta "Obras" en el menú  */
+    </script>
+    <script src="📌 ../../../componentes.js"></script>
+
+    <!-- ════════════════════════════════════════════════
+         LIGHTBOX — galería expandida
+         No tocar este bloque. Funciona automáticamente
+         sobre todos los .gallery-slot img de la página.
+    ════════════════════════════════════════════════ -->
+    <script>
+    (function () {
+        var s = document.createElement('style');
+        s.textContent = [
+            '.lb-ov{display:none;position:fixed;inset:0;z-index:9900;',
+            'background:rgba(10,15,28,.93);backdrop-filter:blur(6px);',
+            '-webkit-backdrop-filter:blur(6px);',
+            'align-items:center;justify-content:center;cursor:default;}',
+            '.lb-ov.on{display:flex;}',
+            '.lb-wrap{position:relative;display:flex;align-items:center;',
+            'justify-content:center;max-width:90vw;max-height:90vh;',
+            'cursor:zoom-in;overflow:hidden;}',
+            '.lb-wrap.z{cursor:zoom-out;}',
+            '.lb-img{display:block;max-width:90vw;max-height:90vh;',
+            'object-fit:contain;transform-origin:center center;',
+            'transition:transform .35s cubic-bezier(.4,0,.2,1);',
+            'pointer-events:none;user-select:none;}',
+            '.lb-wrap.z .lb-img{transform:scale(2.2);}',
+            '.lb-x{position:fixed;top:22px;right:26px;z-index:9910;',
+            'width:44px;height:44px;border-radius:2px;',
+            'background:rgba(201,169,110,.12);',
+            'border:1px solid rgba(201,169,110,.4);',
+            'color:#C9A96E;font-size:1.5rem;line-height:1;',
+            'display:flex;align-items:center;justify-content:center;',
+            'cursor:pointer;transition:background .2s,color .2s;}',
+            '.lb-x:hover{background:#C9A96E;color:#1B2A4A;}',
+            '.lb-arr{position:fixed;top:50%;transform:translateY(-50%);',
+            'z-index:9910;width:48px;height:72px;',
+            'background:rgba(27,42,74,.65);',
+            'border:1px solid rgba(201,169,110,.2);',
+            'color:rgba(255,255,255,.75);font-size:1.6rem;',
+            'display:flex;align-items:center;justify-content:center;',
+            'cursor:pointer;transition:background .2s,color .2s;',
+            'user-select:none;border-radius:2px;}',
+            '.lb-arr:hover{background:rgba(201,169,110,.2);color:#C9A96E;}',
+            '.lb-p{left:14px;}.lb-n{right:14px;}',
+            '.lb-cnt{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);',
+            'font-family:"Inter",sans-serif;font-size:.6rem;font-weight:600;',
+            'letter-spacing:.2em;text-transform:uppercase;',
+            'color:rgba(255,255,255,.35);z-index:9910;white-space:nowrap;}',
+            '.lb-tip{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);',
+            'font-family:"Inter",sans-serif;font-size:.58rem;',
+            'letter-spacing:.14em;text-transform:uppercase;',
+            'color:rgba(201,169,110,.4);z-index:9910;white-space:nowrap;}',
+            '.gallery-slot img{cursor:zoom-in!important;}',
+            '@keyframes lb-in{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}',
+            '.lb-wrap{animation:lb-in .22s ease both;}',
+        ].join('');
+        document.head.appendChild(s);
+
+        function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
+        var ov   = el('div','lb-ov');
+        var wrap = el('div','lb-wrap');
+        var img  = el('img','lb-img');
+        var x    = el('div','lb-x');       x.innerHTML = '&#215;';
+        var p    = el('div','lb-arr lb-p'); p.innerHTML = '&#8592;';
+        var n    = el('div','lb-arr lb-n'); n.innerHTML = '&#8594;';
+        var cnt  = el('div','lb-cnt');
+        var tip  = el('div','lb-tip');
+
+        wrap.appendChild(img);
+        [wrap,x,p,n,cnt,tip].forEach(function(c){ ov.appendChild(c); });
+        document.body.appendChild(ov);
+
+        var imgs = [], idx = 0, zoomed = false;
+
+        function init() {
+            imgs = [];
+            document.querySelectorAll('.gallery-slot img').forEach(function(im) {
+                var i = imgs.length;
+                imgs.push({ src: im.src, alt: im.alt });
+                im.addEventListener('click', function(){ open(i); });
+            });
+        }
+
+        function open(i) {
+            idx = i; setZoom(false);
+            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+            refresh();
+            ov.classList.add('on');
+            document.body.style.overflow = 'hidden';
+            wrap.style.animation = 'none';
+            requestAnimationFrame(function(){ wrap.style.animation = ''; });
+        }
+
+        function close() {
+            ov.classList.remove('on');
+            document.body.style.overflow = '';
+            setZoom(false);
+            setTimeout(function(){ img.src = ''; }, 250);
+        }
+
+        function nav(dir) {
+            setZoom(false);
+            idx = (idx + dir + imgs.length) % imgs.length;
+            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+            refresh();
+        }
+
+        function setZoom(on) { zoomed = on; wrap.classList.toggle('z', zoomed); }
+
+        function refresh() {
+            cnt.textContent = (idx + 1) + ' / ' + imgs.length;
+            tip.textContent = zoomed
+                ? 'Clic para alejar  ·  Esc para cerrar'
+                : 'Clic para ampliar  ·  ← →  navegar  ·  Esc cerrar';
+        }
+
+        ov.addEventListener('click',   function(e){ if(e.target===ov) close(); });
+        wrap.addEventListener('click', function(e){ e.stopPropagation(); setZoom(!zoomed); refresh(); });
+        x.addEventListener('click',    function(e){ e.stopPropagation(); close(); });
+        p.addEventListener('click',    function(e){ e.stopPropagation(); nav(-1); });
+        n.addEventListener('click',    function(e){ e.stopPropagation(); nav(1); });
+
+        document.addEventListener('keydown', function(e) {
+            if (!ov.classList.contains('on')) return;
+            if (e.key === 'Escape')     close();
+            if (e.key === 'ArrowLeft')  nav(-1);
+            if (e.key === 'ArrowRight') nav(1);
+        });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else { init(); }
+    })();
+    </script>
+
+</body>
+</html>

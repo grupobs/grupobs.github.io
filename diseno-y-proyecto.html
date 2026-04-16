@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño y Proyecto | Grupo B's</title>
+
+    <!--
+      DEPENDENCIAS EXTERNAS
+      ─ Google Fonts: Cormorant Garamond + Inter + Dancing Script
+      ─ Font Awesome 6: íconos
+      ─ Material Symbols: íconos adicionales
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!--
+        Script inline — corre ANTES de que el browser procese el hash de la URL.
+        Captura el destino (ej: #anteproyecto) y lo elimina de la URL para que
+        el browser NO haga su propio scroll automático. El JS del DOMContentLoaded
+        lo recupera con window.__hashDestino y hace el deslizamiento suave.
+        ⚠️ No mover de aquí — debe ejecutarse en el <head> para funcionar.
+    -->
+    <script>
+        window.__hashDestino = window.location.hash.replace('#', '');
+        if (window.__hashDestino) {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+    </script>
+
+    <style>
+        /* ================================================================
+           VARIABLES DE COLOR Y RESET — Idénticas a index.html
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --bg-dark: #111111;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* ================================================================
+           BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO
+        ================================================================ */
+
+        /* ================================================================
+           BLOQUE 2 — NAVBAR
+        ================================================================ */
+
+
+        /* ================================================================
+           BLOQUE 3 — HERO SECTION
+        ================================================================ */
+        #hero-diseno {
+            padding: 32px 32px;
+            background: var(--bg-warm);
+        }
+
+        .hero-diseno-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .hero-diseno-card {
+            background-image:
+                linear-gradient(to top, rgba(27, 42, 74, 0.92) 0%, rgba(27, 42, 74, 0.25) 55%, transparent 100%),
+                url("https://lh3.googleusercontent.com/aida-public/AB6AXuCG-7GD6K4bGI-RrjZjAzFxZzpkP5ioGM3w00uhuQo2XPUq7V4Ykl6DUpFdaP1vopPZzOvfBUxxK0zf-fAgLbBhXFYsX7SEiWE_J5gM62wsNYABCGU-v-BSkiC1jYEXABTufzO99fUMqH0eUwqjEsiL2rF75g9xwLXqENaPjqKsKfXoIZ7Mc0vNbHHxQAsCLyxbeNzReivHnGQT9KeLAroHkqoNULo9UBj1SyLUeJFFs0n30Gyz6WcMClwZAmhqSgMrSyZ0XAzwh0c");
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+        }
+
+        .hero-diseno-content {
+            padding: 56px 64px;
+        }
+
+        .hero-badge-pill {
+            display: inline-block;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: .65rem;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 9999px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            background: rgba(201, 169, 110, .07);
+        }
+
+        .hero-diseno-title {
+            color: var(--white);
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            max-width: 780px;
+            margin-bottom: 20px;
+            letter-spacing: -.01em;
+        }
+
+        .hero-diseno-subtitle {
+            color: rgba(237, 234, 228, .82);
+            font-size: clamp(.95rem, 1.5vw, 1.2rem);
+            font-weight: 300;
+            line-height: 1.75;
+            max-width: 620px;
+        }
+
+        /* ================================================================
+           BLOQUE 4 — METODOLOGÍA DE TRABAJO
+        ================================================================ */
+        #metodologia {
+            background: var(--white);
+            padding: 100px 32px;
+        }
+
+        .metodologia-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .seccion-header {
+            text-align: center;
+            margin-bottom: 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .etiqueta-dorada {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .seccion-titulo {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: -.01em;
+            line-height: 1.15;
+        }
+
+        .seccion-divisor {
+            width: 96px;
+            height: 2px;
+            background: rgba(201, 169, 110, .4);
+            border-radius: 2px;
+        }
+
+        .seccion-subtitulo {
+            color: rgba(44, 95, 138, .8);
+            font-size: 1.05rem;
+            font-weight: 300;
+            font-style: italic;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        .metodologia-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .metodologia-card {
+            background: var(--bg-warm);
+            border-radius: 16px;
+            border: 1px solid var(--pearl);
+            overflow: hidden;
+            transition: box-shadow .5s;
+        }
+
+        .metodologia-card:hover {
+            box-shadow: 0 24px 64px rgba(0, 0, 0, .12);
+        }
+
+        .metodologia-card-img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .metodologia-card-body {
+            padding: 40px;
+        }
+
+        .metodologia-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metodologia-icon-box {
+            background: rgba(27, 42, 74, .06);
+            padding: 12px;
+            border-radius: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metodologia-icon-box .material-symbols-outlined {
+            font-size: 2rem;
+        }
+
+        .metodologia-card-titulo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .metodologia-card-texto {
+            color: rgba(45, 45, 45, .8);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Aviso / aclaración destacada dentro de la card */
+        .card-aviso {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(201, 169, 110, .08);
+            border: 1px solid rgba(201, 169, 110, .25);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-top: 24px;
+        }
+
+        .card-aviso-icono {
+            color: var(--accent);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .card-aviso-texto {
+            font-size: .875rem;
+            line-height: 1.7;
+            color: rgba(45, 45, 45, .78);
+            font-weight: 400;
+        }
+
+        .card-aviso-texto strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Botón CTA dentro de la card */
+        .btn-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 24px;
+            padding: 13px 26px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .3s, transform .2s, box-shadow .3s;
+            box-shadow: 0 4px 16px rgba(27, 42, 74, .18);
+        }
+
+        .btn-card-cta:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 169, 110, .3);
+        }
+
+        .btn-card-cta i {
+            font-size: .9rem;
+        }
+
+        /* Aviso dentro de cards de metodología */
+        .metodologia-aviso {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: rgba(27, 42, 74, .05);
+            border: 1px solid rgba(201, 169, 110, .25);
+            border-left: 3px solid rgba(201, 169, 110, .5);
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-top: 24px;
+        }
+
+        .metodologia-aviso--destacado {
+            background: rgba(27, 42, 74, .06);
+            border-left-color: var(--accent);
+        }
+
+        .metodologia-aviso-icono {
+            font-size: 1.2rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .metodologia-aviso p {
+            font-size: .88rem;
+            line-height: 1.7;
+            color: rgba(45, 45, 45, .72);
+            font-weight: 300;
+        }
+
+        .metodologia-aviso p strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Botón CTA dentro de cards de metodología */
+        .metodologia-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(44, 95, 138, .3);
+            background: transparent;
+            color: var(--sec-blue);
+            font-family: 'Inter', sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .3s, color .3s, border-color .3s;
+        }
+
+        .metodologia-btn .material-symbols-outlined {
+            font-size: 1.1rem;
+        }
+
+        .metodologia-btn:hover {
+            background: var(--sec-blue);
+            color: var(--white);
+            border-color: var(--sec-blue);
+        }
+
+        /* Variante dorada para el Proyecto Ejecutivo */
+        .metodologia-btn--dorado {
+            border-color: rgba(201, 169, 110, .5);
+            color: var(--primary);
+            background: rgba(201, 169, 110, .08);
+        }
+
+        .metodologia-btn--dorado:hover {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        /* ================================================================
+           BLOQUE 5 — INNOVACIÓN TECNOLÓGICA (BIM)
+        ================================================================ */
+        #bim {
+            background: var(--primary);
+            padding: 100px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #bim::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 33%;
+            height: 100%;
+            background: rgba(201, 169, 110, .05);
+            transform: skewX(-12deg) translateX(50%);
+        }
+
+        .bim-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bim-contenido {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .bim-etiqueta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+        }
+
+        .bim-etiqueta span {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            font-size: .68rem;
+        }
+
+        .bim-titulo {
+            color: var(--white);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -.01em;
+        }
+
+        .bim-texto {
+            color: rgba(237, 234, 228, .72);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .bim-texto strong {
+            color: var(--white);
+        }
+
+        .bim-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bim-lista li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .bim-lista .material-symbols-outlined {
+            color: var(--accent);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .bim-lista span {
+            color: rgba(237, 234, 228, .82);
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+
+        .bim-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            padding-top: 8px;
+        }
+
+        .btn-bim-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+            height: 52px;
+            padding: 0 32px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            background: transparent;
+            cursor: pointer;
+            transition: background .3s, color .3s;
+            text-decoration: none;
+        }
+
+        .btn-bim-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-bim-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            min-width: 220px;
+            height: 52px;
+            padding: 0 32px;
+            border-radius: 8px;
+            border: none;
+            background: var(--accent);
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: .82rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: filter .3s, transform .2s;
+            text-decoration: none;
+        }
+
+        .btn-bim-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .bim-imagen-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+            position: relative;
+        }
+
+        .bim-imagen {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKcvc27__2pfCL1sYbBnqFl5we3kNcsOw_gZd4NlQt_bVQJNa_6L0__BDJTuiH_OITcE4NjDuPT9jIW8II8QWEl0_7B6PGz1Eaun9YfPsJ03Wqo_z-F4xdcEs76YAIWk8qTw2InF-vEWSYHJeq-7pgVzc81hX89OXFAgAHy5XJSIlafEuNuA0MoqRfibJeajZ4iKdnK3kL8SX7hCVbR0kLXR3tQCo5HMm6_tn7GFG5zsqUNG7-LE4Y6NlRGcfahmbnkKdWt2aFBAw");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bim-imagen-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(27, 42, 74, .82) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
+
+        .bim-cita {
+            color: var(--white);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* ================================================================
+           BLOQUE 6 — PORTAFOLIO
+        ================================================================ */
+        #portafolio {
+            background: var(--white);
+            padding: 100px 32px;
+        }
+
+        .portafolio-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .portafolio-encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .portafolio-encabezado-left .etiqueta-dorada {
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .portafolio-encabezado-left h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .portafolio-ver-todos {
+            color: var(--sec-blue);
+            font-size: .85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color .2s;
+        }
+
+        .portafolio-ver-todos:hover {
+            color: var(--primary);
+        }
+
+        .portafolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .portafolio-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--pearl);
+        }
+
+        .portafolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s;
+        }
+
+        .portafolio-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .portafolio-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 42, 74, .62);
+            opacity: 0;
+            transition: opacity .5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .portafolio-item:hover .portafolio-item-overlay {
+            opacity: 1;
+        }
+
+        .portafolio-cat {
+            font-size: .68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .portafolio-nombre {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .portafolio-icono {
+            font-size: 2rem;
+            color: var(--white);
+            margin-top: 16px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .5s .1s, transform .5s .1s;
+        }
+
+        .portafolio-item:hover .portafolio-icono {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================================================
+           BLOQUE 7 — LLAMADO A LA ACCIÓN
+        ================================================================ */
+        #cta {
+            background: var(--bg-dark);
+            color: var(--white);
+            padding: 100px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: .1;
+            background-image: radial-gradient(#C9A96E 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+
+        .cta-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-titulo {
+            font-size: clamp(2.4rem, 5.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            max-width: 900px;
+            letter-spacing: -.01em;
+        }
+
+        .cta-subtitulo {
+            color: rgba(237, 234, 228, .6);
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .cta-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 20px 48px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: .03em;
+            transition: filter .3s, transform .2s;
+            box-shadow: 0 12px 32px rgba(201, 169, 110, .25);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-cta-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .btn-cta-primary:active {
+            transform: scale(.97);
+        }
+
+        .btn-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: var(--white);
+            padding: 20px 48px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: .03em;
+            transition: background .3s;
+            background: transparent;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-cta-secondary:hover {
+            background: rgba(255, 255, 255, .07);
+        }
+
+        /* ================================================================
+           BLOQUE 8 — PREGUNTAS FRECUENTES
+        ================================================================ */
+        #faq {
+            background: var(--bg-warm);
+            padding: 100px 32px;
+        }
+
+        .faq-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .faq-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--pearl);
+            transition: box-shadow .3s;
+        }
+
+        .faq-item.abierto {
+            box-shadow: 0 8px 32px rgba(27, 42, 74, .08);
+        }
+
+        .faq-pregunta {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 22px 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.18rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.4;
+            transition: color .2s;
+        }
+
+        .faq-pregunta:hover {
+            color: var(--accent);
+        }
+
+        .faq-item.abierto .faq-pregunta {
+            color: var(--accent);
+        }
+
+        .faq-icono {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, .4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+            font-size: .75rem;
+            transition: transform .3s, background .3s;
+        }
+
+        .faq-item.abierto .faq-icono {
+            transform: rotate(45deg);
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .faq-respuesta {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+        }
+
+        .faq-item.abierto .faq-respuesta {
+            max-height: 600px;
+        }
+
+        .faq-respuesta-inner {
+            padding: 0 28px 24px;
+            border-top: 1px solid rgba(201, 169, 110, .12);
+        }
+
+        .faq-respuesta-inner p {
+            color: rgba(45, 45, 45, .78);
+            font-size: .95rem;
+            line-height: 1.85;
+            font-weight: 300;
+            padding-top: 18px;
+        }
+
+        /* ================================================================
+           BLOQUE 9 — FOOTER
+        ================================================================ */
+
+
+        /* ================================================================
+           BLOQUE 10 — BOTÓN WHATSAPP FLOTANTE
+        ================================================================ */
+
+
+        /* ================================================================
+           RESPONSIVE
+        ================================================================ */
+        @media (max-width: 1024px) {
+            .metodologia-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .bim-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .portafolio-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: flex;
+            }
+
+            .nav-inner {
+                padding: 0 20px;
+                height: 68px;
+            }
+
+            #franja-contacto {
+                justify-content: center;
+                text-align: center;
+                padding: 7px 16px;
+            }
+
+            .franja-izq {
+                justify-content: center;
+            }
+
+            .franja-redes {
+                justify-content: center;
+            }
+
+            #hero-diseno {
+                padding: 20px 16px;
+            }
+
+            .hero-diseno-content {
+                padding: 32px 28px;
+            }
+
+            .hero-diseno-card {
+                min-height: 420px;
+                border-radius: 12px;
+            }
+
+            #metodologia,
+            #bim,
+            #portafolio,
+            #cta,
+            #faq {
+                padding: 72px 20px;
+            }
+
+            .seccion-titulo {
+                font-size: 1.9rem;
+            }
+
+            .portafolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portafolio-encabezado {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bim-imagen {
+                aspect-ratio: 4/3;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                max-width: 360px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+
+            #footer {
+                padding: 52px 20px 24px;
+            }
+
+            .faq-pregunta {
+                font-size: 1.05rem;
+            }
+
+            .btn-bim-outline,
+            .btn-bim-primary {
+                min-width: unset;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-diseno-title {
+                font-size: 2.2rem;
+            }
+
+            .metodologia-card-body {
+                padding: 28px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+
+    <main>
+
+        <!-- ==============================================================
+         BLOQUE 3 | HERO SECTION
+         (Versión Stitch)
+    =============================================================== -->
+        <section id="hero-diseno">
+            <div class="hero-diseno-inner">
+                <div class="hero-diseno-card">
+                    <div class="hero-diseno-content">
+                        <span class="hero-badge-pill">Módulo A — Diseño y Proyecto</span>
+                        <h1 class="hero-diseno-title">Diseño Arquitectónico y Proyecto Ejecutivo</h1>
+                        <p class="hero-diseno-subtitle">Transformamos su visión en estructuras tangibles con el rigor
+                            técnico de un constructor y la sensibilidad de un arquitecto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 3 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 4 | METODOLOGÍA DE TRABAJO
+         (Versión Stitch)
+    =============================================================== -->
+        <section id="metodologia">
+            <div class="metodologia-inner">
+                <div class="seccion-header">
+                    <span class="etiqueta-dorada">Metodología de trabajo</span>
+                    <h2 class="seccion-titulo">El valor del Anteproyecto y el Proyecto Ejecutivo</h2>
+                    <div class="seccion-divisor"></div>
+                    <p class="seccion-subtitulo">Dividimos el proceso en etapas clave para asegurar que el resultado
+                        final supere sus expectativas de vida y confort.</p>
+                </div>
+
+                <div class="metodologia-grid">
+
+                    <!-- Card: Anteproyecto -->
+                    <div class="metodologia-card" id="anteproyecto">
+                        <div class="metodologia-card-img"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBUbHvDDYExzWEynJ3gNmn5la0dnoHftl3Dfvqs9D36DGxTshnANXFwCI5i5EL0qV2egaxmf9CycsLBMTS4fY6FHFdnhlmDxEr7s1z2MuDfZm4_mvzJe1xWWClG5KC0cXDRrkmEoAykHtGW_vo8-_Q6g0_qSU-myflFRnp4OQ0VKufbbTvyEyX_iAUn0ypfbROH1IeWkBCj7n_8S2v1Yf0IcC9d9ZbV2t92SOqo5G_3pjzn_00__PwEKLzN4cl6hObq19qJ_4CH1bA");'>
+                            <!-- 📌 IMAGEN: Sketch / render de anteproyecto -->
+                        </div>
+                        <div class="metodologia-card-body">
+                            <div class="metodologia-card-header">
+                                <div class="metodologia-icon-box">
+                                    <span class="material-symbols-outlined">architecture</span>
+                                </div>
+                                <h3 class="metodologia-card-titulo">El Anteproyecto</h3>
+                            </div>
+                            <p class="metodologia-card-texto">Es la base creativa donde definimos volumetría y
+                                funcionalidad. Aterrizamos conceptos, analizamos el terreno y proponemos soluciones
+                                espaciales alineadas con sus necesidades y presupuesto inicial, priorizando la claridad
+                                intelectual en cada m². Desarrollamos plantas, fachadas y volumetría 3D para que pueda
+                                ver y validar cómo será su espacio antes de comprometer un solo peso en materiales.</p>
+
+                            <!-- Aviso de descuento -->
+                            <div class="metodologia-aviso">
+                                <span class="material-symbols-outlined metodologia-aviso-icono">sell</span>
+                                <p><strong>¿Contratás más de un servicio?</strong> Al combinar el Anteproyecto con el
+                                    Proyecto Ejecutivo u otros módulos, el descuento es considerable. Consultanos y te
+                                    armamos una propuesta a tu medida.</p>
+                            </div>
+
+                            <!-- CTA -->
+                            <a class="metodologia-btn"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20el%20servicio%20de%20Anteproyecto.%20%C2%BFPodemos%20agendar%20una%20visita%20sin%20costo%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <span class="material-symbols-outlined">calendar_today</span>
+                                Agendar visita sin costo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card: Proyecto Ejecutivo -->
+                    <div class="metodologia-card" id="proyecto-ejecutivo">
+                        <div class="metodologia-card-img"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2zeDQH85pQZbMyK3XPYNqcZqSrSuEYClEj7c4VuS-0vFhwcrJHXcg1EuQ8zG2JU5jQKPTARdcxPMGnA1Rrm4K24_CeQcVc0OuG3yQYy43_P4Xw1nFyXWsH_7j26nwhVExgMaqOhPhH8bjPFrjPNoaGjbLhCwi8DjxmiOU4y-oeRzldP11dxphKNrPV66BsPsm0Y_Poz7X6qfEvaLd_41RQZ0e_lCkBAitiWT-ZzO4jbwutEJO3ODNTj42djPV3JWjwolZlPU8nrY");'>
+                            <!-- 📌 IMAGEN: Planos técnicos con medidas -->
+                        </div>
+                        <div class="metodologia-card-body">
+                            <div class="metodologia-card-header">
+                                <div class="metodologia-icon-box">
+                                    <span class="material-symbols-outlined">engineering</span>
+                                </div>
+                                <h3 class="metodologia-card-titulo">Proyecto Ejecutivo Completo</h3>
+                            </div>
+                            <p class="metodologia-card-texto">Documentación técnica definitiva que su obra necesita para
+                                construirse sin improvisaciones. Incluye planos constructivos listos para presentar ante
+                                el municipio, cómputo de materiales, especificaciones técnicas y la coordinación
+                                completa de todos los sistemas del edificio. Al integrar todos los servicios, el
+                                descuento sobre el precio individual es muy considerable.</p>
+
+                            <!-- Aviso de inclusión -->
+                            <div class="metodologia-aviso metodologia-aviso--destacado">
+                                <span class="material-symbols-outlined metodologia-aviso-icono">verified</span>
+                                <p><strong>El Proyecto Ejecutivo incluye todos nuestros servicios de diseño:</strong>
+                                    anteproyecto, estructura, instalaciones, iluminación, interiorismo y paisajismo. Al
+                                    contratarlos en conjunto, el descuento sobre el precio individual es muy
+                                    considerable. La consulta inicial siempre es gratuita y sin compromiso.</p>
+                            </div>
+
+                            <!-- CTA -->
+                            <a class="metodologia-btn metodologia-btn--dorado"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20el%20Proyecto%20Ejecutivo%20completo.%20%C2%BFPueden%20enviarme%20informaci%C3%B3n%20y%20presupuesto%3F"
+                                target="_blank" rel="noopener noreferrer">
+                                <span class="material-symbols-outlined">request_quote</span>
+                                Pedir presupuesto sin cargo
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 4 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 5 | INNOVACIÓN TECNOLÓGICA — BIM
+         (Versión Stitch)
+    =============================================================== -->
+        <section id="bim">
+            <div class="bim-inner">
+
+                <!-- Contenido izquierdo -->
+                <div class="bim-contenido">
+                    <div class="bim-etiqueta">
+                        <span class="material-symbols-outlined" style="font-weight:700">view_in_ar</span>
+                        <span>Innovación Tecnológica</span>
+                    </div>
+                    <h2 class="bim-titulo">Precisión con Metodología BIM</h2>
+                    <p class="bim-texto">
+                        Utilizamos <strong>Building Information Modeling</strong> para visualizar y gestionar cada
+                        detalle técnico mucho antes de que la primera piedra sea colocada, logrando una eficiencia
+                        técnica sin precedentes.
+                    </p>
+                    <ul class="bim-lista">
+                        <li>
+                            <span class="material-symbols-outlined">verified</span>
+                            <span>Detección temprana de interferencias entre especialidades (estructuras vs.
+                                ductos).</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">verified</span>
+                            <span>Cuantificación exacta de materiales para optimización rigurosa de costos.</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">verified</span>
+                            <span>Gemelo digital para una gestión de obra transparente y trazable.</span>
+                        </li>
+                    </ul>
+                    <div class="bim-btns">
+                        <!-- 📌 Vinculá "Saber más sobre BIM" a la página o sección correspondiente -->
+                        <a href="contacto.html" class="btn-bim-outline">Saber más sobre BIM</a>
+                        <a href="https://wa.me/5493513579053?text=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre%20la%20metodolog%C3%ADa%20BIM%20que%20utilizan."
+                            target="_blank" rel="noopener noreferrer" class="btn-bim-primary">
+                            <i class="fa-brands fa-whatsapp"></i> Consultar ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen derecha -->
+                <div class="bim-imagen-wrap">
+                    <div class="bim-imagen">
+                        <!-- 📌 IMAGEN: Pantalla con modelo BIM 3D -->
+                    </div>
+                    <div class="bim-imagen-overlay">
+                        <p class="bim-cita">"Visualizamos el futuro de su proyecto en tiempo real, garantizando la
+                            certeza constructiva."</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 6 | PORTAFOLIO — GALERÍA DE PROYECTOS
+         (Versión Stitch)
+    =============================================================== -->
+        <section id="portafolio">
+            <div class="portafolio-inner">
+                <div class="portafolio-encabezado">
+                    <div class="portafolio-encabezado-left">
+                        <span class="etiqueta-dorada">Portafolio</span>
+                        <h2>Galería de Proyectos</h2>
+                    </div>
+                    <a class="portafolio-ver-todos" href="obras.html">
+                        Ver todos los proyectos
+                        <span class="material-symbols-outlined" style="font-size:1rem">arrow_forward</span>
+                    </a>
+                </div>
+
+                <div class="portafolio-grid">
+
+                    <div class="portafolio-item">
+                        <!-- 📌 IMAGEN: Foto de proyecto corporativo -->
+                        <img src="Obras\todas-las-obras\Imagenes\iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.jpg"
+                            alt="Torre Empresarial">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Corporativo</span>
+                            <h4 class="portafolio-nombre">Iluminación Estudio Jurídico</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                    <div class="portafolio-item">
+                        <!-- 📌 IMAGEN: Foto de proyecto residencial -->
+                        <img src="Obras\todas-las-obras\Imagenes\proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg"
+                            alt="Casa de Campo Premium">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Residencial</span>
+                            <h4 class="portafolio-nombre">Dos viviendas en un mismo lote</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                    <div class="portafolio-item">
+                        <!-- 📌 IMAGEN: Foto de interiorismo -->
+                        <img src="Obras\todas-las-obras\Imagenes\casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.jpg"
+                            alt="Studio Loft Minimal">
+                        <div class="portafolio-item-overlay">
+                            <span class="portafolio-cat">Interiorismo</span>
+                            <h4 class="portafolio-nombre">Living de quincho</h4>
+                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 6 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 7 | LLAMADO A LA ACCIÓN
+         (Versión Stitch)
+    =============================================================== -->
+        <section id="cta">
+            <div class="cta-inner">
+                <h2 class="cta-titulo">¿Listo para dar el primer paso hacia su nuevo espacio?</h2>
+                <p class="cta-subtitulo">Nuestro equipo experto está listo para asesorarle en cada etapa técnica de su
+                    proyecto arquitectónico.</p>
+                <div class="cta-btns">
+                    <!-- 📌 Vinculá "Agendar" a tu página de contacto o WhatsApp -->
+                    <a href="https://wa.me/5493513579053?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20gratuita%20para%20mi%20proyecto."
+                        target="_blank" rel="noopener noreferrer" class="btn-cta-primary">
+                        Agendar Consulta Gratuita
+                    </a>
+                    <!-- 📌 Vinculá "Descargar Portafolio" al PDF o sección de obras -->
+                    <a href="obras.html" class="btn-cta-secondary">
+                        Descargar Portafolio
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- FIN BLOQUE 7 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 8 | PREGUNTAS FRECUENTES
+         (Versión Antigua — con estética Stitch)
+    =============================================================== -->
+        <section id="faq">
+            <div class="faq-inner">
+
+                <div class="seccion-header">
+                    <span class="etiqueta-dorada">Lo que más nos preguntan</span>
+                    <h2 class="seccion-titulo">Preguntas Frecuentes</h2>
+                    <div class="seccion-divisor"></div>
+                    <p class="seccion-subtitulo">Entendemos que contratar un servicio de ingeniería y diseño genera
+                        dudas. Acá respondemos las más comunes con total transparencia.</p>
+                </div>
+
+                <div class="faq-lista">
+
+                    <!-- PREGUNTA 1 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Cuánto cuesta el servicio? ¿Se ajusta a mi presupuesto?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Cada proyecto es único, por eso no manejamos precios fijos de catálogo. Lo que sí
+                                    podemos garantizarte es que el costo de nuestros servicios siempre se ajusta a la
+                                    escala y complejidad de tu proyecto. Trabajamos con familias con presupuestos muy
+                                    diferentes: la consulta inicial es siempre gratuita y en ese encuentro te damos una
+                                    estimación clara antes de que te comprometas con nada. Nuestro objetivo es que el
+                                    servicio sea accesible, no un obstáculo.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 2 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Vale la pena contratar varios servicios juntos? ¿Qué descuento aplica?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Sí, y en muchos casos la diferencia es muy grande. Cuando los servicios se coordinan
+                                    desde el inicio (anteproyecto + estructura + instalaciones + iluminación), el
+                                    trabajo interno se optimiza considerablemente. Por eso podemos trasladarle ese
+                                    ahorro al cliente en forma de descuento. El Proyecto Ejecutivo completo, que integra
+                                    todos nuestros servicios de diseño, tiene un precio significativamente menor a la
+                                    suma de cada módulo por separado. Consultanos cuánto podés ahorrar según lo que
+                                    necesitás.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 3 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Cuánto tiempo demoran los planos y el proyecto?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>El tiempo depende de la complejidad del proyecto, pero somos muy transparentes con
+                                    los plazos desde el inicio. Un anteproyecto puede estar listo en 2 a 3 semanas; un
+                                    Proyecto Ejecutivo completo lleva entre 6 y 10 semanas según la envergadura.
+                                    Definimos una fecha de entrega al principio y la cumplimos. Si hay alguna situación
+                                    que pueda afectar el plazo, te avisamos con anticipación: nunca te enterás a último
+                                    momento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 4 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Qué pasa si durante la obra aparecen imprevistos o cosas que no estaban previstas en los
+                            planos?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Esta es una pregunta muy común y la respondemos con mucha confianza: nuestra
+                                    metodología de trabajo BIM (Building Information Modeling) está diseñada
+                                    específicamente para eliminar este tipo de situaciones. Antes de que comience la
+                                    obra, desarrollamos un modelo digital integral donde conviven la arquitectura, la
+                                    estructura y todas las instalaciones en un mismo entorno. Eso nos permite detectar y
+                                    resolver conflictos —interferencias entre una viga y un caño, por ejemplo— en el
+                                    modelo virtual, no en la obra real. Los imprevistos no desaparecen de la
+                                    construcción, pero con nuestra metodología quedan reducidos a su mínima expresión.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 5 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿La consulta inicial es realmente sin costo? ¿A qué me comprometo?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Sí, completamente gratuita y sin ningún tipo de compromiso. En la primera reunión
+                                    —que puede ser presencial o por videollamada— escuchamos tu proyecto, entendemos tus
+                                    necesidades y te explicamos cómo podemos ayudarte. Recién cuando vos decidís
+                                    avanzar, firmamos un acuerdo con servicios, plazos y costos bien definidos. No
+                                    existe ninguna letra chica: todo queda por escrito antes de empezar.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 6 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Trabajan en toda la provincia o solo en Córdoba Capital?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Los servicios de proyecto y diseño los brindamos en toda la provincia de Córdoba y
+                                    también fuera de ella, ya que la mayor parte del trabajo se desarrolla en nuestro
+                                    estudio con herramientas digitales. Para proyectos que requieran visita en terreno,
+                                    coordinamos el traslado desde el inicio. Consultanos según tu ubicación y
+                                    encontramos la mejor forma de trabajar juntos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PREGUNTA 7 -->
+                    <div class="faq-item">
+                        <button class="faq-pregunta" aria-expanded="false">
+                            ¿Con qué garantías cuento una vez terminado el proyecto?
+                            <span class="faq-icono"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="faq-respuesta">
+                            <div class="faq-respuesta-inner">
+                                <p>Todos los proyectos se entregan con documentación técnica completa: memoria de
+                                    cálculo, planos firmados por profesional habilitado y especificaciones detalladas de
+                                    materiales. Eso te da respaldo legal y técnico frente a municipios, proveedores y
+                                    constructores. Además, durante todo el desarrollo del proyecto tenés acceso directo
+                                    a nuestro equipo para consultas. No te entregamos un papel y nos desconectamos: te
+                                    acompañamos hasta que tu proyecto esté en marcha.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- fin faq-lista -->
+            </div><!-- fin faq-inner -->
+        </section>
+        <!-- FIN BLOQUE 8 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT
+     1. Menú hamburguesa
+     2. Acordeón Servicios en menú móvil
+     3. Acordeón FAQ
+=============================================================== -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. MENÚ HAMBURGUESA ─────────────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. ACORDEÓN SERVICIOS (MENÚ MÓVIL) ─────────────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            // Sincronizar estado del chevron con el estado inicial visible
+            function actualizarChevronMovil() {
+                var chevron = toggleServ.querySelector('.chevron-movil');
+                if (submenuServ.classList.contains('visible')) {
+                    chevron.style.transform = 'rotate(180deg)';
+                    toggleServ.classList.add('expandido');
+                } else {
+                    chevron.style.transform = '';
+                    toggleServ.classList.remove('expandido');
+                }
+            }
+
+            toggleServ.addEventListener('click', function () {
+                submenuServ.classList.toggle('visible');
+                actualizarChevronMovil();
+            });
+
+
+
+            /* ── 4. SCROLL SUAVE AL HASH DE ENTRADA ─────────────────────
+               Registrado aquí SOLO como referencia; la lógica real está en el
+               listener 'load' de nivel superior (debajo), fuera de este bloque,
+               para garantizar que corra aunque load dispare antes que este handler.
+            ────────────────────────────────────────────────────────────── */
+
+        });
+    </script>
+
+    <!-- Scroll al hash: fuera de DOMContentLoaded para que funcione siempre,
+         incluso cuando la página carga instantáneamente desde caché. -->
+    <script>
+        (function () {
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function smoothScrollTo(targetY, duration) {
+                var startY    = window.scrollY;
+                var distance  = targetY - startY;
+                var startTime = performance.now();
+                function step(now) {
+                    var elapsed  = now - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    window.scrollTo(0, startY + distance * easeInOutCubic(progress));
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            function ejecutarScrollHash() {
+                var hashDestino = window.__hashDestino || '';
+                if (!hashDestino) return;
+
+                var destino = document.getElementById(hashDestino);
+                if (!destino) return;
+
+                /* 1. Tope instantáneo */
+                window.scrollTo({ top: 0, behavior: 'instant' });
+
+                /* 2. Pausa breve → deslizar suave */
+                setTimeout(function () {
+                    /* Buscar el navbar: puede ser inyectado dentro de #gb-navbar
+                       o directamente con id="navbar" */
+                    var navbarEl = document.getElementById('navbar')
+                                || document.getElementById('gb-navbar');
+                    var franjaEl = document.getElementById('franja-contacto')
+                                || document.getElementById('gb-franja');
+                    var navH        = navbarEl ? navbarEl.offsetHeight : 78;
+                    var franH       = franjaEl ? franjaEl.offsetHeight : 32;
+                    var offsetExtra = 24;
+                    var targetY = destino.getBoundingClientRect().top
+                                  + window.scrollY
+                                  - navH
+                                  - franH
+                                  - offsetExtra;
+                    smoothScrollTo(Math.max(0, targetY), 680);
+                }, 400);
+            }
+
+            /* Si load ya disparó (caché), ejecutar de inmediato;
+               si no, esperar a que dispare. */
+            if (document.readyState === 'complete') {
+                ejecutarScrollHash();
+            } else {
+                window.addEventListener('load', ejecutarScrollHash);
+            }
+        })();
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';
+        var FOOTER_TEMA = 'dark';
+        var NAV_ACTIVO = 'servicios';
+    </script>
+    <script src="./componentes.js"></script>
+
+    <!-- ── 3. ACORDEÓN FAQ — corre después de componentes.js ── -->
+    <script>
+        (function () {
+            var faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(function (item) {
+                var pregunta = item.querySelector('.faq-pregunta');
+                var respuesta = item.querySelector('.faq-respuesta');
+                var respInner = item.querySelector('.faq-respuesta-inner');
+
+                pregunta.addEventListener('click', function () {
+                    var isOpen = item.classList.contains('open');
+
+                    /* Cerrar todos */
+                    faqItems.forEach(function (other) {
+                        other.classList.remove('open');
+                        other.querySelector('.faq-respuesta').style.maxHeight = '0';
+                    });
+
+                    /* Si no estaba abierto, abrir éste */
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        respuesta.style.maxHeight = (respInner.scrollHeight + 40) + 'px';
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

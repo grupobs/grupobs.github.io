@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Grupo B's — Arquitectura y Construcción</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ================================================================
+           VARIABLES DE COLOR Y RESET
+        ================================================================ */
+        :root {
+            --primary: #1B2A4A;
+            --accent: #C9A96E;
+            --sec-blue: #2C5F8A;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --footer-bg: #111d33;
+            --white: #ffffff;
+            --wsp-green: #25d366;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+
+        /* ================================================================
+           BLOQUE 1 — FRANJA SUPERIOR DE CONTACTO
+           Extraído de nosotros.html (sin cambios)
+        ================================================================ */
+        #franja-contacto {
+            background-color: var(--footer-bg);
+            color: rgba(237, 234, 228, .75);
+            padding: 7px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .78rem;
+            letter-spacing: .04em;
+            border-bottom: 1px solid rgba(201, 169, 110, .15);
+        }
+
+        .franja-izq {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .franja-izq a,
+        .franja-izq .mail-item {
+            color: rgba(237, 234, 228, .75);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-weight: 500;
+            transition: color .2s;
+        }
+
+        .franja-izq a:hover {
+            color: var(--accent);
+        }
+
+        .franja-izq a i {
+            color: var(--wsp-green);
+            font-size: .95rem;
+        }
+
+        .franja-izq .mail-item i {
+            color: var(--accent);
+            font-size: .95rem;
+        }
+
+        .franja-redes {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .franja-redes a {
+            color: rgba(237, 234, 228, .6);
+            font-size: 1rem;
+            transition: color .2s, transform .2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .franja-redes a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+
+        /* ================================================================
+           BLOQUE 2 — NAVBAR
+           Extraído de nosotros.html + línea dorada inferior (de Stitch)
+        ================================================================ */
+        #navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--accent);
+            /* ← línea dorada de Stitch */
+            box-shadow: 0 2px 16px rgba(27, 42, 74, .07);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-logo a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon-box {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-icon-box img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            color: var(--primary);
+        }
+
+        .menu-desktop {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .menu-desktop>a,
+        .menu-desktop .dropdown-toggle {
+            color: rgba(27, 42, 74, .75);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 8px 13px;
+            border-radius: 6px;
+            transition: color .2s, background .2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+
+        .menu-desktop>a:hover,
+        .menu-desktop .dropdown:hover .dropdown-toggle {
+            color: var(--accent);
+            background: rgba(201, 169, 110, .08);
+        }
+
+        .menu-desktop>a.nav-active {
+            color: var(--primary);
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent);
+            border-radius: 0;
+            padding-bottom: 6px;
+        }
+
+        .menu-desktop .nav-blogs,
+        #menu-movil .nav-blogs {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            font-style: italic;
+            text-transform: none;
+            letter-spacing: .02em;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown .chevron {
+            font-size: .62rem;
+            transition: transform .2s;
+        }
+
+        .dropdown:hover .chevron {
+            transform: rotate(180deg);
+        }
+
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background: var(--primary);
+            border: 1px solid rgba(201, 169, 110, .2);
+            border-radius: 8px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, .25);
+            min-width: 240px;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 11px 20px;
+            color: rgba(237, 234, 228, .75);
+            font-size: .75rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            transition: background .15s, color .15s;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(201, 169, 110, .12);
+            color: var(--accent);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .btn-contactar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--primary);
+            padding: 10px 24px;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: all .3s;
+            white-space: nowrap;
+            gap: 8px;
+        }
+
+        /* En la página de contacto el botón muestra estado activo */
+        .btn-contactar.pagina-actual {
+            background: var(--accent);
+            color: var(--primary);
+            pointer-events: none;
+        }
+
+        .btn-contactar:not(.pagina-actual):hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        #btn-hamburguesa {
+            display: none;
+            background: var(--primary);
+            border: none;
+            cursor: pointer;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: 8px;
+            color: var(--white);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #btn-hamburguesa .hamb-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        #btn-hamburguesa .hamb-bars span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s;
+        }
+
+        #btn-hamburguesa.abierto .hamb-bars span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        #btn-hamburguesa.abierto .hamb-bars span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #btn-hamburguesa.abierto .hamb-bars span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        #menu-movil {
+            display: none;
+            flex-direction: column;
+            background: var(--primary);
+            border-top: 1px solid rgba(201, 169, 110, .15);
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            max-height: calc(100vh - 72px);
+            overflow-y: auto;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+        }
+
+        #menu-movil.visible {
+            display: flex;
+        }
+
+        #menu-movil a {
+            color: rgba(237, 234, 228, .8);
+            font-weight: 500;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: 15px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            transition: color .2s, background .2s;
+        }
+
+        #menu-movil a:hover {
+            color: var(--accent);
+            background: rgba(201, 169, 110, .06);
+        }
+
+        #menu-movil a.nav-active-mob {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .movil-seccion-titulo {
+            padding: 15px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            font-weight: 600;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(237, 234, 228, .8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            transition: color .2s;
+        }
+
+        .movil-seccion-titulo:hover {
+            color: var(--accent);
+        }
+
+        .chevron-movil {
+            font-size: .62rem;
+            transition: transform .25s;
+        }
+
+        .movil-seccion-titulo.expandido .chevron-movil {
+            transform: rotate(180deg);
+        }
+
+        #submenu-servicios-movil {
+            display: none;
+            flex-direction: column;
+        }
+
+        #submenu-servicios-movil.visible {
+            display: flex;
+        }
+
+        #menu-movil a.submenu-item {
+            padding-left: 48px;
+            font-size: .7rem;
+            font-weight: 400;
+            letter-spacing: .08em;
+            color: rgba(237, 234, 228, .5);
+            background: rgba(0, 0, 0, .12);
+        }
+
+        #menu-movil a.submenu-item:hover {
+            color: var(--accent);
+        }
+
+        .movil-contactar-wrapper {
+            padding: 18px 28px;
+        }
+
+        .movil-contactar-wrapper .btn-contactar {
+            width: 100%;
+            justify-content: center;
+            padding: 13px;
+        }
+
+
+        /* ================================================================
+           BLOQUE 3 — HERO / INFO DE CONTACTO  (Versión Stitch)
+           + BLOQUE 4 — FORMULARIO             (Versión Stitch)
+           Ambos conviven en la misma grilla de 2 columnas
+        ================================================================ */
+        #contacto-principal {
+            background-color: var(--bg-warm);
+            padding: 80px 40px;
+        }
+
+        .contacto-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* ── Columna izquierda: info ── */
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contacto-info-header {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacto-info-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: -.01em;
+        }
+
+        .contacto-info-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(45, 45, 45, .65);
+            line-height: 1.8;
+            max-width: 440px;
+        }
+
+        /* Tarjetas de contacto */
+        .contacto-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contacto-card {
+            padding: 28px;
+            border-left: 2px solid rgba(27, 42, 74, .1);
+            background: var(--white);
+            transition: border-color .25s, box-shadow .25s, transform .25s;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .contacto-card:hover {
+            border-left-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(27, 42, 74, .1);
+            transform: translateY(-3px);
+        }
+
+        .contacto-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .card-icon .material-symbols-outlined {
+            font-size: 1.6rem;
+            font-variation-settings: 'wght' 200;
+        }
+
+        .contacto-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .contacto-card .card-dato {
+            font-family: 'Inter', sans-serif;
+            font-size: .82rem;
+            font-weight: 400;
+            color: rgba(45, 45, 45, .75);
+            letter-spacing: .02em;
+            line-height: 1.7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color .2s;
+        }
+
+        .contacto-card .card-dato i {
+            font-size: .85rem;
+            width: 14px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contacto-card .card-dato.wsp i {
+            color: var(--wsp-green);
+        }
+
+        .contacto-card .card-dato.mail i {
+            color: var(--accent);
+        }
+
+        .contacto-card .card-dato.maps i {
+            color: var(--sec-blue);
+        }
+
+        .contacto-card:hover .card-dato {
+            color: rgba(45, 45, 45, .9);
+        }
+
+        .card-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity .25s, transform .25s;
+        }
+
+        .contacto-card:hover .card-cta {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Redes sociales */
+        .contacto-redes {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 8px;
+        }
+
+        .contacto-redes-label {
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: rgba(27, 42, 74, .35);
+        }
+
+        .redes-iconos {
+            display: flex;
+            gap: 20px;
+        }
+
+        .red-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(27, 42, 74, .12);
+            color: rgba(27, 42, 74, .5);
+            font-size: 1rem;
+            transition: color .2s, border-color .2s, background .2s, transform .2s;
+            border-radius: 50%;
+        }
+
+        .red-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(201, 169, 110, .06);
+            transform: translateY(-3px);
+        }
+
+        /* ── Columna derecha: formulario ── */
+        .contacto-form-wrap {
+            position: relative;
+            background: var(--white);
+            padding: 52px 48px;
+            box-shadow: 0 24px 80px rgba(27, 42, 74, .12);
+        }
+
+        /* Línea dorada superior del formulario (de Stitch) */
+        .contacto-form-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-label {
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: rgba(27, 42, 74, .7);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid var(--pearl);
+            background: transparent;
+            color: var(--charcoal);
+            font-family: 'Inter', sans-serif;
+            font-size: .9rem;
+            font-weight: 300;
+            padding: 8px 0;
+            transition: border-color .25s;
+            outline: none;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: rgba(45, 45, 45, .28);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-bottom-color: var(--primary);
+        }
+
+        .form-textarea {
+            resize: none;
+            padding-top: 10px;
+        }
+
+        /* Botón submit */
+        .btn-enviar {
+            width: 100%;
+            height: 56px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+            transition: background .3s, transform .2s;
+        }
+
+        .btn-enviar:hover {
+            background: var(--sec-blue);
+        }
+
+        .btn-enviar:active {
+            transform: scale(.98);
+        }
+
+        .btn-enviar:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .btn-enviar .material-symbols-outlined {
+            font-size: 1.2rem;
+            font-variation-settings: 'wght' 200;
+            transition: transform .25s;
+        }
+
+        .btn-enviar:hover .material-symbols-outlined {
+            transform: translateX(5px);
+        }
+
+        .form-privacidad {
+            text-align: center;
+            font-size: .65rem;
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: rgba(45, 45, 45, .3);
+            margin-top: 14px;
+        }
+
+        .form-privacidad a {
+            color: var(--accent);
+        }
+
+        .form-privacidad a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mensajes feedback */
+        .form-feedback {
+            display: none;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            border-left: 3px solid;
+        }
+
+        .form-feedback.success {
+            background: rgba(37, 211, 102, .07);
+            border-color: var(--wsp-green);
+            color: #1a7a44;
+        }
+
+        .form-feedback.error {
+            background: rgba(201, 60, 60, .07);
+            border-color: #c93c3c;
+            color: #8b1a1a;
+        }
+
+        .form-feedback .material-symbols-outlined {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .form-feedback p {
+            font-size: .8rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Instrucción Formspree */
+        .formspree-instruccion {
+            background: rgba(201, 169, 110, .08);
+            border: 1px dashed rgba(201, 169, 110, .4);
+            padding: 14px 18px;
+            margin-bottom: 28px;
+            font-size: .78rem;
+            color: rgba(27, 42, 74, .7);
+            line-height: 1.6;
+            display: flex;
+            gap: 10px;
+        }
+
+        .formspree-instruccion strong {
+            color: var(--primary);
+        }
+
+        .formspree-instruccion i {
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+
+        /* ================================================================
+           BLOQUE 5 — MAPA DE UBICACIÓN  (Versión Stitch)
+        ================================================================ */
+        #ubicacion {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            overflow: hidden;
+        }
+
+        #ubicacion iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(1) contrast(1.08);
+            display: block;
+        }
+
+        /* Gradiente inferior para integrarse con el footer */
+        #ubicacion::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, var(--footer-bg));
+            pointer-events: none;
+        }
+
+        .mapa-label {
+            position: absolute;
+            bottom: 36px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(8px);
+            padding: 14px 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .18);
+            border-top: 3px solid var(--accent);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .mapa-label p {
+            font-family: 'Inter', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mapa-label .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulso 2s infinite;
+        }
+
+        @keyframes pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(201, 169, 110, .6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 8px rgba(201, 169, 110, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 169, 110, 0);
+            }
+        }
+
+        /* Marcador central en el mapa */
+        .mapa-marker {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mapa-marker-ping {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            background: rgba(27, 42, 74, .15);
+            border-radius: 50%;
+            animation: ping 2s cubic-bezier(0, 0, .2, 1) infinite;
+        }
+
+        .mapa-marker-dot {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(27, 42, 74, .4);
+        }
+
+        .mapa-marker-dot .material-symbols-outlined {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-variation-settings: 'wght' 200;
+        }
+
+        @keyframes ping {
+
+            75%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+
+        /* ================================================================
+           BLOQUE 6 — FOOTER
+           Extraído de nosotros.html (sin cambios de estructura/contenido)
+        ================================================================ */
+        #footer {
+            background: var(--footer-bg);
+            color: rgba(237, 234, 228, .65);
+            padding: 64px 32px 28px;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1.4fr 1fr;
+            gap: 48px;
+            align-items: start;
+            padding-bottom: 44px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-marca {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-logo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo-icon {
+            width: 34px;
+            height: 34px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .footer-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--white);
+        }
+
+        .footer-tagline {
+            font-size: .8rem;
+            line-height: 1.7;
+            color: rgba(237, 234, 228, .45);
+            font-weight: 300;
+            max-width: 220px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: .65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .22em;
+            margin-bottom: 22px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 22px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .footer-col.menu-col a {
+            display: block;
+            color: rgba(237, 234, 228, .6);
+            font-size: .82rem;
+            margin-bottom: 10px;
+            font-weight: 400;
+            transition: color .2s, padding-left .2s;
+        }
+
+        .footer-col.menu-col a:hover {
+            color: var(--accent);
+            padding-left: 4px;
+        }
+
+        .footer-col.menu-col a.footer-blogs {
+            font-family: 'Dancing Script', cursive;
+            font-size: .98rem;
+            font-style: italic;
+        }
+
+        .footer-col.menu-col a.footer-active {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 13px;
+            font-size: .82rem;
+            color: rgba(237, 234, 228, .6);
+        }
+
+        .contacto-item i {
+            margin-top: 2px;
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+
+        .contacto-item.wsp i {
+            color: var(--wsp-green);
+        }
+
+        .contacto-item.mail i {
+            color: var(--accent);
+        }
+
+        .contacto-item a {
+            color: rgba(237, 234, 228, .6);
+            transition: color .2s;
+        }
+
+        .contacto-item a:hover {
+            color: var(--accent);
+        }
+
+        .ing-label {
+            font-size: .72rem;
+            color: rgba(237, 234, 228, .3);
+            margin-left: 3px;
+        }
+
+        .red-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 11px;
+            color: rgba(237, 234, 228, .6);
+            font-size: .82rem;
+            transition: color .2s, gap .2s;
+        }
+
+        .red-item i {
+            font-size: 1.1rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        .red-item:hover {
+            color: var(--accent);
+            gap: 16px;
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 22px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: .68rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(237, 234, 228, .28);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(237, 234, 228, .28);
+            transition: color .2s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: rgba(237, 234, 228, .6);
+        }
+
+
+        /* ================================================================
+           BLOQUE 7 — BOTÓN WHATSAPP FLOTANTE
+           Extraído de nosotros.html (sin cambios)
+        ================================================================ */
+        #whatsapp-flotante {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            width: 58px;
+            height: 58px;
+            background: var(--wsp-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, .45);
+            transition: transform .25s, box-shadow .25s;
+            animation: wsp-pulso 2.5s infinite;
+        }
+
+        #whatsapp-flotante:hover {
+            transform: scale(1.12);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, .65);
+            animation: none;
+        }
+
+        #whatsapp-flotante i {
+            color: var(--white);
+            font-size: 1.9rem;
+        }
+
+        #whatsapp-flotante::before {
+            content: '¡Escribinos!';
+            position: absolute;
+            right: 66px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: .72rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: .06em;
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(8px);
+            transition: opacity .2s, transform .2s;
+            pointer-events: none;
+            border: 1px solid rgba(201, 169, 110, .2);
+        }
+
+        #whatsapp-flotante:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes wsp-pulso {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, .5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+
+        /* ================================================================
+           RESPONSIVE
+        ================================================================ */
+        @media (max-width: 1024px) {
+            .contacto-inner {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .contacto-info-header h1 {
+                font-size: 3.2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-marca {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .menu-desktop {
+                display: none;
+            }
+
+            .btn-contactar.desktop-only {
+                display: none;
+            }
+
+            #btn-hamburguesa {
+                display: inline-flex;
+            }
+
+            /* Franja superior: ocultar en móvil muy pequeño */
+            #franja-contacto {
+                padding: 6px 16px;
+                font-size: .72rem;
+            }
+
+            /* Sección contacto */
+            #contacto-principal {
+                padding: 56px 20px;
+            }
+
+            .contacto-form-wrap {
+                padding: 36px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .contacto-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto-card.full-width {
+                grid-column: 1;
+            }
+
+            /* Mapa */
+            #ubicacion {
+                height: 400px;
+            }
+
+            .mapa-label {
+                padding: 12px 20px;
+            }
+
+            .mapa-label p {
+                font-size: .62rem;
+                letter-spacing: .18em;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contacto-info-header h1 {
+                font-size: 2.4rem;
+            }
+
+            #contacto-principal {
+                padding: 40px 16px;
+            }
+
+            .contacto-form-wrap {
+                padding: 28px 18px;
+            }
+
+            #ubicacion {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================================================
+     BLOQUE 1 | FRANJA SUPERIOR DE CONTACTO
+     ─ Idéntica a index.html
+=============================================================== -->
+    <div id="gb-franja"></div>
+    <!-- FIN BLOQUE 1 -->
+
+
+    <!-- ==============================================================
+     BLOQUE 2 | NAVEGACIÓN PRINCIPAL Y MÓVIL (inyectado por componentes.js)
+=============================================================== -->
+    <div id="gb-navbar"></div>
+    <!-- FIN BLOQUE 2 -->
+
+    <main>
+
+        <!-- ==============================================================
+         BLOQUE 3 | HERO / INFO DE CONTACTO  (Versión Stitch)
+         Título, bajada y tarjetas de contacto funcionales
+         + BLOQUE 4 | FORMULARIO             (Versión Stitch)
+         Formulario con doble envío: Formspree + WhatsApp
+        ============================================================== -->
+        <section id="contacto-principal">
+            <div class="contacto-inner">
+
+                <!-- ── BLOQUE 3: Columna de información ── -->
+                <div class="contacto-info">
+
+                    <div class="contacto-info-header">
+                        <h1>Hablemos de su Próximo Proyecto</h1>
+                        <p>
+                            Estamos listos para transformar sus ideas en realidad. Nuestro equipo de expertos
+                            lo asesorará en cada paso del camino con el compromiso y la dedicación que su obra merece.
+                        </p>
+                    </div>
+
+                    <!-- Tarjetas de contacto funcionales -->
+                    <div class="contacto-cards">
+
+                        <!-- Tarjeta WhatsApp (Ing. 1) -->
+                        <a class="contacto-card"
+                            href="https://wa.me/5493513579053?text=Buenas%20tardes.%20Estaba%20interesado%20en%20su%20servicio.%20Me%20podr%C3%ADa%20enviar%20m%C3%A1s%20informaci%C3%B3n.%20Gracias."
+                            target="_blank" rel="noopener noreferrer">
+                            <div class="card-icon">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <h3>WhatsApp</h3>
+                            <div class="card-dato wsp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                +54 9 351 357-9053 (Ing. Jhonatan Sequeiros)
+                            </div>
+                            <div class="card-dato wsp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                +54 9 351 744-7070 (Ing. Felipe Sequeiros)
+                            </div>
+                            <div class="card-cta">
+                                Abrir chat <i class="fa-solid fa-arrow-right" style="font-size:.6rem;"></i>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta Email -->
+                        <a class="contacto-card" href="mailto:grupobs.contacto@gmail.com">
+                            <div class="card-icon">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <h3>Correo</h3>
+                            <div class="card-dato mail">
+                                <i class="fa-solid fa-envelope"></i>
+                                grupobs.contacto@gmail.com
+                            </div>
+                            <div class="card-dato mail">
+                                <i class="fa-solid fa-envelope"></i>
+                                grupobs.contacto+proyecto@gmail.com
+                            </div>
+                            <div class="card-cta">
+                                Enviar email <i class="fa-solid fa-arrow-right" style="font-size:.6rem;"></i>
+                            </div>
+                        </a>
+
+                        <!-- Tarjeta Dirección (ocupa todo el ancho) -->
+                        <a class="contacto-card full-width" href="https://maps.app.goo.gl/BJa1eV5GpQo5DBzS7"
+                            target="_blank" rel="noopener noreferrer">
+                            <div class="card-icon">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <h3>Oficinas</h3>
+                            <div class="card-dato maps">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Villa Parque Santa Ana — Córdoba, Argentina
+                            </div>
+                            <div class="card-cta">
+                                Ver en Google Maps <i class="fa-solid fa-arrow-right" style="font-size:.6rem;"></i>
+                            </div>
+                        </a>
+
+                    </div><!-- /contacto-cards -->
+
+                    <!-- Redes sociales -->
+                    <div class="contacto-redes">
+                        <p class="contacto-redes-label">Conecte con nosotros</p>
+                        <div class="redes-iconos">
+                            <a class="red-link" href="https://www.instagram.com/grupo_bs_/" target="_blank"
+                                rel="noopener noreferrer" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a class="red-link" href="#" target="_blank" rel="noopener noreferrer" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a class="red-link" href="#" target="_blank" rel="noopener noreferrer" title="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div><!-- /contacto-info -->
+
+
+                <!-- ── BLOQUE 4: Formulario ── -->
+                <div class="contacto-form-wrap">
+
+                    <!--
+                    ╔═══════════════════════════════════════════════════════════╗
+                    ║  INSTRUCCIÓN FORMSPREE (podés borrar este bloque         ║
+                    ║  una vez que lo configures)                               ║
+                    ║                                                           ║
+                    ║  1. Entrá a https://formspree.io y creá una cuenta gratis ║
+                    ║  2. Creá un nuevo formulario y copiá el ID (ej: xpwzrqkj) ║
+                    ║  3. En el <form> de abajo, reemplazá YOUR_FORM_ID por     ║
+                    ║     ese ID (ej: action="https://formspree.io/f/xpwzrqkj") ║
+                    ╚═══════════════════════════════════════════════════════════╝
+                    -->
+
+                    <!-- Mensaje de éxito -->
+                    <div class="form-feedback success" id="form-success">
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <p>
+                            <strong>¡Mensaje enviado!</strong><br>
+                            Le respondemos a la brevedad. También recibió su consulta por WhatsApp.
+                        </p>
+                    </div>
+
+                    <!-- Mensaje de error -->
+                    <div class="form-feedback error" id="form-error">
+                        <span class="material-symbols-outlined">error</span>
+                        <p>
+                            <strong>Hubo un problema con el email.</strong><br>
+                            Su mensaje fue enviado por WhatsApp. Puede también escribirnos a grupobs.contacto@gmail.com
+                        </p>
+                    </div>
+
+                    <form id="form-contacto" action="https://formspree.io/f/xgopplny" method="POST">
+
+                        <!-- Fila Nombre + Email -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="f-nombre">Nombre Completo</label>
+                                <input class="form-input" type="text" id="f-nombre" name="nombre"
+                                    placeholder="Ej. Juan Pérez" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="f-email">Email</label>
+                                <input class="form-input" type="email" id="f-email" name="email"
+                                    placeholder="ejemplo@correo.com" required>
+                            </div>
+                        </div>
+
+                        <!-- Asunto -->
+                        <div class="form-group">
+                            <label class="form-label" for="f-asunto">Asunto</label>
+                            <input class="form-input" type="text" id="f-asunto" name="asunto"
+                                placeholder="¿En qué podemos ayudarle?">
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div class="form-group">
+                            <label class="form-label" for="f-mensaje">Mensaje</label>
+                            <textarea class="form-textarea" id="f-mensaje" name="mensaje" rows="4"
+                                placeholder="Cuéntenos más sobre los detalles de su proyecto..." required></textarea>
+                        </div>
+
+                        <!-- Campo anti-spam oculto (honeypot) -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <!-- Botón enviar -->
+                        <button class="btn-enviar" type="submit" id="btn-enviar">
+                            <span id="btn-texto">Enviar Mensaje</span>
+                            <span class="material-symbols-outlined">arrow_right_alt</span>
+                        </button>
+
+                        <p class="form-privacidad">
+                            Al enviar, usted acepta nuestra
+                            <a href="privacidad.html">política de privacidad</a>.
+                        </p>
+
+                    </form>
+                </div><!-- /contacto-form-wrap -->
+
+            </div><!-- /contacto-inner -->
+        </section>
+        <!-- FIN BLOQUES 3 y 4 -->
+
+
+        <!-- ==============================================================
+         BLOQUE 5 | UBICACIÓN  (Versión Stitch)
+         Mapa de Google Maps embebido (reemplaza imagen rota)
+        ============================================================== -->
+        <section id="ubicacion">
+
+            <!-- Mapa embebido — cambiá la query por tu dirección real -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13594.638329028066!2d-64.343492341248!3d-31.588381760638256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDM1JzIzLjAiUyA2NMKwMjAnMjIuMiJX!5e0!3m2!1ses!2sar!4v1775350624019!5m2!1ses!2sar"
+                width="100%" height="450" style="border:0;" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Grupo B's en Córdoba">
+            </iframe>
+
+            <!-- Etiqueta inferior -->
+            <div class="mapa-label">
+                <p>
+                    <span class="pulse-dot"></span>
+                    Nuestra Ubicación — Villa Parque Santa Ana, Córdoba, Argentina
+                </p>
+            </div>
+
+        </section>
+        <!-- FIN BLOQUE 5 -->
+
+    </main>
+
+
+    <!-- ==============================================================
+     BLOQUE 9 y 10 | FOOTER
+     ─ Idéntico a index.html (colores de la versión stitch aplicados
+       a través de var(--footer-bg) que ya coinciden)
+=============================================================== -->
+    <div id="gb-footer"></div>
+    <!-- FIN BLOQUE 9 y 10 -->
+
+
+    <!-- ==============================================================
+     JAVASCRIPT
+     1. Menú hamburguesa
+     2. Acordeón servicios (menú móvil)
+     3. Formulario: doble envío Formspree + WhatsApp
+    ============================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* ── 1. MENÚ HAMBURGUESA ───────────────────────────── */
+            var btnHamb = document.getElementById('btn-hamburguesa');
+            var menuMovil = document.getElementById('menu-movil');
+            var navbar = document.getElementById('navbar');
+
+            function posicionarMenu() {
+                var y = navbar.getBoundingClientRect().bottom;
+                menuMovil.style.top = y + 'px';
+                menuMovil.style.maxHeight = (window.innerHeight - y) + 'px';
+            }
+
+            btnHamb.addEventListener('click', function () {
+                btnHamb.classList.toggle('abierto');
+                menuMovil.classList.toggle('visible');
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+            document.querySelectorAll('#menu-movil a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btnHamb.classList.remove('abierto');
+                    menuMovil.classList.remove('visible');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (menuMovil.classList.contains('visible')) posicionarMenu();
+            });
+
+
+            /* ── 2. ACORDEÓN SERVICIOS (MENÚ MÓVIL) ─────────── */
+            var toggleServ = document.getElementById('toggle-servicios-movil');
+            var submenuServ = document.getElementById('submenu-servicios-movil');
+
+            toggleServ.addEventListener('click', function () {
+                toggleServ.classList.toggle('expandido');
+                submenuServ.classList.toggle('visible');
+            });
+
+
+            /* ── 3. FORMULARIO: FORMSPREE + WHATSAPP ─────────── */
+            var form = document.getElementById('form-contacto');
+            var btnEnviar = document.getElementById('btn-enviar');
+            var btnTexto = document.getElementById('btn-texto');
+            var elSuccess = document.getElementById('form-success');
+            var elError = document.getElementById('form-error');
+            var avisoBanner = document.getElementById('aviso-formspree');
+
+            // Número de WhatsApp al que llega el formulario (mismo que el botón flotante)
+            var WSP_NUMERO = '549351XXXXXXXX'; // ← Reemplazá con el número real
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Limpiar feedbacks anteriores
+                elSuccess.style.display = 'none';
+                elError.style.display = 'none';
+
+                var nombre = document.getElementById('f-nombre').value.trim();
+                var email = document.getElementById('f-email').value.trim();
+                var asunto = document.getElementById('f-asunto').value.trim();
+                var mensaje = document.getElementById('f-mensaje').value.trim();
+
+                // ── Validación básica ──
+                if (!nombre || !email || !mensaje) {
+                    alert('Por favor, completá los campos obligatorios.');
+                    return;
+                }
+
+                // ── Estado: cargando ──
+                btnEnviar.disabled = true;
+                btnTexto.textContent = 'Enviando…';
+
+                // ── Paso 1: Abrir WhatsApp con los datos del formulario ──
+                var textoWsp =
+                    '📋 *Consulta desde el sitio web*\n\n' +
+                    '👤 *Nombre:* ' + nombre + '\n' +
+                    '📧 *Email:*  ' + email + '\n' +
+                    '📌 *Asunto:* ' + (asunto || 'Sin especificar') + '\n\n' +
+                    '💬 *Mensaje:*\n' + mensaje;
+
+                window.open(
+                    'https://wa.me/' + WSP_NUMERO + '?text=' + encodeURIComponent(textoWsp),
+                    '_blank'
+                );
+
+                // ── Paso 2: Enviar a Formspree (si está configurado) ──
+                var formData = new FormData(form);
+                var action = form.getAttribute('action');
+                var formspreeActivo = action && !action.includes('YOUR_FORM_ID');
+
+                if (formspreeActivo) {
+                    try {
+                        var response = await fetch(action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            elSuccess.style.display = 'flex';
+                            form.reset();
+                            if (avisoBanner) avisoBanner.style.display = 'none';
+                        } else {
+                            // WA ya se abrió, mostrar error parcial
+                            elError.style.display = 'flex';
+                        }
+
+                    } catch (err) {
+                        elError.style.display = 'flex';
+                    }
+
+                } else {
+                    // Formspree no configurado: igual abrir WA fue exitoso
+                    elSuccess.style.display = 'flex';
+                    elSuccess.querySelector('p').innerHTML =
+                        '<strong>¡Consulta enviada por WhatsApp!</strong><br>' +
+                        'Para activar también el envío por email, configurá Formspree (ver instrucciones en el código).';
+                    form.reset();
+                }
+
+                // Restaurar botón
+                btnEnviar.disabled = false;
+                btnTexto.textContent = 'Enviar Mensaje';
+
+                // Scroll suave al feedback
+                elSuccess.style.display !== 'none'
+                    ? elSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+                    : elError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+
+        }); // DOMContentLoaded
+    </script>
+
+    <script>
+        var BASE = './';
+        var NAVBAR_TEMA = 'light';     /* 📌 cambiá a 'light' para navbar blanco; 'dark' para navbar azul marino */
+        var FOOTER_TEMA = 'light';
+        var NAV_ACTIVO = 'contacto';
+    </script>
+    <script src="./componentes.js"></script>
+
+</body>
+
+</html>
