@@ -32,7 +32,7 @@ const OBRAS = [
 
     {
         slug: 'casa-country-campos-del-Virrey',
-        img: 'todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h5.jpg',
+        img: 'todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h5.webp',
         anio: '2021',
         m2: '340 m²',
         name: 'Casa Country Campos del Virrey',
@@ -82,7 +82,7 @@ const OBRAS = [
 
     {
         slug: 'proyecto-de-dos-viviendas-en-un-mismo-lote',
-        img: 'todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg',
+        img: 'todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.webp',
         anio: '2020',
         m2: '161 m²',
         name: 'Dos Viviendas en un Mismo Lote',
@@ -132,7 +132,7 @@ const OBRAS = [
 
     {
         slug: 'iluminacion-estudio-juridico',
-        img: 'todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.jpg',
+        img: 'todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.webp',
         anio: '2018',
         m2: '1.147 m²',
         name: 'Iluminación Estudio Jurídico',
