@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejecución del Proyecto | Grupo B's</title>
+    <link rel="icon" href="tu-logo.png" type="image/png">
 
     <!--
         Script inline — corre ANTES de que el browser procese el hash de la URL.
@@ -975,7 +976,7 @@
                                 </p>
                             </div>
                             <a class="btn-card-cta"
-                                href="https://wa.me/549351XXXXXXXX?text=Hola%2C%20me%20interesa%20el%20Gerenciamiento%20de%20Obra.%20¿Pueden%20enviarme%20información%3F"
+                                href="https://wa.me/5493513579053?text=Hola%2C%20me%20interesa%20el%20Gerenciamiento%20de%20Obra.%20¿Pueden%20enviarme%20información%3F"
                                 target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-file-invoice-dollar"></i>
                                 Pedir información
@@ -1091,7 +1092,7 @@
                 <div class="compromiso-right">
                     <div class="compromiso-img-frame"></div>
                     <img class="compromiso-img"
-                        src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h24.jpg"
+                        src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h24.webp"
                         alt="Interior de obra premium">
                     <div class="anos-badge">
                         <div class="num">25+</div>
@@ -1377,11 +1378,11 @@
             }
 
             function smoothScrollTo(targetY, duration) {
-                var startY    = window.scrollY;
-                var distance  = targetY - startY;
+                var startY = window.scrollY;
+                var distance = targetY - startY;
                 var startTime = performance.now();
                 function step(now) {
-                    var elapsed  = now - startTime;
+                    var elapsed = now - startTime;
                     var progress = Math.min(elapsed / duration, 1);
                     window.scrollTo(0, startY + distance * easeInOutCubic(progress));
                     if (progress < 1) requestAnimationFrame(step);
@@ -1404,17 +1405,17 @@
                     /* Buscar el navbar: puede ser inyectado dentro de #gb-navbar
                        o directamente con id="navbar" */
                     var navbarEl = document.getElementById('navbar')
-                                || document.getElementById('gb-navbar');
+                        || document.getElementById('gb-navbar');
                     var franjaEl = document.getElementById('franja-contacto')
-                                || document.getElementById('gb-franja');
-                    var navH        = navbarEl ? navbarEl.offsetHeight : 78;
-                    var franH       = franjaEl ? franjaEl.offsetHeight : 32;
+                        || document.getElementById('gb-franja');
+                    var navH = navbarEl ? navbarEl.offsetHeight : 78;
+                    var franH = franjaEl ? franjaEl.offsetHeight : 32;
                     var offsetExtra = 24;
                     var targetY = destino.getBoundingClientRect().top
-                                  + window.scrollY
-                                  - navH
-                                  - franH
-                                  - offsetExtra;
+                        + window.scrollY
+                        - navH
+                        - franH
+                        - offsetExtra;
                     smoothScrollTo(Math.max(0, targetY), 680);
                 }, 400);
             }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño y Proyecto | Grupo B's</title>
+    <link rel="icon" href="tu-logo.png" type="image/png">
 
     <!--
       DEPENDENCIAS EXTERNAS
@@ -1297,9 +1298,10 @@
     =============================================================== -->
         <section id="portafolio">
             <div class="portafolio-inner">
+
                 <div class="portafolio-encabezado">
                     <div class="portafolio-encabezado-left">
-                        <span class="etiqueta-dorada">Portafolio</span>
+                        <span class="etiqueta-dorada gold-label">Portafolio</span>
                         <h2>Galería de Proyectos</h2>
                     </div>
                     <a class="portafolio-ver-todos" href="obras.html">
@@ -1310,40 +1312,53 @@
 
                 <div class="portafolio-grid">
 
-                    <div class="portafolio-item">
-                        <!-- 📌 IMAGEN: Foto de proyecto corporativo -->
-                        <img src="Obras\todas-las-obras\Imagenes\iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.jpg"
-                            alt="Torre Empresarial">
+                    <!-- Proyecto 1 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item" href="Obras/todas-las-obras/iluminacion-estudio-juridico.html">
+                        <!-- 🖼 IMAGEN: Iluminación Estudio Jurídico -->
+                        <img src="Obras/todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.webp"
+                            alt="Iluminación Estudio Jurídico" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Corporativo</span>
                             <h4 class="portafolio-nombre">Iluminación Estudio Jurídico</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="portafolio-item">
-                        <!-- 📌 IMAGEN: Foto de proyecto residencial -->
-                        <img src="Obras\todas-las-obras\Imagenes\proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg"
-                            alt="Casa de Campo Premium">
+                    <!-- Proyecto 2 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item"
+                        href="Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html">
+                        <!-- 🖼 IMAGEN: Dos viviendas en un mismo lote -->
+                        <img src="Obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.webp"
+                            alt="Dos viviendas en un mismo lote" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Residencial</span>
                             <h4 class="portafolio-nombre">Dos viviendas en un mismo lote</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="portafolio-item">
-                        <!-- 📌 IMAGEN: Foto de interiorismo -->
-                        <img src="Obras\todas-las-obras\Imagenes\casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.jpg"
-                            alt="Studio Loft Minimal">
+                    <!-- Proyecto 3 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item" href="Obras/todas-las-obras/casa-country-campos-del-Virrey.html">
+                        <!-- 🖼 IMAGEN: Living de quincho — Casa Country Campos del Virrey -->
+                        <img src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.webp"
+                            alt="Living de quincho" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Interiorismo</span>
                             <h4 class="portafolio-nombre">Living de quincho</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
+
+                <!-- Botón → obras.html -->
+                <div style="text-align:center; margin-top:48px;">
+                    <a class="bloque-link-mas" href="obras.html">
+                        Ver todas las obras
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
             </div>
         </section>
         <!-- FIN BLOQUE 6 -->
@@ -1617,11 +1632,11 @@
             }
 
             function smoothScrollTo(targetY, duration) {
-                var startY    = window.scrollY;
-                var distance  = targetY - startY;
+                var startY = window.scrollY;
+                var distance = targetY - startY;
                 var startTime = performance.now();
                 function step(now) {
-                    var elapsed  = now - startTime;
+                    var elapsed = now - startTime;
                     var progress = Math.min(elapsed / duration, 1);
                     window.scrollTo(0, startY + distance * easeInOutCubic(progress));
                     if (progress < 1) requestAnimationFrame(step);
@@ -1644,17 +1659,17 @@
                     /* Buscar el navbar: puede ser inyectado dentro de #gb-navbar
                        o directamente con id="navbar" */
                     var navbarEl = document.getElementById('navbar')
-                                || document.getElementById('gb-navbar');
+                        || document.getElementById('gb-navbar');
                     var franjaEl = document.getElementById('franja-contacto')
-                                || document.getElementById('gb-franja');
-                    var navH        = navbarEl ? navbarEl.offsetHeight : 78;
-                    var franH       = franjaEl ? franjaEl.offsetHeight : 32;
+                        || document.getElementById('gb-franja');
+                    var navH = navbarEl ? navbarEl.offsetHeight : 78;
+                    var franH = franjaEl ? franjaEl.offsetHeight : 32;
                     var offsetExtra = 24;
                     var targetY = destino.getBoundingClientRect().top
-                                  + window.scrollY
-                                  - navH
-                                  - franH
-                                  - offsetExtra;
+                        + window.scrollY
+                        - navH
+                        - franH
+                        - offsetExtra;
                     smoothScrollTo(Math.max(0, targetY), 680);
                 }, 400);
             }
