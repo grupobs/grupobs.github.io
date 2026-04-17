@@ -1027,19 +1027,46 @@
                 padding: 32px;
             }
 
-            /* Portafolio: 1 columna en móvil */
+            /* Portafolio móvil: carrusel horizontal con scroll snapping */
             #portafolio {
-                padding: 72px 20px;
+                padding: 64px 0;
             }
 
-            .portafolio-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+            .portafolio-inner {
+                padding: 0 20px;
             }
 
             .portafolio-encabezado {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .portafolio-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding: 8px 20px 24px;
+                margin: 0 -20px;
+                scrollbar-width: none;
+            }
+
+            .portafolio-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .portafolio-item {
+                flex: 0 0 78vw;
+                max-width: 320px;
+                aspect-ratio: 3/4;
+                scroll-snap-align: start;
+                border-radius: 16px;
+            }
+
+            .portafolio-scroll-hint {
+                display: flex !important;
             }
 
             /* Acordeón modelos → vertical */
@@ -1198,6 +1225,9 @@
             overflow: hidden;
             background: var(--pearl);
             cursor: pointer;
+            text-decoration: none;
+            /* cuando es <a>, no subraya */
+            display: block;
         }
 
         .portafolio-item img {
@@ -1267,6 +1297,40 @@
         .portafolio-item:hover .portafolio-icono {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Indicador "deslizá" — solo visible en móvil */
+        .portafolio-scroll-hint {
+            display: none;
+            /* oculto en desktop — el @media lo activa */
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(27, 42, 74, .4);
+        }
+
+        .portafolio-scroll-hint .material-symbols-outlined {
+            font-size: 1rem;
+            animation: hint-slide 1.6s ease-in-out infinite;
+        }
+
+        @keyframes hint-slide {
+
+            0%,
+            100% {
+                transform: translateX(0);
+                opacity: .4;
+            }
+
+            50% {
+                transform: translateX(6px);
+                opacity: 1;
+            }
         }
 
 
@@ -1340,7 +1404,7 @@
        │  Tamaño recomendado: 1920 × 1080 px, formato JPG o WebP    │
        └──────────────────────────────────────────────────────────────┘ -->
             <div class="carousel-slide active">
-                <img src="01 - Fotos/01 - Fotos carucel portada/01-carrucel portada.jpg" alt="Arquitectura moderna">
+                <img src="01 - Fotos/01 - Fotos carucel portada/01-carrucel portada.webp" alt="Arquitectura moderna">
             </div>
 
             <!-- ┌──────────────────────────────────────────────────────────────┐
@@ -1349,7 +1413,7 @@
        │  Archivo: 02-carrucel portada.jpg                           │
        └──────────────────────────────────────────────────────────────┘ -->
             <div class="carousel-slide">
-                <img src="01 - Fotos/01 - Fotos carucel portada/02-carrucel portada.jpg"
+                <img src="01 - Fotos/01 - Fotos carucel portada/02-carrucel portada.webp"
                     alt="Interiorismo de alta gama">
             </div>
 
@@ -1359,7 +1423,7 @@
        │  Archivo: 03-carrucel portada.jpg                           │
        └──────────────────────────────────────────────────────────────┘ -->
             <div class="carousel-slide">
-                <img src="01 - Fotos/01 - Fotos carucel portada/03-carrucel portada.jpg"
+                <img src="01 - Fotos/01 - Fotos carucel portada/03-carrucel portada.webp"
                     alt="Construcción de precisión">
             </div>
 
@@ -1450,7 +1514,7 @@
              │  Archivo: 01 - Fotos/02 - Fotos bloque quienes somos/logo.jpg  (o la foto de tu equipo / obra)        │
              │  Tamaño recomendado: proporción 4:5 (portrait), mín 800 px │
              └──────────────────────────────────────────────────────────────┘ -->
-                        <img src="01 - Fotos/02 - Fotos bloque quienes somos/Nosotros.jpg" alt="Quiénes somos">
+                        <img src="01 - Fotos/02 - Fotos bloque quienes somos/Nosotros.webp" alt="Quiénes somos">
                     </div>
                     <!-- Badge flotante (se oculta en móvil) -->
                     <div class="nosotros-badge">
@@ -1695,39 +1759,49 @@
 
                 <div class="portafolio-grid">
 
-                    <div class="portafolio-item">
+                    <!-- Proyecto 1 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item" href="Obras/todas-las-obras/iluminacion-estudio-juridico.html">
                         <!-- 🖼 IMAGEN: Iluminación Estudio Jurídico -->
-                        <img src="Obras/todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.jpg"
-                            alt="Iluminación Estudio Jurídico">
+                        <img src="Obras/todas-las-obras/Imagenes/iluminacion-estudio-juridico/iluminacion-estudio-juridico-h1.webp"
+                            alt="Iluminación Estudio Jurídico" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Corporativo</span>
                             <h4 class="portafolio-nombre">Iluminación Estudio Jurídico</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="portafolio-item">
+                    <!-- Proyecto 2 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item"
+                        href="Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html">
                         <!-- 🖼 IMAGEN: Dos viviendas en un mismo lote -->
-                        <img src="Obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.jpg"
-                            alt="Dos viviendas en un mismo lote">
+                        <img src="Obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.webp"
+                            alt="Dos viviendas en un mismo lote" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Residencial</span>
                             <h4 class="portafolio-nombre">Dos viviendas en un mismo lote</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="portafolio-item">
+                    <!-- Proyecto 3 — clic lleva a la subpágina individual -->
+                    <a class="portafolio-item" href="Obras/todas-las-obras/casa-country-campos-del-Virrey.html">
                         <!-- 🖼 IMAGEN: Living de quincho — Casa Country Campos del Virrey -->
-                        <img src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.jpg"
-                            alt="Living de quincho">
+                        <img src="Obras/todas-las-obras/Imagenes/casa-country-campos-del-Virrey/casa-country-campos-del-Virrey-h17.webp"
+                            alt="Living de quincho" loading="lazy">
                         <div class="portafolio-item-overlay">
                             <span class="portafolio-cat">Interiorismo</span>
                             <h4 class="portafolio-nombre">Living de quincho</h4>
-                            <span class="material-symbols-outlined portafolio-icono">add_circle</span>
+                            <span class="material-symbols-outlined portafolio-icono">arrow_outward</span>
                         </div>
-                    </div>
+                    </a>
 
+                </div>
+
+                <!-- Indicador de scroll — solo visible en móvil -->
+                <div class="portafolio-scroll-hint">
+                    <span class="material-symbols-outlined">swipe_right</span>
+                    Deslizá para ver más
                 </div>
 
                 <!-- Botón → obras.html -->
@@ -1790,7 +1864,7 @@
            │  Archivo: Iluminacion.jpg                                   │
            │  Tamaño recomendado: 900 × 1200 px (portrait)             │
            └──────────────────────────────────────────────────────────────┘ -->
-                    <img src="01 - Fotos/03 - Fotos seccion lo que hacemos/Iluminacion.jpg" alt="Interior iluminado">
+                    <img src="01 - Fotos/03 - Fotos seccion lo que hacemos/iluminacion.webp" alt="Interior iluminado">
                     <div class="iluminacion-img-overlay"></div>
                 </div>
 

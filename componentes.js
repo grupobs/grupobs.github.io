@@ -434,13 +434,28 @@ var CONFIG = {
     .btn-contactar.desktop-only { display:none; }
     #btn-hamburguesa { display:flex; }
     .nav-inner { padding:0 20px; height:64px; }
-    #franja-contacto { justify-content:center; text-align:center; padding:7px 16px; }
-    .gb-franja-izq { justify-content:center; }
-    .gb-franja-redes { justify-content:center; }
+    /* Franja: una sola fila compacta en tablet */
+    #franja-contacto { padding:6px 16px; gap:12px; flex-wrap:nowrap; }
+    .gb-franja-izq { gap:14px; }
     .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
     .footer-marca { grid-column:1 / -1; }
 }
 @media (max-width:480px) {
+    /* Franja: UNA SOLA FILA — solo WhatsApp + redes, nunca se rompe */
+    #franja-contacto {
+        flex-wrap: nowrap;          /* nunca pasa a dos filas            */
+        justify-content: space-between;
+        padding: 5px 14px;
+        gap: 8px;
+        overflow: hidden;
+    }
+    /* Ocultar el mail en pantallas muy pequeñas */
+    .gb-mail-item { display: none !important; }
+    /* Solo el número de WhatsApp, sin texto adicional si hay poco espacio */
+    .gb-franja-izq { gap: 0; flex-wrap: nowrap; }
+    /* Redes a la derecha, más compactas */
+    .gb-franja-redes { gap: 10px; flex-shrink: 0; }
+    /* Footer */
     .footer-grid { grid-template-columns:1fr; }
     .footer-bottom { flex-direction:column; align-items:center; text-align:center; gap:8px; }
 }
