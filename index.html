@@ -1028,13 +1028,25 @@
             }
 
             /* Portafolio móvil: carrusel horizontal con scroll snapping */
-            #portafolio { padding: 64px 0; }
-            .portafolio-inner { padding: 0 20px; }
-            .portafolio-encabezado { flex-direction: column; align-items: flex-start; }
+            #portafolio {
+                padding: 64px 0;
+            }
+
+            .portafolio-inner {
+                padding: 0 20px;
+            }
+
+            .portafolio-encabezado {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .portafolio-grid {
-                display: flex !important;       /* cancela el grid del 1024px */
+                display: flex !important;
+                /* cancela el grid del 1024px */
                 flex-wrap: nowrap !important;
-                grid-template-columns: unset;   /* limpia la propiedad de grid */
+                grid-template-columns: unset;
+                /* limpia la propiedad de grid */
                 gap: 16px;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
@@ -1043,9 +1055,14 @@
                 margin: 0 -20px;
                 scrollbar-width: none;
             }
-            .portafolio-grid::-webkit-scrollbar { display: none; }
+
+            .portafolio-grid::-webkit-scrollbar {
+                display: none;
+            }
+
             .portafolio-item {
-                flex: 0 0 78vw !important;      /* cancela cualquier grid-item sizing */
+                flex: 0 0 78vw !important;
+                /* cancela cualquier grid-item sizing */
                 width: 78vw;
                 max-width: 320px;
                 min-width: 220px;
@@ -1053,12 +1070,16 @@
                 scroll-snap-align: start;
                 border-radius: 16px;
             }
+
             /* Overlay siempre semi-visible en móvil (no hay hover) */
             .portafolio-item-overlay {
                 opacity: 0.92;
                 background: rgba(27, 42, 74, .55);
             }
-            .portafolio-scroll-hint { display: flex !important; }
+
+            .portafolio-scroll-hint {
+                display: flex !important;
+            }
 
             /* Acordeón modelos → vertical */
             .modelos-acordeon {
@@ -1216,7 +1237,8 @@
             overflow: hidden;
             background: var(--pearl);
             cursor: pointer;
-            text-decoration: none;  /* cuando es <a>, no subraya */
+            text-decoration: none;
+            /* cuando es <a>, no subraya */
             display: block;
         }
 
@@ -1291,7 +1313,8 @@
 
         /* Indicador "deslizá" — solo visible en móvil */
         .portafolio-scroll-hint {
-            display: none;            /* oculto en desktop — el @media lo activa */
+            display: none;
+            /* oculto en desktop — el @media lo activa */
             align-items: center;
             justify-content: center;
             gap: 8px;
@@ -1300,15 +1323,26 @@
             font-weight: 600;
             letter-spacing: .12em;
             text-transform: uppercase;
-            color: rgba(27,42,74,.4);
+            color: rgba(27, 42, 74, .4);
         }
+
         .portafolio-scroll-hint .material-symbols-outlined {
             font-size: 1rem;
             animation: hint-slide 1.6s ease-in-out infinite;
         }
+
         @keyframes hint-slide {
-            0%, 100% { transform: translateX(0); opacity:.4; }
-            50%       { transform: translateX(6px); opacity:1; }
+
+            0%,
+            100% {
+                transform: translateX(0);
+                opacity: .4;
+            }
+
+            50% {
+                transform: translateX(6px);
+                opacity: 1;
+            }
         }
 
 
@@ -1455,11 +1489,11 @@
                         <em>alma creativa.</em>
                     </h2>
                     <p class="nosotros-texto">
-                        Somos ingenieros con más de 25 años en la industria de la construcción y ejecución de obras.
-                        Nuestra especialidad es la iluminación y, con ella, dar vida a los espacios del hogar.
-                        Fusionamos el diseño vanguardista con la eficiencia operativa, garantizando plazos,
-                        costos y una calidad estética insuperable. Desde siempre, nuestra visión es materializar
-                        ese lugar al que las familias llaman hogar.
+                        Somos ingenieros, con más de 25 años en la construcción y ejecución de obras. Nuestra
+                        especialidad es la iluminación y, con ella, dar vida a los espacios del hogar, de la oficina, de
+                        la industria, hoteles, museos, canchas y otros. Fusionamos el diseño vanguardista con la
+                        eficiencia operativa, garantizando plazos, costos y una gran calidad estética. Desde siempre,
+                        nuestra visión es materializar cada ambiente que ese lugar al de las familias llaman hogar.
                     </p>
                     <div class="nosotros-stats">
                         <div>
@@ -1544,8 +1578,8 @@
                     </div>
                     <h3 class="srv-nombre">Ejecución de Obra</h3>
                     <p class="srv-desc">
-                        Construcción de alta precisión gestionada por ingenieros expertos, asegurando que
-                        cada detalle técnico se cumpla con rigor y dentro de los plazos acordados.
+                        Construcción gestionada por un grupo de Profesionales, asegurando que cada detalle técnico se
+                        cumpla con rigor y dentro de los plazos acordados.
                     </p>
                     <ul class="srv-lista">
                         <li><span class="dot"></span>Gestión y dirección de obra</li>
@@ -1565,7 +1599,7 @@
                         y artificial para transformar cada ambiente en una experiencia única e irrepetible.
                     </p>
                     <ul class="srv-lista">
-                        <li><span class="dot"></span>Diseño lumínico integral</li>
+                        <li><span class="dot"></span>Diseño de iluminación</li>
                         <li><span class="dot"></span>Sistemas LED de alta fidelidad</li>
                         <li><span class="dot"></span>Automatización inteligente</li>
                     </ul>
@@ -1750,7 +1784,8 @@
                     </a>
 
                     <!-- Proyecto 2 — clic lleva a la subpágina individual -->
-                    <a class="portafolio-item" href="Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html">
+                    <a class="portafolio-item"
+                        href="Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html">
                         <!-- 🖼 IMAGEN: Dos viviendas en un mismo lote -->
                         <img src="Obras/todas-las-obras/Imagenes/proyecto-de-dos-viviendas-en-un-mismo-lote/proyecto-de-dos-viviendas-en-un-mismo-lote-h1.webp"
                             alt="Dos viviendas en un mismo lote" loading="lazy">
