@@ -754,6 +754,149 @@
             }
         }
     </style>
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════
+    JSON-LD — Datos estructurados para buscadores e IAs
+    ───────────────────────────────────────────────────────────────────
+    ¿QUÉ LÍNEAS TOCAR?
+      ✏  name, alternateName     → nombre de tu empresa
+      ✏  url                     → tu dominio publicado
+      ✏  logo / image            → URL completa de tu logo / foto portada
+      ✏  description             → descripción de tu negocio
+      ✏  telephone               → tu número con código de país
+      ✏  email                   → tu email de contacto
+      ✏  latitude / longitude    → coordenadas de tu oficina (Google Maps)
+      ✏  sameAs                  → links de tus redes sociales publicadas
+ 
+    ¿QUÉ NO TOCAR?
+      ✗  "@context"              → siempre "https://schema.org"
+      ✗  "@type"                 → ConstructionBusiness es el tipo correcto
+      ✗  Todos los demás "@type" internos (PostalAddress, GeoCoordinates…)
+ 
+    ¿DÓNDE ESTÁ EN EL CÓDIGO?
+      → Dentro del <head>, antes del </head>. Los buscadores lo leen
+        antes que el contenido visible de la página.
+    ═══════════════════════════════════════════════════════════════════
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["ConstructionBusiness", "HomeAndConstructionBusiness"],
+ 
+      "name": "Grupo B's",
+      "alternateName": "Grupo B's Diseño y Construcción",
+      "legalName": "Grupo B's",
+ 
+      "url": "https://grupobs.com.ar",
+      "logo": "https://grupobs.com.ar/01%20-%20Fotos/02%20-%20Fotos%20bloque%20quienes%20somos/logo.jpg",
+      "image": "https://grupobs.com.ar/01%20-%20Fotos/01%20-%20Fotos%20carucel%20portada/01-carrucel%20portada.webp",
+ 
+      "description": "Grupo B's es un estudio de arquitectura, ingeniería civil y construcción de alta gama con sede en Córdoba, Argentina. Con más de 25 años de experiencia, ofrece diseño arquitectónico, elaboración de proyectos ejecutivos, dirección y ejecución de obras, y diseño de iluminación para proyectos residenciales, corporativos y comerciales.",
+ 
+      "knowsAbout": [
+        "Arquitectura residencial",
+        "Arquitectura corporativa",
+        "Ingeniería civil",
+        "Diseño arquitectónico",
+        "Proyecto ejecutivo",
+        "Cálculo estructural",
+        "Dirección de obra",
+        "Construcción integral",
+        "Construcción llave en mano",
+        "Construcción por etapas",
+        "Construcción por administracion",
+        "Diseño de iluminación",
+        "Iluminación LED",
+        "Automatización de iluminación",
+        "Interiorismo",
+        "Construcción en Córdoba Argentina"
+      ],
+ 
+      "foundingDate": "2001",
+ 
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Córdoba",
+        "addressRegion": "Córdoba",
+        "addressCountry": "AR"
+      },
+ 
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-31.5904",
+        "longitude": "-64.3565"
+      },
+ 
+      "telephone": "+54-9-351-357-9053",
+      "email": "grupobs.contacto@gmail.com",
+ 
+      "priceRange": "$$$$",
+ 
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+ 
+      "areaServed": {
+        "@type": "State",
+        "name": "Córdoba",
+        "addressCountry": "AR"
+      },
+ 
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Construcción y Arquitectura",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Diseño Arquitectónico",
+              "description": "Elaboración de anteproyecto y proyecto ejecutivo con cálculo estructural integrado."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ejecución de Obra",
+              "description": "Gestión, dirección y construcción integral con supervisión técnica permanente."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Iluminación de Espacios",
+              "description": "Diseño lumínico integral con sistemas LED de alta fidelidad y automatización inteligente."
+            }
+          }
+        ]
+      },
+ 
+      "sameAs": [
+        "https://www.instagram.com/grupo_bs_/",
+        "https://www.facebook.com/profile.php?id=100084186905844",
+        "https://www.youtube.com/@GrupoBs-YT",
+        "https://share.google/kNRJo6eYmsNNloUN7",
+        "https://maps.app.goo.gl/m7gpWKtNFEd9RUaM8"
+      ],
+ 
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+54-9-351-357-9053",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish",
+        "areaServed": "AR"
+      }
+    }
+    </script>
+
 </head>
 
 <body>
