@@ -20,17 +20,18 @@
          📌 Completar con los datos reales del proyecto
     ══════════════════════════════════════════════════════ -->
     <title>📌 Nombre del Proyecto | Grupo B's — Arquitectura y Construcción Córdoba</title>
-    <meta name="description" content="📌 Resumen corto del proyecto (máx. 155 caracteres). Ej: Vivienda unifamiliar de alta gama con muros de vidrio y jardín integrado al interior. Córdoba, Argentina.">
+    <meta name="description"
+        content="📌 Resumen corto del proyecto (máx. 155 caracteres). Ej: Vivienda unifamiliar de alta gama con muros de vidrio y jardín integrado al interior. Córdoba, Argentina.">
     <link rel="canonical" href="📌 URL completa de esta página">
 
     <!-- Open Graph (para compartir en redes) -->
-    <meta property="og:type"        content="website">
-    <meta property="og:site_name"   content="Grupo B's — Arquitectura y Construcción">
-    <meta property="og:title"       content="📌 Nombre del Proyecto | Grupo B's">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Grupo B's — Arquitectura y Construcción">
+    <meta property="og:title" content="📌 Nombre del Proyecto | Grupo B's">
     <meta property="og:description" content="📌 Mismo texto que meta description">
-    <meta property="og:image"       content="📌 URL absoluta de la foto de portada del proyecto">
-    <meta property="og:url"         content="📌 URL completa de esta página">
-    <meta property="og:locale"      content="es_AR">
+    <meta property="og:image" content="📌 URL absoluta de la foto de portada del proyecto">
+    <meta property="og:url" content="📌 URL completa de esta página">
+    <meta property="og:locale" content="es_AR">
 
     <!-- Schema.org — Portafolio de obra -->
     <script type="application/ld+json">
@@ -57,8 +58,11 @@
          FUENTES Y RECURSOS
     ══════════════════════════════════════════════════════ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- ══════════════════════════════════════════════════════
@@ -67,24 +71,50 @@
     <style>
         /* ── Variables ─────────────────────────────────────── */
         :root {
-            --primary:   #1B2A4A;
+            --primary: #1B2A4A;
             --secondary: #2C5F8A;
-            --accent:    #C9A96E;
-            --bg-warm:   #F8F6F2;
-            --pearl:     #EDEAE4;
-            --charcoal:  #2D2D2D;
-            --black-el:  #111111;
-            --white:     #ffffff;
+            --accent: #C9A96E;
+            --bg-warm: #F8F6F2;
+            --pearl: #EDEAE4;
+            --charcoal: #2D2D2D;
+            --black-el: #111111;
+            --white: #ffffff;
             --wsp-green: #25d366;
         }
 
         /* ── Reset ─────────────────────────────────────────── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html  { scroll-behavior: smooth; }
-        body  { font-family: 'Inter', sans-serif; background: var(--bg-warm); color: var(--charcoal); -webkit-font-smoothing: antialiased; }
-        img   { display: block; max-width: 100%; }
-        a     { text-decoration: none; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-warm);
+            color: var(--charcoal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
 
         /* ── Franja y Navbar: gestionados por componentes.js ─ */
         /* (sin CSS propio aquí) */
@@ -114,12 +144,10 @@
         .proj-hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(27, 42, 74, 0.88) 0%,
-                rgba(27, 42, 74, 0.30) 55%,
-                rgba(27, 42, 74, 0.10) 100%
-            );
+            background: linear-gradient(to top,
+                    rgba(27, 42, 74, 0.88) 0%,
+                    rgba(27, 42, 74, 0.30) 55%,
+                    rgba(27, 42, 74, 0.10) 100%);
         }
 
         /* Volver atrás */
@@ -131,15 +159,21 @@
             display: flex;
             align-items: center;
             gap: 9px;
-            color: rgba(255,255,255,.75);
+            color: rgba(255, 255, 255, .75);
             font-size: .68rem;
             font-weight: 700;
             letter-spacing: .18em;
             text-transform: uppercase;
             transition: color .2s;
         }
-        .proj-hero-back:hover { color: var(--accent); }
-        .proj-hero-back .material-symbols-outlined { font-size: 1rem; }
+
+        .proj-hero-back:hover {
+            color: var(--accent);
+        }
+
+        .proj-hero-back .material-symbols-outlined {
+            font-size: 1rem;
+        }
 
         /* Contenido del hero */
         .proj-hero-content {
@@ -170,7 +204,7 @@
             font-weight: 700;
             letter-spacing: .3em;
             text-transform: uppercase;
-            color: rgba(255,255,255,.65);
+            color: rgba(255, 255, 255, .65);
             display: flex;
             align-items: center;
             gap: 16px;
@@ -225,7 +259,8 @@
         /* ── Ficha Técnica (columna izquierda, sticky) ────── */
         .ficha-tecnica {
             position: sticky;
-            top: 100px;  /* debajo del navbar fijo */
+            top: 100px;
+            /* debajo del navbar fijo */
         }
 
         .ficha-card {
@@ -247,7 +282,9 @@
             margin-bottom: 20px;
         }
 
-        .ficha-row:last-child { margin-bottom: 0; }
+        .ficha-row:last-child {
+            margin-bottom: 0;
+        }
 
         .ficha-row .field-label {
             display: block;
@@ -313,22 +350,28 @@
             border-radius: 2px;
             margin-top: 4px;
         }
+
         .ficha-estado.completado {
             background: rgba(37, 211, 102, .08);
             color: #1a8a43;
             border: 1px solid rgba(37, 211, 102, .25);
         }
+
         .ficha-estado.en-ejecucion {
             background: rgba(201, 169, 110, .1);
             color: #8a6520;
             border: 1px solid rgba(201, 169, 110, .3);
         }
+
         .ficha-estado.en-diseno {
             background: rgba(44, 95, 138, .08);
             color: var(--secondary);
             border: 1px solid rgba(44, 95, 138, .2);
         }
-        .ficha-estado .material-symbols-outlined { font-size: .9rem; }
+
+        .ficha-estado .material-symbols-outlined {
+            font-size: .9rem;
+        }
 
         /* ── Descripción (columna derecha) ───────────────── */
         .proj-descripcion h2 {
@@ -340,7 +383,9 @@
             line-height: 1.1;
         }
 
-        .proj-descripcion .architectural-line { margin-bottom: 32px; }
+        .proj-descripcion .architectural-line {
+            margin-bottom: 32px;
+        }
 
         .proj-descripcion .desc-lead {
             font-size: 1.15rem;
@@ -406,21 +451,46 @@
             margin: 0 auto;
         }
 
-        .gallery-slot { overflow: hidden; }
+        .gallery-slot {
+            overflow: hidden;
+        }
+
         .gallery-slot img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform .7s ease;
         }
-        .gallery-slot:hover img { transform: scale(1.04); }
+
+        .gallery-slot:hover img {
+            transform: scale(1.04);
+        }
 
         /* Tamaños de los slots */
-        .slot-1 { grid-column: span 8; grid-row: span 2; }
-        .slot-2 { grid-column: span 4; grid-row: span 1; }
-        .slot-3 { grid-column: span 4; grid-row: span 2; }
-        .slot-4 { grid-column: span 4; grid-row: span 1; }
-        .slot-5 { grid-column: span 4; grid-row: span 1; }
+        .slot-1 {
+            grid-column: span 8;
+            grid-row: span 2;
+        }
+
+        .slot-2 {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        .slot-3 {
+            grid-column: span 4;
+            grid-row: span 2;
+        }
+
+        .slot-4 {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        .slot-5 {
+            grid-column: span 4;
+            grid-row: span 1;
+        }
 
         /* ════════════════════════════════════════════════════
            4. CAPACIDAD TÉCNICA
@@ -445,11 +515,15 @@
         /* Ícono de fondo decorativo */
         .tecnica-card-deco {
             position: absolute;
-            top: 0; right: 0;
+            top: 0;
+            right: 0;
             padding: 32px;
             opacity: .07;
         }
-        .tecnica-card-deco .material-symbols-outlined { font-size: 9rem; }
+
+        .tecnica-card-deco .material-symbols-outlined {
+            font-size: 9rem;
+        }
 
         .tecnica-inner {
             position: relative;
@@ -489,7 +563,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
-            border-left: 1px solid rgba(255,255,255,.1);
+            border-left: 1px solid rgba(255, 255, 255, .1);
             padding-left: 48px;
         }
 
@@ -560,7 +634,11 @@
             border-radius: 2px;
             transition: opacity .25s, transform .2s;
         }
-        .btn-gold:hover { opacity: .88; transform: translateY(-1px); }
+
+        .btn-gold:hover {
+            opacity: .88;
+            transform: translateY(-1px);
+        }
 
         .btn-outline-navy {
             display: inline-flex;
@@ -577,8 +655,17 @@
             border-radius: 2px;
             transition: background .25s, color .25s, transform .2s;
         }
-        .btn-outline-navy:hover { background: var(--primary); color: var(--white); transform: translateY(-1px); }
-        .btn-outline-navy i.fa-whatsapp { color: var(--wsp-green); font-size: 1rem; }
+
+        .btn-outline-navy:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-navy i.fa-whatsapp {
+            color: var(--wsp-green);
+            font-size: 1rem;
+        }
 
         /* ════════════════════════════════════════════════════
            RESPONSIVE
@@ -589,28 +676,45 @@
                 gap: 48px;
                 padding: 72px 32px;
             }
-            .ficha-tecnica { position: static; }
+
+            .ficha-tecnica {
+                position: static;
+            }
 
             .tecnica-inner {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .tecnica-checklist {
                 border-left: none;
                 padding-left: 0;
-                border-top: 1px solid rgba(255,255,255,.1);
+                border-top: 1px solid rgba(255, 255, 255, .1);
                 padding-top: 40px;
             }
-            .tecnica-card { padding: 48px 40px; }
+
+            .tecnica-card {
+                padding: 48px 40px;
+            }
         }
 
         @media (max-width: 768px) {
-            .proj-hero-content { padding: 0 24px 56px; }
-            .proj-hero-back { top: 28px; left: 24px; }
+            .proj-hero-content {
+                padding: 0 24px 56px;
+            }
 
-            .proj-content-section { padding: 56px 24px; }
+            .proj-hero-back {
+                top: 28px;
+                left: 24px;
+            }
 
-            .proj-gallery-section { padding: 72px 16px; }
+            .proj-content-section {
+                padding: 56px 24px;
+            }
+
+            .proj-gallery-section {
+                padding: 72px 16px;
+            }
 
             /* En mobile la galería se apila verticalmente */
             .gallery-grid {
@@ -618,18 +722,56 @@
                 grid-auto-rows: 200px;
                 gap: 8px;
             }
-            .slot-1 { grid-column: 1 / -1; grid-row: span 2; }
-            .slot-2 { grid-column: span 1; grid-row: span 1; }
-            .slot-3 { grid-column: span 1; grid-row: span 1; }
-            .slot-4 { grid-column: span 1; grid-row: span 1; }
-            .slot-5 { grid-column: span 1; grid-row: span 1; }
 
-            .proj-tecnica-section { padding: 56px 24px; }
-            .tecnica-card { padding: 40px 28px; }
+            .slot-1 {
+                grid-column: 1 / -1;
+                grid-row: span 2;
+            }
 
-            .proj-cta-section { padding: 80px 24px; }
+            .slot-2 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .slot-3 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .slot-4 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .slot-5 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .proj-tecnica-section {
+                padding: 56px 24px;
+            }
+
+            .tecnica-card {
+                padding: 40px 28px;
+            }
+
+            .proj-cta-section {
+                padding: 80px 24px;
+            }
         }
     </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZZXJ62Z18"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6ZZXJ62Z18');
+    </script>
+
 </head>
 
 <body>
@@ -650,11 +792,8 @@
         <section class="proj-hero">
 
             <!-- 📌 FOTO DE PORTADA: horizontal, alta resolución (mín. 1920×1080) -->
-            <img
-                class="proj-hero-img"
-                src="📌 ruta/a/foto-portada.jpg"
-                alt="📌 Descripción de lo que se ve en la foto de portada — Nombre del Proyecto · Grupo B's"
-            >
+            <img class="proj-hero-img" src="📌 ruta/a/foto-portada.jpg"
+                alt="📌 Descripción de lo que se ve en la foto de portada — Nombre del Proyecto · Grupo B's">
 
             <div class="proj-hero-overlay"></div>
 
@@ -778,12 +917,15 @@
 
                 <!-- 📌 Párrafo principal: qué tipo de proyecto, qué hace especial esta obra. 2-4 oraciones. -->
                 <p class="desc-lead">
-                    📌 Párrafo principal con la descripción más importante del proyecto. Este texto tiene más peso visual y es lo primero que se lee después del título.
+                    📌 Párrafo principal con la descripción más importante del proyecto. Este texto tiene más peso
+                    visual y es lo primero que se lee después del título.
                 </p>
 
                 <!-- 📌 Párrafo de detalle: materiales, sistemas, decisiones técnicas. Opcional pero muy recomendado. -->
                 <p class="desc-body">
-                    📌 Descripción más técnica y detallada. Aquí podés mencionar materiales específicos, sistemas constructivos, soluciones adoptadas, el contexto del sitio, etc. Cuantos más detalles concretos, más credibilidad transmite el portfolio.
+                    📌 Descripción más técnica y detallada. Aquí podés mencionar materiales específicos, sistemas
+                    constructivos, soluciones adoptadas, el contexto del sitio, etc. Cuantos más detalles concretos, más
+                    credibilidad transmite el portfolio.
                 </p>
             </div>
         </section>
@@ -803,51 +945,36 @@
                 <!-- SLOT 1 · Grande horizontal (8 cols × 600px)
                      Recomendado: interior amplio, living, espacio principal -->
                 <div class="gallery-slot slot-1">
-                    <img
-                        src="📌 ruta/foto-galeria-1.jpg"
-                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
-                        loading="lazy"
-                    >
+                    <img src="📌 ruta/foto-galeria-1.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's" loading="lazy">
                 </div>
 
                 <!-- SLOT 2 · Pequeño horizontal (4 cols × 300px)
                      Recomendado: detalle de material, acceso, recepción -->
                 <div class="gallery-slot slot-2">
-                    <img
-                        src="📌 ruta/foto-galeria-2.jpg"
-                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
-                        loading="lazy"
-                    >
+                    <img src="📌 ruta/foto-galeria-2.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's" loading="lazy">
                 </div>
 
                 <!-- SLOT 3 · Vertical (4 cols × 600px)
                      Recomendado: fachada vertical, jardín, espacio con altura -->
                 <div class="gallery-slot slot-3">
-                    <img
-                        src="📌 ruta/foto-galeria-3.jpg"
-                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
-                        loading="lazy"
-                    >
+                    <img src="📌 ruta/foto-galeria-3.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's" loading="lazy">
                 </div>
 
                 <!-- SLOT 4 · Pequeño horizontal (4 cols × 300px)
                      Recomendado: cocina, baño, dormitorio, detalle específico -->
                 <div class="gallery-slot slot-4">
-                    <img
-                        src="📌 ruta/foto-galeria-4.jpg"
-                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
-                        loading="lazy"
-                    >
+                    <img src="📌 ruta/foto-galeria-4.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's" loading="lazy">
                 </div>
 
                 <!-- SLOT 5 · Pequeño horizontal (4 cols × 300px)
                      Recomendado: escalera, terraza, vista exterior, ambiente -->
                 <div class="gallery-slot slot-5">
-                    <img
-                        src="📌 ruta/foto-galeria-5.jpg"
-                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's"
-                        loading="lazy"
-                    >
+                    <img src="📌 ruta/foto-galeria-5.jpg"
+                        alt="📌 Descripción de lo que se ve — Nombre del Proyecto · Grupo B's" loading="lazy">
                 </div>
 
             </div>
@@ -882,7 +1009,8 @@
 
                         <!-- 📌 1-2 oraciones describiendo el enfoque técnico de esta obra -->
                         <p class="tecnica-desc">
-                            📌 Descripción del enfoque técnico específico usado en esta obra. ¿Qué metodología o sistema constructivo fue clave? ¿Qué ventajas trajo al cliente?
+                            📌 Descripción del enfoque técnico específico usado en esta obra. ¿Qué metodología o sistema
+                            constructivo fue clave? ¿Qué ventajas trajo al cliente?
                         </p>
                     </div>
 
@@ -927,12 +1055,9 @@
                     Ej: 5493512345678
                     El texto del mensaje debe estar codificado en URL (%20 = espacio).
                 -->
-                <a
-                    class="btn-outline-navy"
-                    href="https://wa.me/549351XXXXXXXX?text=📌%20Mensaje%20preescrito%20del%20proyecto"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a class="btn-outline-navy"
+                    href="https://wa.me/549351XXXXXXXX?text=📌%20Mensaje%20preescrito%20del%20proyecto" target="_blank"
+                    rel="noopener noreferrer">
                     <i class="fa-brands fa-whatsapp"></i>
                     WhatsApp
                 </a>
@@ -954,9 +1079,9 @@
             entonces BASE = '../../../'
     ══════════════════════════════════════════════════════ -->
     <script>
-        var BASE         = '📌 ../../../';   /* ruta relativa hasta la raíz */
-        var NAVBAR_TEMA  = 'dark';            /* 'dark' = navbar azul marino */
-        var NAV_ACTIVO   = 'obras';           /* resalta "Obras" en el menú  */
+        var BASE = '📌 ../../../';   /* ruta relativa hasta la raíz */
+        var NAVBAR_TEMA = 'dark';            /* 'dark' = navbar azul marino */
+        var NAV_ACTIVO = 'obras';           /* resalta "Obras" en el menú  */
     </script>
     <script src="📌 ../../../componentes.js"></script>
 
@@ -966,131 +1091,132 @@
          sobre todos los .gallery-slot img de la página.
     ════════════════════════════════════════════════ -->
     <script>
-    (function () {
-        var s = document.createElement('style');
-        s.textContent = [
-            '.lb-ov{display:none;position:fixed;inset:0;z-index:9900;',
-            'background:rgba(10,15,28,.93);backdrop-filter:blur(6px);',
-            '-webkit-backdrop-filter:blur(6px);',
-            'align-items:center;justify-content:center;cursor:default;}',
-            '.lb-ov.on{display:flex;}',
-            '.lb-wrap{position:relative;display:flex;align-items:center;',
-            'justify-content:center;max-width:90vw;max-height:90vh;',
-            'cursor:zoom-in;overflow:hidden;}',
-            '.lb-wrap.z{cursor:zoom-out;}',
-            '.lb-img{display:block;max-width:90vw;max-height:90vh;',
-            'object-fit:contain;transform-origin:center center;',
-            'transition:transform .35s cubic-bezier(.4,0,.2,1);',
-            'pointer-events:none;user-select:none;}',
-            '.lb-wrap.z .lb-img{transform:scale(2.2);}',
-            '.lb-x{position:fixed;top:22px;right:26px;z-index:9910;',
-            'width:44px;height:44px;border-radius:2px;',
-            'background:rgba(201,169,110,.12);',
-            'border:1px solid rgba(201,169,110,.4);',
-            'color:#C9A96E;font-size:1.5rem;line-height:1;',
-            'display:flex;align-items:center;justify-content:center;',
-            'cursor:pointer;transition:background .2s,color .2s;}',
-            '.lb-x:hover{background:#C9A96E;color:#1B2A4A;}',
-            '.lb-arr{position:fixed;top:50%;transform:translateY(-50%);',
-            'z-index:9910;width:48px;height:72px;',
-            'background:rgba(27,42,74,.65);',
-            'border:1px solid rgba(201,169,110,.2);',
-            'color:rgba(255,255,255,.75);font-size:1.6rem;',
-            'display:flex;align-items:center;justify-content:center;',
-            'cursor:pointer;transition:background .2s,color .2s;',
-            'user-select:none;border-radius:2px;}',
-            '.lb-arr:hover{background:rgba(201,169,110,.2);color:#C9A96E;}',
-            '.lb-p{left:14px;}.lb-n{right:14px;}',
-            '.lb-cnt{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);',
-            'font-family:"Inter",sans-serif;font-size:.6rem;font-weight:600;',
-            'letter-spacing:.2em;text-transform:uppercase;',
-            'color:rgba(255,255,255,.35);z-index:9910;white-space:nowrap;}',
-            '.lb-tip{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);',
-            'font-family:"Inter",sans-serif;font-size:.58rem;',
-            'letter-spacing:.14em;text-transform:uppercase;',
-            'color:rgba(201,169,110,.4);z-index:9910;white-space:nowrap;}',
-            '.gallery-slot img{cursor:zoom-in!important;}',
-            '@keyframes lb-in{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}',
-            '.lb-wrap{animation:lb-in .22s ease both;}',
-        ].join('');
-        document.head.appendChild(s);
+        (function () {
+            var s = document.createElement('style');
+            s.textContent = [
+                '.lb-ov{display:none;position:fixed;inset:0;z-index:9900;',
+                'background:rgba(10,15,28,.93);backdrop-filter:blur(6px);',
+                '-webkit-backdrop-filter:blur(6px);',
+                'align-items:center;justify-content:center;cursor:default;}',
+                '.lb-ov.on{display:flex;}',
+                '.lb-wrap{position:relative;display:flex;align-items:center;',
+                'justify-content:center;max-width:90vw;max-height:90vh;',
+                'cursor:zoom-in;overflow:hidden;}',
+                '.lb-wrap.z{cursor:zoom-out;}',
+                '.lb-img{display:block;max-width:90vw;max-height:90vh;',
+                'object-fit:contain;transform-origin:center center;',
+                'transition:transform .35s cubic-bezier(.4,0,.2,1);',
+                'pointer-events:none;user-select:none;}',
+                '.lb-wrap.z .lb-img{transform:scale(2.2);}',
+                '.lb-x{position:fixed;top:22px;right:26px;z-index:9910;',
+                'width:44px;height:44px;border-radius:2px;',
+                'background:rgba(201,169,110,.12);',
+                'border:1px solid rgba(201,169,110,.4);',
+                'color:#C9A96E;font-size:1.5rem;line-height:1;',
+                'display:flex;align-items:center;justify-content:center;',
+                'cursor:pointer;transition:background .2s,color .2s;}',
+                '.lb-x:hover{background:#C9A96E;color:#1B2A4A;}',
+                '.lb-arr{position:fixed;top:50%;transform:translateY(-50%);',
+                'z-index:9910;width:48px;height:72px;',
+                'background:rgba(27,42,74,.65);',
+                'border:1px solid rgba(201,169,110,.2);',
+                'color:rgba(255,255,255,.75);font-size:1.6rem;',
+                'display:flex;align-items:center;justify-content:center;',
+                'cursor:pointer;transition:background .2s,color .2s;',
+                'user-select:none;border-radius:2px;}',
+                '.lb-arr:hover{background:rgba(201,169,110,.2);color:#C9A96E;}',
+                '.lb-p{left:14px;}.lb-n{right:14px;}',
+                '.lb-cnt{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);',
+                'font-family:"Inter",sans-serif;font-size:.6rem;font-weight:600;',
+                'letter-spacing:.2em;text-transform:uppercase;',
+                'color:rgba(255,255,255,.35);z-index:9910;white-space:nowrap;}',
+                '.lb-tip{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);',
+                'font-family:"Inter",sans-serif;font-size:.58rem;',
+                'letter-spacing:.14em;text-transform:uppercase;',
+                'color:rgba(201,169,110,.4);z-index:9910;white-space:nowrap;}',
+                '.gallery-slot img{cursor:zoom-in!important;}',
+                '@keyframes lb-in{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}',
+                '.lb-wrap{animation:lb-in .22s ease both;}',
+            ].join('');
+            document.head.appendChild(s);
 
-        function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
-        var ov   = el('div','lb-ov');
-        var wrap = el('div','lb-wrap');
-        var img  = el('img','lb-img');
-        var x    = el('div','lb-x');       x.innerHTML = '&#215;';
-        var p    = el('div','lb-arr lb-p'); p.innerHTML = '&#8592;';
-        var n    = el('div','lb-arr lb-n'); n.innerHTML = '&#8594;';
-        var cnt  = el('div','lb-cnt');
-        var tip  = el('div','lb-tip');
+            function el(tag, cls) { var e = document.createElement(tag); e.className = cls; return e; }
+            var ov = el('div', 'lb-ov');
+            var wrap = el('div', 'lb-wrap');
+            var img = el('img', 'lb-img');
+            var x = el('div', 'lb-x'); x.innerHTML = '&#215;';
+            var p = el('div', 'lb-arr lb-p'); p.innerHTML = '&#8592;';
+            var n = el('div', 'lb-arr lb-n'); n.innerHTML = '&#8594;';
+            var cnt = el('div', 'lb-cnt');
+            var tip = el('div', 'lb-tip');
 
-        wrap.appendChild(img);
-        [wrap,x,p,n,cnt,tip].forEach(function(c){ ov.appendChild(c); });
-        document.body.appendChild(ov);
+            wrap.appendChild(img);
+            [wrap, x, p, n, cnt, tip].forEach(function (c) { ov.appendChild(c); });
+            document.body.appendChild(ov);
 
-        var imgs = [], idx = 0, zoomed = false;
+            var imgs = [], idx = 0, zoomed = false;
 
-        function init() {
-            imgs = [];
-            document.querySelectorAll('.gallery-slot img').forEach(function(im) {
-                var i = imgs.length;
-                imgs.push({ src: im.src, alt: im.alt });
-                im.addEventListener('click', function(){ open(i); });
+            function init() {
+                imgs = [];
+                document.querySelectorAll('.gallery-slot img').forEach(function (im) {
+                    var i = imgs.length;
+                    imgs.push({ src: im.src, alt: im.alt });
+                    im.addEventListener('click', function () { open(i); });
+                });
+            }
+
+            function open(i) {
+                idx = i; setZoom(false);
+                img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+                refresh();
+                ov.classList.add('on');
+                document.body.style.overflow = 'hidden';
+                wrap.style.animation = 'none';
+                requestAnimationFrame(function () { wrap.style.animation = ''; });
+            }
+
+            function close() {
+                ov.classList.remove('on');
+                document.body.style.overflow = '';
+                setZoom(false);
+                setTimeout(function () { img.src = ''; }, 250);
+            }
+
+            function nav(dir) {
+                setZoom(false);
+                idx = (idx + dir + imgs.length) % imgs.length;
+                img.src = imgs[idx].src; img.alt = imgs[idx].alt;
+                refresh();
+            }
+
+            function setZoom(on) { zoomed = on; wrap.classList.toggle('z', zoomed); }
+
+            function refresh() {
+                cnt.textContent = (idx + 1) + ' / ' + imgs.length;
+                tip.textContent = zoomed
+                    ? 'Clic para alejar  ·  Esc para cerrar'
+                    : 'Clic para ampliar  ·  ← →  navegar  ·  Esc cerrar';
+            }
+
+            ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+            wrap.addEventListener('click', function (e) { e.stopPropagation(); setZoom(!zoomed); refresh(); });
+            x.addEventListener('click', function (e) { e.stopPropagation(); close(); });
+            p.addEventListener('click', function (e) { e.stopPropagation(); nav(-1); });
+            n.addEventListener('click', function (e) { e.stopPropagation(); nav(1); });
+
+            document.addEventListener('keydown', function (e) {
+                if (!ov.classList.contains('on')) return;
+                if (e.key === 'Escape') close();
+                if (e.key === 'ArrowLeft') nav(-1);
+                if (e.key === 'ArrowRight') nav(1);
             });
-        }
 
-        function open(i) {
-            idx = i; setZoom(false);
-            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
-            refresh();
-            ov.classList.add('on');
-            document.body.style.overflow = 'hidden';
-            wrap.style.animation = 'none';
-            requestAnimationFrame(function(){ wrap.style.animation = ''; });
-        }
-
-        function close() {
-            ov.classList.remove('on');
-            document.body.style.overflow = '';
-            setZoom(false);
-            setTimeout(function(){ img.src = ''; }, 250);
-        }
-
-        function nav(dir) {
-            setZoom(false);
-            idx = (idx + dir + imgs.length) % imgs.length;
-            img.src = imgs[idx].src; img.alt = imgs[idx].alt;
-            refresh();
-        }
-
-        function setZoom(on) { zoomed = on; wrap.classList.toggle('z', zoomed); }
-
-        function refresh() {
-            cnt.textContent = (idx + 1) + ' / ' + imgs.length;
-            tip.textContent = zoomed
-                ? 'Clic para alejar  ·  Esc para cerrar'
-                : 'Clic para ampliar  ·  ← →  navegar  ·  Esc cerrar';
-        }
-
-        ov.addEventListener('click',   function(e){ if(e.target===ov) close(); });
-        wrap.addEventListener('click', function(e){ e.stopPropagation(); setZoom(!zoomed); refresh(); });
-        x.addEventListener('click',    function(e){ e.stopPropagation(); close(); });
-        p.addEventListener('click',    function(e){ e.stopPropagation(); nav(-1); });
-        n.addEventListener('click',    function(e){ e.stopPropagation(); nav(1); });
-
-        document.addEventListener('keydown', function(e) {
-            if (!ov.classList.contains('on')) return;
-            if (e.key === 'Escape')     close();
-            if (e.key === 'ArrowLeft')  nav(-1);
-            if (e.key === 'ArrowRight') nav(1);
-        });
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else { init(); }
-    })();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else { init(); }
+        })();
     </script>
 
 </body>
+
 </html>
