@@ -51,7 +51,7 @@ var CONFIG = {
 
     // ── Redes sociales (URL completa del perfil) ─────────────────────
     instagram: 'https://www.instagram.com/grupo_bs_/',                             // ← CAMBIAR
-    facebook: 'https://www.facebook.com/profile.php?id=100084186905844',                             // ← CAMBIAR
+    facebook: 'https://www.facebook.com/OficialGrupobs',                             // ← CAMBIAR
     youtube: 'https://www.youtube.com/@GrupoBs-YT'                              // ← CAMBIAR
 
 };
