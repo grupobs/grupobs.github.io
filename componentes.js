@@ -525,7 +525,7 @@ var CONFIG = {
             '<header id="navbar" class="tema-' + NAVBAR_TEMA + '">' +
             '<div class="nav-inner">' +
             '<div class="nav-logo">' +
-            '<a href="' + BASE + 'index.html">' +
+            '<a href="' + BASE + '">' +
             '<span class="logo-icon-box">' +
             '<img src="' + BASE + '01 - Fotos/00 - Fotos barra de navegacion principal/Logo 2.png" alt="Ícono Grupo B\'s">' +
             '</span>' +
@@ -533,7 +533,7 @@ var CONFIG = {
             '</a>' +
             '</div>' +
             '<nav class="menu-desktop">' +
-            '<a href="' + BASE + 'index.html"' + actClass('inicio') + '>Inicio</a>' +
+            '<a href="' + BASE + '"' + actClass('inicio') + '>Inicio</a>' +
             '<div class="dropdown">' +
             '<button class="dropdown-toggle' + (NAV_ACTIVO === 'servicios' ? ' nav-active' : '') + '">' +
             'Servicios <i class="fa-solid fa-chevron-down chevron"></i>' +
@@ -559,7 +559,7 @@ var CONFIG = {
 
             /* Menú móvil */
             '<nav id="menu-movil">' +
-            '<a href="' + BASE + 'index.html"' + actClassMob('inicio') + '>Inicio</a>' +
+            '<a href="' + BASE + '"' + actClassMob('inicio') + '>Inicio</a>' +
             '<div class="movil-seccion-titulo" id="toggle-servicios-movil">' +
             'Servicios <i class="fa-solid fa-chevron-down chevron-movil"></i>' +
             '</div>' +
