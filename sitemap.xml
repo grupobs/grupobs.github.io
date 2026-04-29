@@ -8,64 +8,154 @@
 
 
 <url>
-  <loc>https://grupobs.com.ar/</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
+  <loc>https://grupobs.com.ar</loc>
+  <lastmod>2026-04-28</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://grupobs.com.ar/nosotros.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
+  <loc>https://grupobs.com.ar/diseno-y-proyecto.html</loc>
+  <lastmod>2026-04-28</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://grupobs.com.ar/obras.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-estudio-juridico.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grupobs.com.ar/Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grupobs.com.ar/Obras/todas-las-obras/casa-country-campos-del-Virrey.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
+  <loc>https://grupobs.com.ar/ejecucion-del-proyecto.html</loc>
+  <lastmod>2026-04-28</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://grupobs.com.ar/iluminacion.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
+  <lastmod>2026-04-28</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://grupobs.com.ar/contacto.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
+  <loc>https://grupobs.com.ar/nosotros.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/obras.html</loc>
+  <lastmod>2026-04-28</lastmod>
   <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-residencia-alto-de-achumani.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-casona-country-golf.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://grupobs.com.ar/Obras/todas-las-obras.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://grupobs.com.ar/privacidad.html</loc>
-  <lastmod>2026-04-17T21:01:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://grupobs.com.ar/blog.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/contacto.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.60</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/casa-country-campos-del-Virrey.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/casona-en-etapas.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-casona-achumani.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-casona-country-golf.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-comlpejo-familiar-tres-residencias.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-country-aleman.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-edificio-corporativo-msc-naviera.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-estudio-juridico.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-la-escondida.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-la-florida.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/iluminacion-residencia-alto-de-achumani.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/Obras/todas-las-obras/proyecto-de-dos-viviendas-en-un-mismo-lote.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/como-construir-casa-alta-gracia.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/como-construir-casa-anisacate.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/como-construir-casa-malagueno.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/construir-corredor-ruta5-sur-cordoba.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/contrato-construccion-alta-gracia.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/contrato-construccion-anisacate.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/contrato-construccion-corredor-ruta5.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/contrato-construccion-malagueno.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
+</url>
+<url>
+  <loc>https://grupobs.com.ar/blogs/costo-construccion-alta-gracia-2026.html</loc>
+  <lastmod>2026-04-28</lastmod>
+  <priority>0.65</priority>
 </url>
 
 
