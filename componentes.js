@@ -592,7 +592,7 @@ var CONFIG = {
             '<footer id="footer" class="tema-' + FOOTER_TEMA + '">' +
             '<div class="footer-grid">' +
             '<div class="footer-marca">' +
-            '<a class="footer-logo-link" href="' + BASE + 'index.html">' +
+            '<a class="footer-logo-link" href="' + BASE + '">' +
             '<span class="footer-logo-icon">' +
             '<img src="' + BASE + '01 - Fotos/00 - Fotos barra de navegacion principal/Logo 2.png" alt="Ícono Grupo B\'s">' +
             '</span>' +
@@ -602,7 +602,7 @@ var CONFIG = {
             '</div>' +
             '<div class="footer-col menu-col">' +
             '<h4>Menú</h4>' +
-            '<a href="' + BASE + 'index.html"              class="' + activeClass('inicio') + '">Inicio</a>' +
+            '<a href="' + BASE + '"              class="' + activeClass('inicio') + '">Inicio</a>' +
             '<a href="' + BASE + 'nosotros.html"           class="' + activeClass('nosotros') + '">Nosotros</a>' +
             '<a href="' + BASE + 'diseno-y-proyecto.html"  class="' + activeClass('servicios') + '">Diseño y Proyecto</a>' +
             '<a href="' + BASE + 'ejecucion-del-proyecto.html">Ejecución de Obra</a>' +
