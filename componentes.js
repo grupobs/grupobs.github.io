@@ -617,14 +617,14 @@ var CONFIG = {
             '<i class="fa-brands fa-whatsapp"></i>' +
             '<div>' +
             '<a href="' + WSP1_URL + '" target="_blank" rel="noopener noreferrer">' + CONFIG.wsp1.display + '</a>' +
-            '<span class="ing-label">(Ing. Jhonatan Sequeiros)</span>' +
+            '<span class="ing-label">(Ing. Jhonatan Sequeiros · Dirección Técnica)</span>' +
             '</div>' +
             '</div>' +
             '<div class="footer-contacto-item wsp">' +
             '<i class="fa-brands fa-whatsapp"></i>' +
             '<div>' +
             '<a href="' + WSP2_URL + '" target="_blank" rel="noopener noreferrer">' + CONFIG.wsp2.display + '</a>' +
-            '<span class="ing-label">(Ing. Felipe Sequeiros)</span>' +
+            '<span class="ing-label">(Ing. Felipe Sequeiros · Proyectos y Diseño)</span>' +
             '</div>' +
             '</div>' +
             '<div class="footer-contacto-item mail">' +
